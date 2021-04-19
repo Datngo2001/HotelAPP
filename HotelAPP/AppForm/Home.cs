@@ -26,9 +26,9 @@ namespace HotelAPP.AppForm
         {
             InitializeComponent();
             random = new Random();
-            this.Text = "";
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
         //Methods

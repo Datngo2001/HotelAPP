@@ -35,13 +35,13 @@ namespace HotelAPP.AppForm
             this.addEmp_btn = new System.Windows.Forms.Button();
             this.logo_pn = new System.Windows.Forms.Panel();
             this.titleBar_pn = new System.Windows.Forms.Panel();
+            this.maximize_btn = new System.Windows.Forms.Button();
+            this.minimize_btn = new System.Windows.Forms.Button();
+            this.close_btn = new System.Windows.Forms.Button();
             this.closeChildForm_btn = new System.Windows.Forms.Button();
             this.title_lb = new System.Windows.Forms.Label();
             this.desktop_pn = new System.Windows.Forms.Panel();
             this.hotelLogo_pb = new System.Windows.Forms.PictureBox();
-            this.close_btn = new System.Windows.Forms.Button();
-            this.minimize_btn = new System.Windows.Forms.Button();
-            this.maximize_btn = new System.Windows.Forms.Button();
             this.menu_pn.SuspendLayout();
             this.titleBar_pn.SuspendLayout();
             this.desktop_pn.SuspendLayout();
@@ -50,6 +50,7 @@ namespace HotelAPP.AppForm
             // 
             // menu_pn
             // 
+            this.menu_pn.AutoScroll = true;
             this.menu_pn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.menu_pn.Controls.Add(this.removeEmp_btn);
             this.menu_pn.Controls.Add(this.editEmp_btn);
@@ -147,6 +148,54 @@ namespace HotelAPP.AppForm
             this.titleBar_pn.Size = new System.Drawing.Size(883, 92);
             this.titleBar_pn.TabIndex = 1;
             // 
+            // maximize_btn
+            // 
+            this.maximize_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maximize_btn.AutoSize = true;
+            this.maximize_btn.FlatAppearance.BorderSize = 0;
+            this.maximize_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.maximize_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maximize_btn.ForeColor = System.Drawing.Color.White;
+            this.maximize_btn.Location = new System.Drawing.Point(796, 0);
+            this.maximize_btn.Name = "maximize_btn";
+            this.maximize_btn.Size = new System.Drawing.Size(39, 35);
+            this.maximize_btn.TabIndex = 2;
+            this.maximize_btn.Text = "O";
+            this.maximize_btn.UseVisualStyleBackColor = true;
+            this.maximize_btn.Click += new System.EventHandler(this.maximize_btn_Click);
+            // 
+            // minimize_btn
+            // 
+            this.minimize_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.minimize_btn.AutoSize = true;
+            this.minimize_btn.FlatAppearance.BorderSize = 0;
+            this.minimize_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimize_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minimize_btn.ForeColor = System.Drawing.Color.White;
+            this.minimize_btn.Location = new System.Drawing.Point(751, 0);
+            this.minimize_btn.Name = "minimize_btn";
+            this.minimize_btn.Size = new System.Drawing.Size(39, 35);
+            this.minimize_btn.TabIndex = 2;
+            this.minimize_btn.Text = "O";
+            this.minimize_btn.UseVisualStyleBackColor = true;
+            this.minimize_btn.Click += new System.EventHandler(this.minimize_btn_Click);
+            // 
+            // close_btn
+            // 
+            this.close_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.close_btn.AutoSize = true;
+            this.close_btn.FlatAppearance.BorderSize = 0;
+            this.close_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.close_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.close_btn.ForeColor = System.Drawing.Color.White;
+            this.close_btn.Location = new System.Drawing.Point(841, 0);
+            this.close_btn.Name = "close_btn";
+            this.close_btn.Size = new System.Drawing.Size(39, 35);
+            this.close_btn.TabIndex = 2;
+            this.close_btn.Text = "O";
+            this.close_btn.UseVisualStyleBackColor = true;
+            this.close_btn.Click += new System.EventHandler(this.close_btn_Click_1);
+            // 
             // closeChildForm_btn
             // 
             this.closeChildForm_btn.Dock = System.Windows.Forms.DockStyle.Left;
@@ -198,54 +247,6 @@ namespace HotelAPP.AppForm
             this.hotelLogo_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.hotelLogo_pb.TabIndex = 0;
             this.hotelLogo_pb.TabStop = false;
-            // 
-            // close_btn
-            // 
-            this.close_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.close_btn.AutoSize = true;
-            this.close_btn.FlatAppearance.BorderSize = 0;
-            this.close_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.close_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.close_btn.ForeColor = System.Drawing.Color.White;
-            this.close_btn.Location = new System.Drawing.Point(841, 0);
-            this.close_btn.Name = "close_btn";
-            this.close_btn.Size = new System.Drawing.Size(39, 35);
-            this.close_btn.TabIndex = 2;
-            this.close_btn.Text = "O";
-            this.close_btn.UseVisualStyleBackColor = true;
-            this.close_btn.Click += new System.EventHandler(this.close_btn_Click_1);
-            // 
-            // minimize_btn
-            // 
-            this.minimize_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.minimize_btn.AutoSize = true;
-            this.minimize_btn.FlatAppearance.BorderSize = 0;
-            this.minimize_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minimize_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimize_btn.ForeColor = System.Drawing.Color.White;
-            this.minimize_btn.Location = new System.Drawing.Point(751, 0);
-            this.minimize_btn.Name = "minimize_btn";
-            this.minimize_btn.Size = new System.Drawing.Size(39, 35);
-            this.minimize_btn.TabIndex = 2;
-            this.minimize_btn.Text = "O";
-            this.minimize_btn.UseVisualStyleBackColor = true;
-            this.minimize_btn.Click += new System.EventHandler(this.minimize_btn_Click);
-            // 
-            // maximize_btn
-            // 
-            this.maximize_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maximize_btn.AutoSize = true;
-            this.maximize_btn.FlatAppearance.BorderSize = 0;
-            this.maximize_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maximize_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maximize_btn.ForeColor = System.Drawing.Color.White;
-            this.maximize_btn.Location = new System.Drawing.Point(796, 0);
-            this.maximize_btn.Name = "maximize_btn";
-            this.maximize_btn.Size = new System.Drawing.Size(39, 35);
-            this.maximize_btn.TabIndex = 2;
-            this.maximize_btn.Text = "O";
-            this.maximize_btn.UseVisualStyleBackColor = true;
-            this.maximize_btn.Click += new System.EventHandler(this.maximize_btn_Click);
             // 
             // Home
             // 
