@@ -12,13 +12,14 @@ namespace HotelAPP
     using System;
     using System.Collections.Generic;
     
-    public partial class Check_out
+    public partial class MonneyTransaction
     {
-        public System.DateTime check_out_date { get; set; }
-        public int emp_id { get; set; }
-        public Nullable<System.TimeSpan> check_out_time { get; set; }
+        public int idTransaction { get; set; }
+        public string transactionType { get; set; }
+        public Nullable<System.DateTime> executeDate { get; set; }
+        public Nullable<int> empId { get; set; }
+        public Nullable<decimal> moneyTranfer { get; set; }
     
-        public virtual Check_in Check_in { get; set; }
         public virtual Employee Employee { get; set; }
     }
 }

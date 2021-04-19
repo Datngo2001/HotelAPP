@@ -20,8 +20,8 @@ namespace HotelAPP
             this.Employees = new HashSet<Employee>();
         }
     
-        public int pos_num { get; set; }
-        public string pos_name { get; set; }
+        public int posId { get; set; }
+        public string posName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employee> Employees { get; set; }

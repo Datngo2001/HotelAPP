@@ -18,10 +18,10 @@ namespace HotelAPP
         public Employee()
         {
             this.Accounts = new HashSet<Account>();
-            this.Check_in = new HashSet<Check_in>();
-            this.Check_out = new HashSet<Check_out>();
+            this.CheckIns = new HashSet<CheckIn>();
+            this.CheckOuts = new HashSet<CheckOut>();
             this.Manage_emp = new HashSet<Manage_emp>();
-            this.Monney_Transaction = new HashSet<Monney_Transaction>();
+            this.MonneyTransactions = new HashSet<MonneyTransaction>();
             this.Positions = new HashSet<Position>();
         }
     
@@ -31,18 +31,19 @@ namespace HotelAPP
         public string CMND { get; set; }
         public Nullable<System.DateTime> bdate { get; set; }
         public Nullable<decimal> salary { get; set; }
+        public byte[] avatar { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Account> Accounts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Check_in> Check_in { get; set; }
+        public virtual ICollection<CheckIn> CheckIns { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Check_out> Check_out { get; set; }
+        public virtual ICollection<CheckOut> CheckOuts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Manage_emp> Manage_emp { get; set; }
         public virtual Manage_emp Manage_emp1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Monney_Transaction> Monney_Transaction { get; set; }
+        public virtual ICollection<MonneyTransaction> MonneyTransactions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Position> Positions { get; set; }
     }

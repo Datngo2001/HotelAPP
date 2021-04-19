@@ -14,8 +14,8 @@ namespace HotelAPP
     
     public partial class Manage_emp
     {
-        public int manager_ID { get; set; }
-        public Nullable<int> emp_id { get; set; }
+        public int Id { get; set; }
+        public Nullable<int> empId { get; set; }
     
         public virtual Employee Employee { get; set; }
         public virtual Employee Employee1 { get; set; }
