@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="19793a4df52447a280a115c64795846d" Name="Diagram1">
+        <EntityTypeShape EntityType="HOTELModel.Account" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOTELModel.CheckIn" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOTELModel.CheckOut" Width="1.5" PointX="7.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOTELModel.Employee" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOTELModel.ManageEmp" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOTELModel.MonneyTransaction" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOTELModel.Position" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="HOTELModel.FK__Account__userID__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="HOTELModel.FK__CheckIn__empId__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="HOTELModel.FK__CheckOut__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="HOTELModel.FK__CheckOut__empId__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="HOTELModel.FK__Employee__posId__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="HOTELModel.FK__ManageEmp__empId__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="HOTELModel.FK__ManageEmp__Id__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="HOTELModel.FK__MonneyTra__empId__3A81B327" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

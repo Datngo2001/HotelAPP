@@ -20,9 +20,8 @@ namespace HotelAPP
             this.Accounts = new HashSet<Account>();
             this.CheckIns = new HashSet<CheckIn>();
             this.CheckOuts = new HashSet<CheckOut>();
-            this.Manage_emp = new HashSet<Manage_emp>();
+            this.ManageEmps = new HashSet<ManageEmp>();
             this.MonneyTransactions = new HashSet<MonneyTransaction>();
-            this.Positions = new HashSet<Position>();
         }
     
         public int Id { get; set; }
@@ -32,6 +31,7 @@ namespace HotelAPP
         public Nullable<System.DateTime> bdate { get; set; }
         public Nullable<decimal> salary { get; set; }
         public byte[] avatar { get; set; }
+        public Nullable<int> posId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Account> Accounts { get; set; }
@@ -39,12 +39,11 @@ namespace HotelAPP
         public virtual ICollection<CheckIn> CheckIns { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CheckOut> CheckOuts { get; set; }
+        public virtual Position Position { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Manage_emp> Manage_emp { get; set; }
-        public virtual Manage_emp Manage_emp1 { get; set; }
+        public virtual ICollection<ManageEmp> ManageEmps { get; set; }
+        public virtual ManageEmp ManageEmp { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MonneyTransaction> MonneyTransactions { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Position> Positions { get; set; }
     }
 }

@@ -42,16 +42,9 @@
           <Property Name="bdate" Type="date" />
           <Property Name="salary" Type="decimal" Precision="18" Scale="0" />
           <Property Name="avatar" Type="image" />
+          <Property Name="posId" Type="int" />
         </EntityType>
-        <EntityType Name="EmployeePosition">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="position" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="position" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Manage_emp">
+        <EntityType Name="ManageEmp">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -75,7 +68,7 @@
           <Property Name="posId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="posName" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__Account__userID__36B12243">
+        <Association Name="FK__Account__userID__37A5467C">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
@@ -87,7 +80,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CheckIn__empId__300424B4">
+        <Association Name="FK__CheckIn__empId__30F848ED">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="CheckIn" Type="Self.CheckIn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -99,7 +92,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CheckOut__33D4B598">
+        <Association Name="FK__CheckOut__34C8D9D1">
           <End Role="CheckIn" Type="Self.CheckIn" Multiplicity="1" />
           <End Role="CheckOut" Type="Self.CheckOut" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -113,7 +106,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CheckOut__empId__32E0915F">
+        <Association Name="FK__CheckOut__empId__33D4B598">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="CheckOut" Type="Self.CheckOut" Multiplicity="*" />
           <ReferentialConstraint>
@@ -125,55 +118,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmployeeP__posit__286302EC">
-          <End Role="Position" Type="Self.Position" Multiplicity="1" />
-          <End Role="EmployeePosition" Type="Self.EmployeePosition" Multiplicity="*" />
+        <Association Name="FK__Employee__posId__267ABA7A">
+          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Position">
               <PropertyRef Name="posId" />
             </Principal>
-            <Dependent Role="EmployeePosition">
-              <PropertyRef Name="position" />
+            <Dependent Role="Employee">
+              <PropertyRef Name="posId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmployeePosi__Id__29572725">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="EmployeePosition" Type="Self.EmployeePosition" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EmployeePosition">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Manage_em__empId__2D27B809">
+        <Association Name="FK__ManageEmp__empId__2E1BDC42">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Manage_emp" Type="Self.Manage_emp" Multiplicity="*" />
+          <End Role="ManageEmp" Type="Self.ManageEmp" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Manage_emp">
+            <Dependent Role="ManageEmp">
               <PropertyRef Name="empId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Manage_emp__Id__2C3393D0">
+        <Association Name="FK__ManageEmp__Id__2D27B809">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="Manage_emp" Type="Self.Manage_emp" Multiplicity="0..1" />
+          <End Role="ManageEmp" Type="Self.ManageEmp" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Manage_emp">
+            <Dependent Role="ManageEmp">
               <PropertyRef Name="Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__MonneyTra__empId__398D8EEE">
+        <Association Name="FK__MonneyTra__empId__3A81B327">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="MonneyTransaction" Type="Self.MonneyTransaction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -185,48 +166,74 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="HOTELModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CheckIn" EntityType="Self.CheckIn" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CheckOut" EntityType="Self.CheckOut" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="EmployeePosition" EntityType="Self.EmployeePosition" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Manage_emp" EntityType="Self.Manage_emp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ManageEmp" EntityType="Self.ManageEmp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MonneyTransaction" EntityType="Self.MonneyTransaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Account__userID__36B12243" Association="Self.FK__Account__userID__36B12243">
+          <AssociationSet Name="FK__Account__userID__37A5467C" Association="Self.FK__Account__userID__37A5467C">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Account" EntitySet="Account" />
           </AssociationSet>
-          <AssociationSet Name="FK__CheckIn__empId__300424B4" Association="Self.FK__CheckIn__empId__300424B4">
+          <AssociationSet Name="FK__CheckIn__empId__30F848ED" Association="Self.FK__CheckIn__empId__30F848ED">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="CheckIn" EntitySet="CheckIn" />
           </AssociationSet>
-          <AssociationSet Name="FK__CheckOut__33D4B598" Association="Self.FK__CheckOut__33D4B598">
+          <AssociationSet Name="FK__CheckOut__34C8D9D1" Association="Self.FK__CheckOut__34C8D9D1">
             <End Role="CheckIn" EntitySet="CheckIn" />
             <End Role="CheckOut" EntitySet="CheckOut" />
           </AssociationSet>
-          <AssociationSet Name="FK__CheckOut__empId__32E0915F" Association="Self.FK__CheckOut__empId__32E0915F">
+          <AssociationSet Name="FK__CheckOut__empId__33D4B598" Association="Self.FK__CheckOut__empId__33D4B598">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="CheckOut" EntitySet="CheckOut" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmployeeP__posit__286302EC" Association="Self.FK__EmployeeP__posit__286302EC">
+          <AssociationSet Name="FK__Employee__posId__267ABA7A" Association="Self.FK__Employee__posId__267ABA7A">
             <End Role="Position" EntitySet="Position" />
-            <End Role="EmployeePosition" EntitySet="EmployeePosition" />
-          </AssociationSet>
-          <AssociationSet Name="FK__EmployeePosi__Id__29572725" Association="Self.FK__EmployeePosi__Id__29572725">
             <End Role="Employee" EntitySet="Employee" />
-            <End Role="EmployeePosition" EntitySet="EmployeePosition" />
           </AssociationSet>
-          <AssociationSet Name="FK__Manage_em__empId__2D27B809" Association="Self.FK__Manage_em__empId__2D27B809">
+          <AssociationSet Name="FK__ManageEmp__empId__2E1BDC42" Association="Self.FK__ManageEmp__empId__2E1BDC42">
             <End Role="Employee" EntitySet="Employee" />
-            <End Role="Manage_emp" EntitySet="Manage_emp" />
+            <End Role="ManageEmp" EntitySet="ManageEmp" />
           </AssociationSet>
-          <AssociationSet Name="FK__Manage_emp__Id__2C3393D0" Association="Self.FK__Manage_emp__Id__2C3393D0">
+          <AssociationSet Name="FK__ManageEmp__Id__2D27B809" Association="Self.FK__ManageEmp__Id__2D27B809">
             <End Role="Employee" EntitySet="Employee" />
-            <End Role="Manage_emp" EntitySet="Manage_emp" />
+            <End Role="ManageEmp" EntitySet="ManageEmp" />
           </AssociationSet>
-          <AssociationSet Name="FK__MonneyTra__empId__398D8EEE" Association="Self.FK__MonneyTra__empId__398D8EEE">
+          <AssociationSet Name="FK__MonneyTra__empId__3A81B327" Association="Self.FK__MonneyTra__empId__3A81B327">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="MonneyTransaction" EntitySet="MonneyTransaction" />
           </AssociationSet>
@@ -243,7 +250,7 @@
           <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="userID" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__Account__userID__36B12243" FromRole="Account" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Account__userID__37A5467C" FromRole="Account" ToRole="Employee" />
         </EntityType>
         <EntityType Name="CheckIn">
           <Key>
@@ -253,8 +260,8 @@
           <Property Name="checkInDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="empId" Type="Int32" Nullable="false" />
           <Property Name="checkInTime" Type="Time" Precision="7" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__CheckIn__empId__300424B4" FromRole="CheckIn" ToRole="Employee" />
-          <NavigationProperty Name="CheckOut" Relationship="Self.FK__CheckOut__33D4B598" FromRole="CheckIn" ToRole="CheckOut" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__CheckIn__empId__30F848ED" FromRole="CheckIn" ToRole="Employee" />
+          <NavigationProperty Name="CheckOut" Relationship="Self.FK__CheckOut__34C8D9D1" FromRole="CheckIn" ToRole="CheckOut" />
         </EntityType>
         <EntityType Name="CheckOut">
           <Key>
@@ -264,8 +271,8 @@
           <Property Name="checkOutDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="empId" Type="Int32" Nullable="false" />
           <Property Name="checkOutTime" Type="Time" Precision="7" />
-          <NavigationProperty Name="CheckIn" Relationship="Self.FK__CheckOut__33D4B598" FromRole="CheckOut" ToRole="CheckIn" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__CheckOut__empId__32E0915F" FromRole="CheckOut" ToRole="Employee" />
+          <NavigationProperty Name="CheckIn" Relationship="Self.FK__CheckOut__34C8D9D1" FromRole="CheckOut" ToRole="CheckIn" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__CheckOut__empId__33D4B598" FromRole="CheckOut" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -278,22 +285,23 @@
           <Property Name="bdate" Type="DateTime" Precision="0" />
           <Property Name="salary" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="avatar" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="Accounts" Relationship="Self.FK__Account__userID__36B12243" FromRole="Employee" ToRole="Account" />
-          <NavigationProperty Name="CheckIns" Relationship="Self.FK__CheckIn__empId__300424B4" FromRole="Employee" ToRole="CheckIn" />
-          <NavigationProperty Name="CheckOuts" Relationship="Self.FK__CheckOut__empId__32E0915F" FromRole="Employee" ToRole="CheckOut" />
-          <NavigationProperty Name="Manage_emp" Relationship="Self.FK__Manage_em__empId__2D27B809" FromRole="Employee" ToRole="Manage_emp" />
-          <NavigationProperty Name="Manage_emp1" Relationship="Self.FK__Manage_emp__Id__2C3393D0" FromRole="Employee" ToRole="Manage_emp" />
-          <NavigationProperty Name="MonneyTransactions" Relationship="Self.FK__MonneyTra__empId__398D8EEE" FromRole="Employee" ToRole="MonneyTransaction" />
-          <NavigationProperty Name="Positions" Relationship="Self.EmployeePosition" FromRole="Employee" ToRole="Position" />
+          <Property Name="posId" Type="Int32" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK__Account__userID__37A5467C" FromRole="Employee" ToRole="Account" />
+          <NavigationProperty Name="CheckIns" Relationship="Self.FK__CheckIn__empId__30F848ED" FromRole="Employee" ToRole="CheckIn" />
+          <NavigationProperty Name="CheckOuts" Relationship="Self.FK__CheckOut__empId__33D4B598" FromRole="Employee" ToRole="CheckOut" />
+          <NavigationProperty Name="Position" Relationship="Self.FK__Employee__posId__267ABA7A" FromRole="Employee" ToRole="Position" />
+          <NavigationProperty Name="ManageEmps" Relationship="Self.FK__ManageEmp__empId__2E1BDC42" FromRole="Employee" ToRole="ManageEmp" />
+          <NavigationProperty Name="ManageEmp" Relationship="Self.FK__ManageEmp__Id__2D27B809" FromRole="Employee" ToRole="ManageEmp" />
+          <NavigationProperty Name="MonneyTransactions" Relationship="Self.FK__MonneyTra__empId__3A81B327" FromRole="Employee" ToRole="MonneyTransaction" />
         </EntityType>
-        <EntityType Name="Manage_emp">
+        <EntityType Name="ManageEmp">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="empId" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__Manage_em__empId__2D27B809" FromRole="Manage_emp" ToRole="Employee" />
-          <NavigationProperty Name="Employee1" Relationship="Self.FK__Manage_emp__Id__2C3393D0" FromRole="Manage_emp" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__ManageEmp__empId__2E1BDC42" FromRole="ManageEmp" ToRole="Employee" />
+          <NavigationProperty Name="Employee1" Relationship="Self.FK__ManageEmp__Id__2D27B809" FromRole="ManageEmp" ToRole="Employee" />
         </EntityType>
         <EntityType Name="MonneyTransaction">
           <Key>
@@ -304,7 +312,7 @@
           <Property Name="executeDate" Type="DateTime" Precision="3" />
           <Property Name="empId" Type="Int32" />
           <Property Name="moneyTranfer" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__MonneyTra__empId__398D8EEE" FromRole="MonneyTransaction" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__MonneyTra__empId__3A81B327" FromRole="MonneyTransaction" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -312,9 +320,9 @@
           </Key>
           <Property Name="posId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="posName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Employees" Relationship="Self.EmployeePosition" FromRole="Position" ToRole="Employee" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__posId__267ABA7A" FromRole="Position" ToRole="Employee" />
         </EntityType>
-        <Association Name="FK__Account__userID__36B12243">
+        <Association Name="FK__Account__userID__37A5467C">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
@@ -326,7 +334,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CheckIn__empId__300424B4">
+        <Association Name="FK__CheckIn__empId__30F848ED">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="CheckIn" Type="Self.CheckIn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -338,7 +346,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CheckOut__33D4B598">
+        <Association Name="FK__CheckOut__34C8D9D1">
           <End Role="CheckIn" Type="Self.CheckIn" Multiplicity="1" />
           <End Role="CheckOut" Type="Self.CheckOut" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -352,7 +360,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CheckOut__empId__32E0915F">
+        <Association Name="FK__CheckOut__empId__33D4B598">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="CheckOut" Type="Self.CheckOut" Multiplicity="*" />
           <ReferentialConstraint>
@@ -364,31 +372,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Manage_em__empId__2D27B809">
+        <Association Name="FK__Employee__posId__267ABA7A">
+          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="posId" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="posId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ManageEmp__empId__2E1BDC42">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Manage_emp" Type="Self.Manage_emp" Multiplicity="*" />
+          <End Role="ManageEmp" Type="Self.ManageEmp" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Manage_emp">
+            <Dependent Role="ManageEmp">
               <PropertyRef Name="empId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Manage_emp__Id__2C3393D0">
+        <Association Name="FK__ManageEmp__Id__2D27B809">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="Manage_emp" Type="Self.Manage_emp" Multiplicity="0..1" />
+          <End Role="ManageEmp" Type="Self.ManageEmp" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Manage_emp">
+            <Dependent Role="ManageEmp">
               <PropertyRef Name="Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__MonneyTra__empId__398D8EEE">
+        <Association Name="FK__MonneyTra__empId__3A81B327">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="MonneyTransaction" Type="Self.MonneyTransaction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -400,57 +420,94 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EmployeePosition">
-          <End Role="Position" Type="Self.Position" Multiplicity="*" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-        </Association>
-        <EntityContainer Name="HOTELEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="HotelDB" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="CheckIns" EntityType="Self.CheckIn" />
           <EntitySet Name="CheckOuts" EntityType="Self.CheckOut" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
-          <EntitySet Name="Manage_emp" EntityType="Self.Manage_emp" />
+          <EntitySet Name="ManageEmps" EntityType="Self.ManageEmp" />
           <EntitySet Name="MonneyTransactions" EntityType="Self.MonneyTransaction" />
           <EntitySet Name="Positions" EntityType="Self.Position" />
-          <AssociationSet Name="FK__Account__userID__36B12243" Association="Self.FK__Account__userID__36B12243">
+          <AssociationSet Name="FK__Account__userID__37A5467C" Association="Self.FK__Account__userID__37A5467C">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="Account" EntitySet="Accounts" />
           </AssociationSet>
-          <AssociationSet Name="FK__CheckIn__empId__300424B4" Association="Self.FK__CheckIn__empId__300424B4">
+          <AssociationSet Name="FK__CheckIn__empId__30F848ED" Association="Self.FK__CheckIn__empId__30F848ED">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="CheckIn" EntitySet="CheckIns" />
           </AssociationSet>
-          <AssociationSet Name="FK__CheckOut__33D4B598" Association="Self.FK__CheckOut__33D4B598">
+          <AssociationSet Name="FK__CheckOut__34C8D9D1" Association="Self.FK__CheckOut__34C8D9D1">
             <End Role="CheckIn" EntitySet="CheckIns" />
             <End Role="CheckOut" EntitySet="CheckOuts" />
           </AssociationSet>
-          <AssociationSet Name="FK__CheckOut__empId__32E0915F" Association="Self.FK__CheckOut__empId__32E0915F">
+          <AssociationSet Name="FK__CheckOut__empId__33D4B598" Association="Self.FK__CheckOut__empId__33D4B598">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="CheckOut" EntitySet="CheckOuts" />
           </AssociationSet>
-          <AssociationSet Name="FK__Manage_em__empId__2D27B809" Association="Self.FK__Manage_em__empId__2D27B809">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="Manage_emp" EntitySet="Manage_emp" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Manage_emp__Id__2C3393D0" Association="Self.FK__Manage_emp__Id__2C3393D0">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="Manage_emp" EntitySet="Manage_emp" />
-          </AssociationSet>
-          <AssociationSet Name="FK__MonneyTra__empId__398D8EEE" Association="Self.FK__MonneyTra__empId__398D8EEE">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="MonneyTransaction" EntitySet="MonneyTransactions" />
-          </AssociationSet>
-          <AssociationSet Name="EmployeePosition" Association="Self.EmployeePosition">
+          <AssociationSet Name="FK__Employee__posId__267ABA7A" Association="Self.FK__Employee__posId__267ABA7A">
             <End Role="Position" EntitySet="Positions" />
             <End Role="Employee" EntitySet="Employees" />
           </AssociationSet>
+          <AssociationSet Name="FK__ManageEmp__empId__2E1BDC42" Association="Self.FK__ManageEmp__empId__2E1BDC42">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="ManageEmp" EntitySet="ManageEmps" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ManageEmp__Id__2D27B809" Association="Self.FK__ManageEmp__Id__2D27B809">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="ManageEmp" EntitySet="ManageEmps" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MonneyTra__empId__3A81B327" Association="Self.FK__MonneyTra__empId__3A81B327">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="MonneyTransaction" EntitySet="MonneyTransactions" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(HOTELModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(HOTELModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HOTELModelStoreContainer" CdmEntityContainer="HOTELEntities">
+        <EntityContainerMapping StorageEntityContainer="HOTELModelStoreContainer" CdmEntityContainer="HotelDB">
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="HOTELModel.Account">
               <MappingFragment StoreEntitySet="Account">
@@ -488,12 +545,13 @@
                 <ScalarProperty Name="bdate" ColumnName="bdate" />
                 <ScalarProperty Name="salary" ColumnName="salary" />
                 <ScalarProperty Name="avatar" ColumnName="avatar" />
+                <ScalarProperty Name="posId" ColumnName="posId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Manage_emp">
-            <EntityTypeMapping TypeName="HOTELModel.Manage_emp">
-              <MappingFragment StoreEntitySet="Manage_emp">
+          <EntitySetMapping Name="ManageEmps">
+            <EntityTypeMapping TypeName="HOTELModel.ManageEmp">
+              <MappingFragment StoreEntitySet="ManageEmp">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="empId" ColumnName="empId" />
               </MappingFragment>
@@ -518,14 +576,30 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="EmployeePosition" TypeName="HOTELModel.EmployeePosition" StoreEntitySet="EmployeePosition">
-            <EndProperty Name="Position">
-              <ScalarProperty Name="posId" ColumnName="position" />
-            </EndProperty>
-            <EndProperty Name="Employee">
-              <ScalarProperty Name="Id" ColumnName="Id" />
-            </EndProperty>
-          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="HOTELModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="HOTELModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="HOTELModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="HOTELModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HOTELModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="HOTELModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HOTELModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="HOTELModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="HOTELModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

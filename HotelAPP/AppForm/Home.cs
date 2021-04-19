@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HotelAPP.DataAccess;
 
 namespace HotelAPP.AppForm
 {
@@ -29,6 +30,8 @@ namespace HotelAPP.AppForm
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+
+
         }
 
         //Methods

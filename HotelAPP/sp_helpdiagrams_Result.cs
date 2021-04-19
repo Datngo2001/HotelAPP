@@ -10,14 +10,13 @@
 namespace HotelAPP
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Manage_emp
+    public partial class sp_helpdiagrams_Result
     {
-        public int Id { get; set; }
-        public Nullable<int> empId { get; set; }
-    
-        public virtual Employee Employee { get; set; }
-        public virtual Employee Employee1 { get; set; }
+        public string Database { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }
