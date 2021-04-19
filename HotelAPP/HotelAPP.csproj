@@ -55,33 +55,100 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Account.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppForm\AddEmpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AppForm\AddEmpForm.Designer.cs">
+      <DependentUpon>AddEmpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForm\EditEmpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForm\EditEmpForm.Designer.cs">
+      <DependentUpon>EditEmpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForm\Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForm\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForm\RemoveEmpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForm\RemoveEmpForm.Designer.cs">
+      <DependentUpon>RemoveEmpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Check_in.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Check_out.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="HotelDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HotelDB.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="HotelDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="HotelDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HotelDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Manage_emp.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Monney_Transaction.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Position.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThemeColor.cs" />
+    <EmbeddedResource Include="AppForm\AddEmpForm.resx">
+      <DependentUpon>AddEmpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForm\EditEmpForm.resx">
+      <DependentUpon>EditEmpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForm\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForm\RemoveEmpForm.resx">
+      <DependentUpon>RemoveEmpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EntityDeploy Include="HotelDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>HotelDB.Designer.cs</LastGenOutput>
@@ -107,10 +174,19 @@
     <Content Include="HotelDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>HotelDB.Context.cs</LastGenOutput>
+      <DependentUpon>HotelDB.edmx</DependentUpon>
     </Content>
+    <Content Include="HotelDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HotelDB.edmx</DependentUpon>
+      <LastGenOutput>HotelDB.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\edit-new-icon-22.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
