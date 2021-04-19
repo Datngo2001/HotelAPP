@@ -63,6 +63,16 @@ namespace HotelAPP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cross_out__2_ {
+            get {
+                object obj = ResourceManager.GetObject("cross-out (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit {
             get {
                 object obj = ResourceManager.GetObject("edit", resourceCulture);
@@ -86,6 +96,16 @@ namespace HotelAPP.Properties {
         internal static System.Drawing.Bitmap edit_new_icon_221 {
             get {
                 object obj = ResourceManager.GetObject("edit-new-icon-221", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hotelLogo {
+            get {
+                object obj = ResourceManager.GetObject("hotelLogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

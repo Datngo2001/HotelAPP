@@ -181,6 +181,8 @@
       <DependentUpon>HotelDB.edmx</DependentUpon>
       <LastGenOutput>HotelDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\hotelLogo.png" />
+    <None Include="Resources\cross-out %282%29.png" />
     <None Include="Resources\edit.png" />
     <None Include="Resources\edit-new-icon-22.png" />
   </ItemGroup>

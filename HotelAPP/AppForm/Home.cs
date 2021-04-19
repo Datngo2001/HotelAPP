@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,7 +13,10 @@ namespace HotelAPP.AppForm
 {
     public partial class Home : Form
     {
-        //Fields
+        // Data Fields
+
+
+        //UI Fields
         private Button currentButton;
         private Random random;
         private int tempIndex;
@@ -22,6 +26,9 @@ namespace HotelAPP.AppForm
         {
             InitializeComponent();
             random = new Random();
+            this.Text = "";
+            this.ControlBox = false;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
         //Methods
@@ -82,7 +89,23 @@ namespace HotelAPP.AppForm
             childForm.BringToFront();
             childForm.Show();
             title_lb.Text = childForm.Text;
+            closeChildForm_btn.Visible = true;
         }
+        private void Reset()
+        {
+            DisableButton();
+            title_lb.Text = "HOME";
+            titleBar_pn.BackColor = Color.FromArgb(0, 150, 136);
+            logo_pn.BackColor = Color.FromArgb(39, 39, 58);
+            currentButton = null;
+            closeChildForm_btn.Visible = false;
+        }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         private void addEmp_btn_Click(object sender, EventArgs e)
         {
@@ -97,6 +120,39 @@ namespace HotelAPP.AppForm
         private void removeEmp_btn_Click(object sender, EventArgs e)
         {
             OpenChildForm(new RemoveEmpForm(), sender);
+        }
+
+        private void close_btn_Click(object sender, EventArgs e)
+        {
+            if(activeForm != null)
+            {
+                activeForm.Close();
+            }
+            Reset();
+        }
+
+        private void title_lb_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void maximize_btn_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+                this.WindowState = FormWindowState.Maximized;
+            else
+                this.WindowState = FormWindowState.Normal;
+        }
+
+        private void minimize_btn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void close_btn_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

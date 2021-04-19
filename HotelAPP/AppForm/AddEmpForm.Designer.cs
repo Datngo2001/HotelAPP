@@ -60,6 +60,7 @@ namespace HotelAPP.AppForm
             this.Controls.Add(this.button1);
             this.Name = "AddEmpForm";
             this.Text = "Add a new employee";
+            this.Load += new System.EventHandler(this.AddEmpForm_Load);
             this.ResumeLayout(false);
 
         }
