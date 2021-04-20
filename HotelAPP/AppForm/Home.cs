@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using HotelAPP.DataAccess;
+using HotelAPP.AppForm.EmpForm;
 
 namespace HotelAPP.AppForm
 {
@@ -30,8 +25,6 @@ namespace HotelAPP.AppForm
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-
-
         }
 
         //Methods
@@ -156,6 +149,11 @@ namespace HotelAPP.AppForm
         private void close_btn_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

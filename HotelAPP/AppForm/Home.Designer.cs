@@ -252,15 +252,18 @@ namespace HotelAPP.AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1196, 708);
             this.Controls.Add(this.desktop_pn);
             this.Controls.Add(this.titleBar_pn);
             this.Controls.Add(this.menu_pn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.Home_Load);
             this.menu_pn.ResumeLayout(false);
             this.titleBar_pn.ResumeLayout(false);
             this.titleBar_pn.PerformLayout();

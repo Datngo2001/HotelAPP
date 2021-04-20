@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HotelAPP.AppForm
+namespace HotelAPP.AppForm.EmpForm
 {
     public partial class AddEmpForm : Form
     {

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HotelAPP.AppForm
+namespace HotelAPP.AppForm.EmpForm
 {
-    public partial class EditEmpForm : Form
+    public partial class RemoveEmpForm : Form
     {
-        public EditEmpForm()
+        public RemoveEmpForm()
         {
             InitializeComponent();
         }

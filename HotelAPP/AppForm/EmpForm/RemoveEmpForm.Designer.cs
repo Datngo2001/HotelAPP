@@ -1,5 +1,5 @@
 ﻿
-namespace HotelAPP.AppForm
+namespace HotelAPP.AppForm.EmpForm
 {
     partial class RemoveEmpForm
     {

@@ -58,16 +58,16 @@
     <Compile Include="Account.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AppForm\AddEmpForm.cs">
+    <Compile Include="AppForm\EmpForm\AddEmpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AppForm\AddEmpForm.Designer.cs">
+    <Compile Include="AppForm\EmpForm\AddEmpForm.Designer.cs">
       <DependentUpon>AddEmpForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AppForm\EditEmpForm.cs">
+    <Compile Include="AppForm\EmpForm\EditEmpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AppForm\EditEmpForm.Designer.cs">
+    <Compile Include="AppForm\EmpForm\EditEmpForm.Designer.cs">
       <DependentUpon>EditEmpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AppForm\Home.cs">
@@ -76,11 +76,17 @@
     <Compile Include="AppForm\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="AppForm\RemoveEmpForm.cs">
+    <Compile Include="AppForm\EmpForm\RemoveEmpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AppForm\RemoveEmpForm.Designer.cs">
+    <Compile Include="AppForm\EmpForm\RemoveEmpForm.Designer.cs">
       <DependentUpon>RemoveEmpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForm\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForm\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CheckIn.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
@@ -132,17 +138,20 @@
     </Compile>
     <Compile Include="ThemeColor.cs" />
     <Compile Include="Tools\ImageTool.cs" />
-    <EmbeddedResource Include="AppForm\AddEmpForm.resx">
+    <EmbeddedResource Include="AppForm\EmpForm\AddEmpForm.resx">
       <DependentUpon>AddEmpForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppForm\EditEmpForm.resx">
+    <EmbeddedResource Include="AppForm\EmpForm\EditEmpForm.resx">
       <DependentUpon>EditEmpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AppForm\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppForm\RemoveEmpForm.resx">
+    <EmbeddedResource Include="AppForm\EmpForm\RemoveEmpForm.resx">
       <DependentUpon>RemoveEmpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForm\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -190,6 +199,9 @@
       <DependentUpon>DataModel.edmx</DependentUpon>
       <LastGenOutput>DataModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\user_icon.png" />
+    <None Include="Resources\logo_large.png" />
+    <None Include="Resources\hotelLogo_small.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
