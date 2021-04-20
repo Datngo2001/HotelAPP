@@ -13,7 +13,7 @@ namespace HotelAPP.DataAccess
         {
             hotelDB = new HotelDB();
         }
-        bool getCurrentUser(string username, string password)
+        public bool getCurrentUser(string username, string password)
         {
             try
             {
@@ -28,8 +28,8 @@ namespace HotelAPP.DataAccess
                                     PosId = e.posId,
                                     PosName = p.posName,
                                     Avatar = e.avatar
-                                }).ToList();
-                if(accounts.Count < 0)
+                                }).ToArray();
+                if(accounts.Length < 0)
                 {
                     return false;
                 }
@@ -39,15 +39,58 @@ namespace HotelAPP.DataAccess
                     CurrentUser.Id = accounts[0].Id;
                     CurrentUser.PositionNum = accounts[0].PosId.Value;
                     CurrentUser.PositionName = accounts[0].PosName;
-                    CurrentUser.Avatar = new HotelAPP.Tools.ImageTool().ByteArrToImage(accounts[0].Avatar);
+                    if(accounts[0].Avatar != null)
+                    {
+                        CurrentUser.Avatar = new HotelAPP.Tools.ImageTool().ByteArrToImage(accounts[0].Avatar);
+                    }
                     return true;
                 }
             }
             catch (Exception)
             {
                 return false;
-                throw;
             }
         }
+        public bool ExistUsernamCheck(string username)
+        {
+            try
+            {
+                var listUsername = (from a in hotelDB.Accounts
+                                    where a.username == username
+                                    select a.username).ToArray();
+                if(listUsername.Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        //public bool AddNewGuestAccount(string username, string password)
+        //{
+        //    try
+        //    {
+        //        if (ExistUsernamCheck(username) == false) return false;
+
+        //        Account account = new Account()
+        //        {
+        //            username = username,
+        //            password = password
+        //        };
+        //        hotelDB.Accounts.Add(account);
+        //        hotelDB.SaveChanges();
+        //        return true;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return false;
+        //    }
+        //}
     }
 }

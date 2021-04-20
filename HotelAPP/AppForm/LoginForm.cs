@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using HotelAPP.DataAccess;
 
 namespace HotelAPP.AppForm
 {
     public partial class LoginForm : Form
     {
+        AccountAccess accountAccess;
         public LoginForm()
         {
             InitializeComponent();
@@ -20,8 +15,10 @@ namespace HotelAPP.AppForm
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
-            SendMessage(textBox1.Handle, EM_SETCUEBANNER, 0, "username");
-            SendMessage(textBox2.Handle, EM_SETCUEBANNER, 0, "password");
+            SendMessage(username_tb.Handle, EM_SETCUEBANNER, 0, "username");
+            SendMessage(password_tb.Handle, EM_SETCUEBANNER, 0, "password");
+
+            accountAccess = new AccountAccess();
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -45,9 +42,27 @@ namespace HotelAPP.AppForm
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void password_pn_Paint(object sender, PaintEventArgs e)
+        private void forgot_llb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
+        }
+
+        private void signIn_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void login_btn_Click(object sender, EventArgs e)
+        {
+            if(accountAccess.getCurrentUser(username_tb.Text, password_tb.Text) == true)
+            {
+                this.DialogResult = DialogResult.Yes;
+            }
+            else
+            {
+                MessageBox.Show("Incorrect password or username!");
+                this.DialogResult = DialogResult.No;
+            }
         }
     }
 }

@@ -56,7 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
+      <DependentUpon>HotelData.tt</DependentUpon>
     </Compile>
     <Compile Include="AppForm\EmpForm\AddEmpForm.cs">
       <SubType>Form</SubType>
@@ -89,39 +89,39 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CheckIn.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
+      <DependentUpon>HotelData.tt</DependentUpon>
     </Compile>
     <Compile Include="CheckOut.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
+      <DependentUpon>HotelData.tt</DependentUpon>
     </Compile>
     <Compile Include="CurrentUser.cs" />
     <Compile Include="DataAccess\AccountAccess.cs" />
-    <Compile Include="DataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Employee.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
+      <DependentUpon>HotelData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HotelData.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelData.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HotelData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HotelData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelData.edmx</DependentUpon>
     </Compile>
     <Compile Include="ManageEmp.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
+      <DependentUpon>HotelData.tt</DependentUpon>
     </Compile>
     <Compile Include="MonneyTransaction.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
+      <DependentUpon>HotelData.tt</DependentUpon>
     </Compile>
     <Compile Include="Position.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
+      <DependentUpon>HotelData.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -131,10 +131,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
+      <DependentUpon>HotelData.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
+      <DependentUpon>HotelData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>HotelData.tt</DependentUpon>
     </Compile>
     <Compile Include="ThemeColor.cs" />
     <Compile Include="Tools\ImageTool.cs" />
@@ -158,12 +161,12 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DataModel.edmx">
+    <EntityDeploy Include="HotelData.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>HotelData.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DataModel.edmx.diagram">
-      <DependentUpon>DataModel.edmx</DependentUpon>
+    <None Include="HotelData.edmx.diagram">
+      <DependentUpon>HotelData.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -189,20 +192,21 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataModel.edmx</DependentUpon>
-      <LastGenOutput>DataModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DataModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataModel.edmx</DependentUpon>
-      <LastGenOutput>DataModel.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\user_icon.png" />
     <None Include="Resources\logo_large.png" />
     <None Include="Resources\hotelLogo_small.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="HotelData.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HotelData.edmx</DependentUpon>
+      <LastGenOutput>HotelData.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="HotelData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HotelData.edmx</DependentUpon>
+      <LastGenOutput>HotelData.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,7 +17,13 @@ namespace HotelAPP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+
+            LoginForm loginForm = new LoginForm();
+
+            if(loginForm.ShowDialog() == DialogResult.Yes)
+            {
+                Application.Run(new Home());
+            }
         }
     }
 }

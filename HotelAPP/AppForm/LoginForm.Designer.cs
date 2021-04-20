@@ -31,27 +31,27 @@ namespace HotelAPP.AppForm
         {
             this.title_pn = new System.Windows.Forms.Panel();
             this.close_btn = new System.Windows.Forms.Button();
-            this.footer_pn = new System.Windows.Forms.Panel();
-            this.body_pn = new System.Windows.Forms.Panel();
-            this.password_pn = new System.Windows.Forms.Panel();
-            this.username_pn = new System.Windows.Forms.Panel();
-            this.title_lb = new System.Windows.Forms.Label();
-            this.foget_pn = new System.Windows.Forms.Panel();
-            this.login_btn = new System.Windows.Forms.Button();
             this.logo_pb = new System.Windows.Forms.PictureBox();
-            this.split_pn1 = new System.Windows.Forms.Panel();
+            this.footer_pn = new System.Windows.Forms.Panel();
+            this.signIn_btn = new System.Windows.Forms.Button();
+            this.login_btn = new System.Windows.Forms.Button();
+            this.body_pn = new System.Windows.Forms.Panel();
+            this.foget_pn = new System.Windows.Forms.Panel();
+            this.forgot_llb = new System.Windows.Forms.LinkLabel();
+            this.password_pn = new System.Windows.Forms.Panel();
+            this.password_tb = new System.Windows.Forms.TextBox();
             this.split_pn2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.username_pn = new System.Windows.Forms.Panel();
+            this.username_tb = new System.Windows.Forms.TextBox();
+            this.split_pn1 = new System.Windows.Forms.Panel();
+            this.title_lb = new System.Windows.Forms.Label();
             this.title_pn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_pb)).BeginInit();
             this.footer_pn.SuspendLayout();
             this.body_pn.SuspendLayout();
+            this.foget_pn.SuspendLayout();
             this.password_pn.SuspendLayout();
             this.username_pn.SuspendLayout();
-            this.foget_pn.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logo_pb)).BeginInit();
             this.SuspendLayout();
             // 
             // title_pn
@@ -81,9 +81,21 @@ namespace HotelAPP.AppForm
             this.close_btn.UseVisualStyleBackColor = true;
             this.close_btn.Click += new System.EventHandler(this.close_btn_Click);
             // 
+            // logo_pb
+            // 
+            this.logo_pb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.logo_pb.Image = global::HotelAPP.Properties.Resources.logo_large;
+            this.logo_pb.Location = new System.Drawing.Point(0, 0);
+            this.logo_pb.Name = "logo_pb";
+            this.logo_pb.Size = new System.Drawing.Size(583, 299);
+            this.logo_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logo_pb.TabIndex = 6;
+            this.logo_pb.TabStop = false;
+            this.logo_pb.MouseDown += new System.Windows.Forms.MouseEventHandler(this.logo_pb_MouseDown);
+            // 
             // footer_pn
             // 
-            this.footer_pn.Controls.Add(this.button1);
+            this.footer_pn.Controls.Add(this.signIn_btn);
             this.footer_pn.Controls.Add(this.login_btn);
             this.footer_pn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.footer_pn.Location = new System.Drawing.Point(0, 587);
@@ -91,60 +103,21 @@ namespace HotelAPP.AppForm
             this.footer_pn.Size = new System.Drawing.Size(583, 161);
             this.footer_pn.TabIndex = 2;
             // 
-            // body_pn
+            // signIn_btn
             // 
-            this.body_pn.Controls.Add(this.foget_pn);
-            this.body_pn.Controls.Add(this.password_pn);
-            this.body_pn.Controls.Add(this.username_pn);
-            this.body_pn.Controls.Add(this.title_lb);
-            this.body_pn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.body_pn.Location = new System.Drawing.Point(0, 299);
-            this.body_pn.Name = "body_pn";
-            this.body_pn.Size = new System.Drawing.Size(583, 288);
-            this.body_pn.TabIndex = 3;
-            // 
-            // password_pn
-            // 
-            this.password_pn.Controls.Add(this.textBox2);
-            this.password_pn.Controls.Add(this.split_pn2);
-            this.password_pn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.password_pn.Location = new System.Drawing.Point(0, 144);
-            this.password_pn.Name = "password_pn";
-            this.password_pn.Size = new System.Drawing.Size(583, 80);
-            this.password_pn.TabIndex = 5;
-            this.password_pn.Paint += new System.Windows.Forms.PaintEventHandler(this.password_pn_Paint);
-            // 
-            // username_pn
-            // 
-            this.username_pn.Controls.Add(this.textBox1);
-            this.username_pn.Controls.Add(this.split_pn1);
-            this.username_pn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.username_pn.Location = new System.Drawing.Point(0, 64);
-            this.username_pn.Name = "username_pn";
-            this.username_pn.Size = new System.Drawing.Size(583, 80);
-            this.username_pn.TabIndex = 5;
-            // 
-            // title_lb
-            // 
-            this.title_lb.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title_lb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.title_lb.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title_lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.title_lb.Location = new System.Drawing.Point(0, 0);
-            this.title_lb.Name = "title_lb";
-            this.title_lb.Size = new System.Drawing.Size(583, 64);
-            this.title_lb.TabIndex = 4;
-            this.title_lb.Text = "Log in";
-            this.title_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // foget_pn
-            // 
-            this.foget_pn.Controls.Add(this.linkLabel1);
-            this.foget_pn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.foget_pn.Location = new System.Drawing.Point(0, 224);
-            this.foget_pn.Name = "foget_pn";
-            this.foget_pn.Size = new System.Drawing.Size(583, 64);
-            this.foget_pn.TabIndex = 6;
+            this.signIn_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signIn_btn.BackColor = System.Drawing.Color.White;
+            this.signIn_btn.FlatAppearance.BorderSize = 2;
+            this.signIn_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.signIn_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signIn_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.signIn_btn.Location = new System.Drawing.Point(171, 92);
+            this.signIn_btn.Name = "signIn_btn";
+            this.signIn_btn.Size = new System.Drawing.Size(241, 50);
+            this.signIn_btn.TabIndex = 0;
+            this.signIn_btn.Text = "Sign in";
+            this.signIn_btn.UseVisualStyleBackColor = false;
+            this.signIn_btn.Click += new System.EventHandler(this.signIn_btn_Click);
             // 
             // login_btn
             // 
@@ -160,26 +133,64 @@ namespace HotelAPP.AppForm
             this.login_btn.TabIndex = 0;
             this.login_btn.Text = "Log in";
             this.login_btn.UseVisualStyleBackColor = false;
+            this.login_btn.Click += new System.EventHandler(this.login_btn_Click);
             // 
-            // logo_pb
+            // body_pn
             // 
-            this.logo_pb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.logo_pb.Image = global::HotelAPP.Properties.Resources.logo_large;
-            this.logo_pb.Location = new System.Drawing.Point(0, 0);
-            this.logo_pb.Name = "logo_pb";
-            this.logo_pb.Size = new System.Drawing.Size(583, 299);
-            this.logo_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logo_pb.TabIndex = 6;
-            this.logo_pb.TabStop = false;
-            this.logo_pb.MouseDown += new System.Windows.Forms.MouseEventHandler(this.logo_pb_MouseDown);
+            this.body_pn.Controls.Add(this.foget_pn);
+            this.body_pn.Controls.Add(this.password_pn);
+            this.body_pn.Controls.Add(this.username_pn);
+            this.body_pn.Controls.Add(this.title_lb);
+            this.body_pn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.body_pn.Location = new System.Drawing.Point(0, 299);
+            this.body_pn.Name = "body_pn";
+            this.body_pn.Size = new System.Drawing.Size(583, 288);
+            this.body_pn.TabIndex = 3;
             // 
-            // split_pn1
+            // foget_pn
             // 
-            this.split_pn1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.split_pn1.Location = new System.Drawing.Point(116, 72);
-            this.split_pn1.Name = "split_pn1";
-            this.split_pn1.Size = new System.Drawing.Size(352, 2);
-            this.split_pn1.TabIndex = 1;
+            this.foget_pn.Controls.Add(this.forgot_llb);
+            this.foget_pn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.foget_pn.Location = new System.Drawing.Point(0, 224);
+            this.foget_pn.Name = "foget_pn";
+            this.foget_pn.Size = new System.Drawing.Size(583, 64);
+            this.foget_pn.TabIndex = 6;
+            // 
+            // forgot_llb
+            // 
+            this.forgot_llb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.forgot_llb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forgot_llb.LinkColor = System.Drawing.Color.Silver;
+            this.forgot_llb.Location = new System.Drawing.Point(0, 0);
+            this.forgot_llb.Name = "forgot_llb";
+            this.forgot_llb.Size = new System.Drawing.Size(583, 64);
+            this.forgot_llb.TabIndex = 0;
+            this.forgot_llb.TabStop = true;
+            this.forgot_llb.Text = "Forgot your password?";
+            this.forgot_llb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.forgot_llb.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forgot_llb_LinkClicked);
+            // 
+            // password_pn
+            // 
+            this.password_pn.Controls.Add(this.password_tb);
+            this.password_pn.Controls.Add(this.split_pn2);
+            this.password_pn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.password_pn.Location = new System.Drawing.Point(0, 144);
+            this.password_pn.Name = "password_pn";
+            this.password_pn.Size = new System.Drawing.Size(583, 80);
+            this.password_pn.TabIndex = 5;
+            // 
+            // password_tb
+            // 
+            this.password_tb.BackColor = System.Drawing.Color.White;
+            this.password_tb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.password_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password_tb.Location = new System.Drawing.Point(116, 29);
+            this.password_tb.Name = "password_tb";
+            this.password_tb.PasswordChar = '*';
+            this.password_tb.Size = new System.Drawing.Size(352, 28);
+            this.password_tb.TabIndex = 2;
+            this.password_tb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // split_pn2
             // 
@@ -189,56 +200,47 @@ namespace HotelAPP.AppForm
             this.split_pn2.Size = new System.Drawing.Size(352, 2);
             this.split_pn2.TabIndex = 2;
             // 
-            // textBox1
+            // username_pn
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(116, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(352, 28);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.username_pn.Controls.Add(this.username_tb);
+            this.username_pn.Controls.Add(this.split_pn1);
+            this.username_pn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.username_pn.Location = new System.Drawing.Point(0, 64);
+            this.username_pn.Name = "username_pn";
+            this.username_pn.Size = new System.Drawing.Size(583, 80);
+            this.username_pn.TabIndex = 5;
             // 
-            // textBox2
+            // username_tb
             // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(116, 29);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(352, 28);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.username_tb.BackColor = System.Drawing.Color.White;
+            this.username_tb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.username_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username_tb.Location = new System.Drawing.Point(116, 29);
+            this.username_tb.Name = "username_tb";
+            this.username_tb.Size = new System.Drawing.Size(352, 28);
+            this.username_tb.TabIndex = 2;
+            this.username_tb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // linkLabel1
+            // split_pn1
             // 
-            this.linkLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.Silver;
-            this.linkLabel1.Location = new System.Drawing.Point(0, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(583, 64);
-            this.linkLabel1.TabIndex = 0;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Forgot your password?";
-            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.split_pn1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.split_pn1.Location = new System.Drawing.Point(116, 72);
+            this.split_pn1.Name = "split_pn1";
+            this.split_pn1.Size = new System.Drawing.Size(352, 2);
+            this.split_pn1.TabIndex = 1;
             // 
-            // button1
+            // title_lb
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.button1.Location = new System.Drawing.Point(171, 92);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(241, 50);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Sign in";
-            this.button1.UseVisualStyleBackColor = false;
+            this.title_lb.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title_lb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.title_lb.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title_lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.title_lb.Location = new System.Drawing.Point(0, 0);
+            this.title_lb.Name = "title_lb";
+            this.title_lb.Size = new System.Drawing.Size(583, 64);
+            this.title_lb.TabIndex = 4;
+            this.title_lb.Text = "Log in";
+            this.title_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LoginForm
             // 
@@ -255,14 +257,14 @@ namespace HotelAPP.AppForm
             this.Text = "LoginForm";
             this.title_pn.ResumeLayout(false);
             this.title_pn.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_pb)).EndInit();
             this.footer_pn.ResumeLayout(false);
             this.body_pn.ResumeLayout(false);
+            this.foget_pn.ResumeLayout(false);
             this.password_pn.ResumeLayout(false);
             this.password_pn.PerformLayout();
             this.username_pn.ResumeLayout(false);
             this.username_pn.PerformLayout();
-            this.foget_pn.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.logo_pb)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -281,9 +283,9 @@ namespace HotelAPP.AppForm
         private System.Windows.Forms.Panel foget_pn;
         private System.Windows.Forms.Panel split_pn1;
         private System.Windows.Forms.Panel split_pn2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox password_tb;
+        private System.Windows.Forms.TextBox username_tb;
+        private System.Windows.Forms.LinkLabel forgot_llb;
+        private System.Windows.Forms.Button signIn_btn;
     }
 }

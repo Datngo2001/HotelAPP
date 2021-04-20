@@ -34,6 +34,7 @@ namespace HotelAPP
         public virtual DbSet<ManageEmp> ManageEmps { get; set; }
         public virtual DbSet<MonneyTransaction> MonneyTransactions { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
