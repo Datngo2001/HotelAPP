@@ -58,29 +58,17 @@
     <Compile Include="Account.cs">
       <DependentUpon>HotelData.tt</DependentUpon>
     </Compile>
-    <Compile Include="AppForm\EmpForm\AddEmpForm.cs">
+    <Compile Include="AppForm\EmpForm\ManageEmpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AppForm\EmpForm\AddEmpForm.Designer.cs">
-      <DependentUpon>AddEmpForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AppForm\EmpForm\EditEmpForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AppForm\EmpForm\EditEmpForm.Designer.cs">
-      <DependentUpon>EditEmpForm.cs</DependentUpon>
+    <Compile Include="AppForm\EmpForm\ManageEmpForm.Designer.cs">
+      <DependentUpon>ManageEmpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AppForm\Home.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AppForm\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AppForm\EmpForm\RemoveEmpForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AppForm\EmpForm\RemoveEmpForm.Designer.cs">
-      <DependentUpon>RemoveEmpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AppForm\LoginForm.cs">
       <SubType>Form</SubType>
@@ -142,17 +130,8 @@
     <Compile Include="ThemeColor.cs" />
     <Compile Include="Tools\FormTools.cs" />
     <Compile Include="Tools\ImageTool.cs" />
-    <EmbeddedResource Include="AppForm\EmpForm\AddEmpForm.resx">
-      <DependentUpon>AddEmpForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AppForm\EmpForm\EditEmpForm.resx">
-      <DependentUpon>EditEmpForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AppForm\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AppForm\EmpForm\RemoveEmpForm.resx">
-      <DependentUpon>RemoveEmpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AppForm\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -208,6 +187,13 @@
       <DependentUpon>HotelData.edmx</DependentUpon>
       <LastGenOutput>HotelData.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\emp1.png" />
+    <None Include="Resources\emp2.png" />
+    <None Include="Resources\emp.png" />
+    <None Include="Resources\employee1.png" />
+    <None Include="Resources\employee.png" />
+    <None Include="Resources\user_icon1.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

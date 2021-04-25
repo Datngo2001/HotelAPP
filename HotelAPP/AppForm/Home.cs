@@ -52,7 +52,7 @@ namespace HotelAPP.AppForm
                     currentButton.ForeColor = Color.White;
                     currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     titleBar_pn.BackColor = color;
-                    logo_pn.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
+                    User_pn.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
                     ThemeColor.PrimaryColor = color;
                     ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
                     //btnCloseChildForm.Visible = true;
@@ -92,7 +92,7 @@ namespace HotelAPP.AppForm
             DisableButton();
             title_lb.Text = "HOME";
             titleBar_pn.BackColor = Color.FromArgb(0, 150, 136);
-            logo_pn.BackColor = Color.FromArgb(39, 39, 58);
+            User_pn.BackColor = Color.FromArgb(39, 39, 58);
             currentButton = null;
             closeChildForm_btn.Visible = false;
         }
@@ -105,18 +105,9 @@ namespace HotelAPP.AppForm
 
         private void addEmp_btn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AddEmpForm(), sender);
+            OpenChildForm(new ManageEmpForm(), sender);
         }
 
-        private void editEmp_btn_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new EditEmpForm(), sender);
-        }
-
-        private void removeEmp_btn_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new RemoveEmpForm(), sender);
-        }
 
         private void close_btn_Click(object sender, EventArgs e)
         {
@@ -153,7 +144,12 @@ namespace HotelAPP.AppForm
 
         private void Home_Load(object sender, EventArgs e)
         {
-
+            username_lb.Text = CurrentUser.UserName;
+            position_lb.Text = CurrentUser.PositionName;
+            if(CurrentUser.Avatar != null)
+            {
+                avatar_pb.Image = CurrentUser.Avatar;
+            }
         }
     }
 }

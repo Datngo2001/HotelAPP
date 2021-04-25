@@ -83,19 +83,9 @@ namespace HotelAPP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap edit_new_icon_22 {
+        internal static System.Drawing.Bitmap emp {
             get {
-                object obj = ResourceManager.GetObject("edit-new-icon-22", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap edit_new_icon_221 {
-            get {
-                object obj = ResourceManager.GetObject("edit-new-icon-221", resourceCulture);
+                object obj = ResourceManager.GetObject("emp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -136,6 +126,16 @@ namespace HotelAPP.Properties {
         internal static System.Drawing.Bitmap user_icon {
             get {
                 object obj = ResourceManager.GetObject("user_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("user_icon1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

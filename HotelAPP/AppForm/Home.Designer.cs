@@ -30,10 +30,12 @@ namespace HotelAPP.AppForm
         private void InitializeComponent()
         {
             this.menu_pn = new System.Windows.Forms.Panel();
-            this.removeEmp_btn = new System.Windows.Forms.Button();
-            this.editEmp_btn = new System.Windows.Forms.Button();
-            this.addEmp_btn = new System.Windows.Forms.Button();
-            this.logo_pn = new System.Windows.Forms.Panel();
+            this.ManageEmp_btn = new System.Windows.Forms.Button();
+            this.User_pn = new System.Windows.Forms.Panel();
+            this.position_lb = new System.Windows.Forms.Label();
+            this.username_lb = new System.Windows.Forms.Label();
+            this.avatar_pn = new System.Windows.Forms.Panel();
+            this.avatar_pb = new System.Windows.Forms.PictureBox();
             this.titleBar_pn = new System.Windows.Forms.Panel();
             this.maximize_btn = new System.Windows.Forms.Button();
             this.minimize_btn = new System.Windows.Forms.Button();
@@ -43,6 +45,9 @@ namespace HotelAPP.AppForm
             this.desktop_pn = new System.Windows.Forms.Panel();
             this.hotelLogo_pb = new System.Windows.Forms.PictureBox();
             this.menu_pn.SuspendLayout();
+            this.User_pn.SuspendLayout();
+            this.avatar_pn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar_pb)).BeginInit();
             this.titleBar_pn.SuspendLayout();
             this.desktop_pn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotelLogo_pb)).BeginInit();
@@ -52,10 +57,8 @@ namespace HotelAPP.AppForm
             // 
             this.menu_pn.AutoScroll = true;
             this.menu_pn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.menu_pn.Controls.Add(this.removeEmp_btn);
-            this.menu_pn.Controls.Add(this.editEmp_btn);
-            this.menu_pn.Controls.Add(this.addEmp_btn);
-            this.menu_pn.Controls.Add(this.logo_pn);
+            this.menu_pn.Controls.Add(this.ManageEmp_btn);
+            this.menu_pn.Controls.Add(this.User_pn);
             this.menu_pn.Dock = System.Windows.Forms.DockStyle.Left;
             this.menu_pn.Location = new System.Drawing.Point(0, 0);
             this.menu_pn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -63,75 +66,83 @@ namespace HotelAPP.AppForm
             this.menu_pn.Size = new System.Drawing.Size(313, 708);
             this.menu_pn.TabIndex = 0;
             // 
-            // removeEmp_btn
+            // ManageEmp_btn
             // 
-            this.removeEmp_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.removeEmp_btn.FlatAppearance.BorderSize = 0;
-            this.removeEmp_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.removeEmp_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeEmp_btn.ForeColor = System.Drawing.Color.White;
-            this.removeEmp_btn.Image = global::HotelAPP.Properties.Resources.edit;
-            this.removeEmp_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.removeEmp_btn.Location = new System.Drawing.Point(0, 246);
-            this.removeEmp_btn.Margin = new System.Windows.Forms.Padding(4, 15, 4, 15);
-            this.removeEmp_btn.Name = "removeEmp_btn";
-            this.removeEmp_btn.Size = new System.Drawing.Size(313, 77);
-            this.removeEmp_btn.TabIndex = 4;
-            this.removeEmp_btn.Text = "    Remove Employee";
-            this.removeEmp_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.removeEmp_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.removeEmp_btn.UseVisualStyleBackColor = true;
-            this.removeEmp_btn.Click += new System.EventHandler(this.removeEmp_btn_Click);
+            this.ManageEmp_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ManageEmp_btn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ManageEmp_btn.FlatAppearance.BorderSize = 0;
+            this.ManageEmp_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManageEmp_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageEmp_btn.ForeColor = System.Drawing.Color.White;
+            this.ManageEmp_btn.Image = global::HotelAPP.Properties.Resources.emp;
+            this.ManageEmp_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ManageEmp_btn.Location = new System.Drawing.Point(0, 92);
+            this.ManageEmp_btn.Margin = new System.Windows.Forms.Padding(4, 15, 4, 15);
+            this.ManageEmp_btn.Name = "ManageEmp_btn";
+            this.ManageEmp_btn.Size = new System.Drawing.Size(313, 77);
+            this.ManageEmp_btn.TabIndex = 2;
+            this.ManageEmp_btn.Text = "   Manage Employee";
+            this.ManageEmp_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ManageEmp_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ManageEmp_btn.UseVisualStyleBackColor = true;
+            this.ManageEmp_btn.Click += new System.EventHandler(this.addEmp_btn_Click);
             // 
-            // editEmp_btn
+            // User_pn
             // 
-            this.editEmp_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.editEmp_btn.FlatAppearance.BorderSize = 0;
-            this.editEmp_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editEmp_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editEmp_btn.ForeColor = System.Drawing.Color.White;
-            this.editEmp_btn.Image = global::HotelAPP.Properties.Resources.edit;
-            this.editEmp_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editEmp_btn.Location = new System.Drawing.Point(0, 169);
-            this.editEmp_btn.Margin = new System.Windows.Forms.Padding(4, 15, 4, 15);
-            this.editEmp_btn.Name = "editEmp_btn";
-            this.editEmp_btn.Size = new System.Drawing.Size(313, 77);
-            this.editEmp_btn.TabIndex = 3;
-            this.editEmp_btn.Text = "    Edit Employee";
-            this.editEmp_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editEmp_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.editEmp_btn.UseVisualStyleBackColor = true;
-            this.editEmp_btn.Click += new System.EventHandler(this.editEmp_btn_Click);
+            this.User_pn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.User_pn.Controls.Add(this.position_lb);
+            this.User_pn.Controls.Add(this.username_lb);
+            this.User_pn.Controls.Add(this.avatar_pn);
+            this.User_pn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.User_pn.Location = new System.Drawing.Point(0, 0);
+            this.User_pn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.User_pn.Name = "User_pn";
+            this.User_pn.Size = new System.Drawing.Size(313, 92);
+            this.User_pn.TabIndex = 1;
             // 
-            // addEmp_btn
+            // position_lb
             // 
-            this.addEmp_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.addEmp_btn.FlatAppearance.BorderSize = 0;
-            this.addEmp_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addEmp_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addEmp_btn.ForeColor = System.Drawing.Color.White;
-            this.addEmp_btn.Image = global::HotelAPP.Properties.Resources.edit;
-            this.addEmp_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addEmp_btn.Location = new System.Drawing.Point(0, 92);
-            this.addEmp_btn.Margin = new System.Windows.Forms.Padding(4, 15, 4, 15);
-            this.addEmp_btn.Name = "addEmp_btn";
-            this.addEmp_btn.Size = new System.Drawing.Size(313, 77);
-            this.addEmp_btn.TabIndex = 2;
-            this.addEmp_btn.Text = "    Add Employee";
-            this.addEmp_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addEmp_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.addEmp_btn.UseVisualStyleBackColor = true;
-            this.addEmp_btn.Click += new System.EventHandler(this.addEmp_btn_Click);
+            this.position_lb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.position_lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.position_lb.Location = new System.Drawing.Point(93, 53);
+            this.position_lb.Name = "position_lb";
+            this.position_lb.Size = new System.Drawing.Size(220, 39);
+            this.position_lb.TabIndex = 3;
+            this.position_lb.Text = "label1";
             // 
-            // logo_pn
+            // username_lb
             // 
-            this.logo_pn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.logo_pn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.logo_pn.Location = new System.Drawing.Point(0, 0);
-            this.logo_pn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.logo_pn.Name = "logo_pn";
-            this.logo_pn.Size = new System.Drawing.Size(313, 92);
-            this.logo_pn.TabIndex = 1;
+            this.username_lb.Dock = System.Windows.Forms.DockStyle.Top;
+            this.username_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username_lb.ForeColor = System.Drawing.Color.White;
+            this.username_lb.Location = new System.Drawing.Point(93, 0);
+            this.username_lb.Name = "username_lb";
+            this.username_lb.Size = new System.Drawing.Size(220, 53);
+            this.username_lb.TabIndex = 4;
+            this.username_lb.Text = "label1";
+            this.username_lb.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // avatar_pn
+            // 
+            this.avatar_pn.Controls.Add(this.avatar_pb);
+            this.avatar_pn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.avatar_pn.Location = new System.Drawing.Point(0, 0);
+            this.avatar_pn.Name = "avatar_pn";
+            this.avatar_pn.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
+            this.avatar_pn.Size = new System.Drawing.Size(93, 92);
+            this.avatar_pn.TabIndex = 2;
+            // 
+            // avatar_pb
+            // 
+            this.avatar_pb.Dock = System.Windows.Forms.DockStyle.Right;
+            this.avatar_pb.Image = global::HotelAPP.Properties.Resources.user_icon1;
+            this.avatar_pb.Location = new System.Drawing.Point(21, 10);
+            this.avatar_pb.Margin = new System.Windows.Forms.Padding(0);
+            this.avatar_pb.Name = "avatar_pb";
+            this.avatar_pb.Size = new System.Drawing.Size(72, 72);
+            this.avatar_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.avatar_pb.TabIndex = 5;
+            this.avatar_pb.TabStop = false;
             // 
             // titleBar_pn
             // 
@@ -265,6 +276,9 @@ namespace HotelAPP.AppForm
             this.Text = "Home";
             this.Load += new System.EventHandler(this.Home_Load);
             this.menu_pn.ResumeLayout(false);
+            this.User_pn.ResumeLayout(false);
+            this.avatar_pn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.avatar_pb)).EndInit();
             this.titleBar_pn.ResumeLayout(false);
             this.titleBar_pn.PerformLayout();
             this.desktop_pn.ResumeLayout(false);
@@ -276,10 +290,8 @@ namespace HotelAPP.AppForm
         #endregion
 
         private System.Windows.Forms.Panel menu_pn;
-        private System.Windows.Forms.Panel logo_pn;
-        private System.Windows.Forms.Button addEmp_btn;
-        private System.Windows.Forms.Button removeEmp_btn;
-        private System.Windows.Forms.Button editEmp_btn;
+        private System.Windows.Forms.Panel User_pn;
+        private System.Windows.Forms.Button ManageEmp_btn;
         private System.Windows.Forms.Panel titleBar_pn;
         private System.Windows.Forms.Label title_lb;
         private System.Windows.Forms.Panel desktop_pn;
@@ -288,5 +300,9 @@ namespace HotelAPP.AppForm
         private System.Windows.Forms.Button close_btn;
         private System.Windows.Forms.Button maximize_btn;
         private System.Windows.Forms.Button minimize_btn;
+        private System.Windows.Forms.Label position_lb;
+        private System.Windows.Forms.Label username_lb;
+        private System.Windows.Forms.Panel avatar_pn;
+        private System.Windows.Forms.PictureBox avatar_pb;
     }
 }

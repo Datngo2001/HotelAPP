@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HotelAPP.AppForm.EmpForm
 {
-    public partial class EditEmpForm : Form
+    public partial class ManageEmpForm : Form
     {
-        public EditEmpForm()
+        public ManageEmpForm()
         {
             InitializeComponent();
         }
