@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using HotelAPP.DataAccess;
 using HotelAPP.AppForm.EmpForm;
+using HotelAPP.Tools;
 
 namespace HotelAPP.AppForm
 {
@@ -148,7 +149,7 @@ namespace HotelAPP.AppForm
             position_lb.Text = CurrentUser.PositionName;
             if(CurrentUser.Avatar != null)
             {
-                avatar_pb.Image = CurrentUser.Avatar;
+                avatar_pb.Image = new ImageTool().ClipToCircle(CurrentUser.Avatar);
             }
         }
     }
