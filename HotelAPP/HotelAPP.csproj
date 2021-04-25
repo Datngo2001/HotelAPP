@@ -140,6 +140,7 @@
       <DependentUpon>HotelData.tt</DependentUpon>
     </Compile>
     <Compile Include="ThemeColor.cs" />
+    <Compile Include="Tools\FormTools.cs" />
     <Compile Include="Tools\ImageTool.cs" />
     <EmbeddedResource Include="AppForm\EmpForm\AddEmpForm.resx">
       <DependentUpon>AddEmpForm.cs</DependentUpon>

@@ -11,8 +11,6 @@ namespace HotelAPP.AppForm
         public LoginForm()
         {
             InitializeComponent();
-            this.ControlBox = false;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
             SendMessage(username_tb.Handle, EM_SETCUEBANNER, 0, "username");
@@ -30,11 +28,6 @@ namespace HotelAPP.AppForm
         private const int EM_SETCUEBANNER = 0x1501;
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern Int32 SendMessage(IntPtr hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
-
-        private void close_btn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void logo_pb_MouseDown(object sender, MouseEventArgs e)
         {
@@ -63,6 +56,11 @@ namespace HotelAPP.AppForm
                 MessageBox.Show("Incorrect password or username!");
                 this.DialogResult = DialogResult.No;
             }
+        }
+
+        private void close_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
