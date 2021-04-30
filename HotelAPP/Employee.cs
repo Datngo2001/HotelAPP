@@ -33,6 +33,7 @@ namespace HotelAPP
         public byte[] avatar { get; set; }
         public Nullable<int> posId { get; set; }
         public string phone { get; set; }
+        public string address { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Account> Accounts { get; set; }
