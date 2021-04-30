@@ -16,5 +16,10 @@ namespace HotelAPP.AppForm.EmpForm
         {
             InitializeComponent();
         }
+
+        private void ManageEmpForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

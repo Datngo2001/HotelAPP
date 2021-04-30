@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="CurrentUser.cs" />
     <Compile Include="DataAccess\AccountAccess.cs" />
+    <Compile Include="DataAccess\EmpAccess.cs" />
     <Compile Include="Employee.cs">
       <DependentUpon>HotelData.tt</DependentUpon>
     </Compile>

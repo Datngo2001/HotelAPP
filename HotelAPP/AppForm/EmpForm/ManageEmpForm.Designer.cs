@@ -35,10 +35,12 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(883, 616);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ManageEmpForm";
             this.Text = "ManageEmpForm";
+            this.Load += new System.EventHandler(this.ManageEmpForm_Load);
             this.ResumeLayout(false);
 
         }

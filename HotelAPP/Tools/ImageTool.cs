@@ -8,7 +8,6 @@ namespace HotelAPP.Tools
     class ImageTool
     {
         public Image Content { get; set; }
-
         public ImageTool()
         {
 
@@ -66,12 +65,6 @@ namespace HotelAPP.Tools
 
                 // enables smoothing of the edge of the circle (less pixelated)
                 g.SmoothingMode = SmoothingMode.AntiAlias;
-
-                //// fills background color
-                //using (Brush br = new SolidBrush())
-                //{
-                //    g.FillRectangle(br, 0, 0, dstImage.Width, dstImage.Height);
-                //}
 
                 // adds the new ellipse & draws the image again 
                 GraphicsPath path = new GraphicsPath();
