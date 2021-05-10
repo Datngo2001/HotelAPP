@@ -83,8 +83,6 @@
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CurrentUser.cs" />
-    <Compile Include="DataAccess\AccountAccess.cs" />
-    <Compile Include="DataAccess\EmpAccess.cs" />
     <Compile Include="DataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -109,6 +107,8 @@
     <Compile Include="ManageEmp.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Employee.cs" />
     <Compile Include="OutCome.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
