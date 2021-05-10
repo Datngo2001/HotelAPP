@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using HotelAPP.DataAccess;
 
 namespace HotelAPP.AppForm
 {
     public partial class LoginForm : Form
     {
-        AccountAccess accountAccess;
+        Account account;
         public LoginForm()
         {
             InitializeComponent();
@@ -16,7 +15,7 @@ namespace HotelAPP.AppForm
             SendMessage(username_tb.Handle, EM_SETCUEBANNER, 0, "username");
             SendMessage(password_tb.Handle, EM_SETCUEBANNER, 0, "password");
 
-            accountAccess = new AccountAccess();
+            account = new Account();
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -47,7 +46,7 @@ namespace HotelAPP.AppForm
 
         private void login_btn_Click(object sender, EventArgs e)
         {
-            if (accountAccess.getLogin(username_tb.Text, password_tb.Text) == true)
+            if (account.getLogin(username_tb.Text, password_tb.Text) == true)
             {
                 this.DialogResult = DialogResult.Yes;
             }
