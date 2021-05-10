@@ -58,11 +58,11 @@
     <Compile Include="Account.cs">
       <DependentUpon>HotelData.tt</DependentUpon>
     </Compile>
-    <Compile Include="AppForm\EmpForm\ManageEmpForm.cs">
+    <Compile Include="AppForm\EmpForm\ManageStaffForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AppForm\EmpForm\ManageEmpForm.Designer.cs">
-      <DependentUpon>ManageEmpForm.cs</DependentUpon>
+    <Compile Include="AppForm\EmpForm\ManageStaffForm.Designer.cs">
+      <DependentUpon>ManageStaffForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AppForm\Home.cs">
       <SubType>Form</SubType>
@@ -131,6 +131,9 @@
     <Compile Include="ThemeColor.cs" />
     <Compile Include="Tools\FormTools.cs" />
     <Compile Include="Tools\ImageTool.cs" />
+    <EmbeddedResource Include="AppForm\EmpForm\ManageStaffForm.resx">
+      <DependentUpon>ManageStaffForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AppForm\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>

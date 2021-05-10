@@ -31,11 +31,14 @@ namespace HotelAPP.AppForm
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.title_pn = new System.Windows.Forms.Panel();
+            this.close_btn = new System.Windows.Forms.Button();
             this.logo_pb = new System.Windows.Forms.PictureBox();
             this.login_btn = new System.Windows.Forms.Button();
             this.signIn_btn = new System.Windows.Forms.Button();
             this.footer_pn = new System.Windows.Forms.Panel();
             this.body_pn = new System.Windows.Forms.Panel();
+            this.foget_pn = new System.Windows.Forms.Panel();
+            this.forgot_llb = new System.Windows.Forms.LinkLabel();
             this.password_pn = new System.Windows.Forms.Panel();
             this.password_tb = new System.Windows.Forms.TextBox();
             this.split_pn2 = new System.Windows.Forms.Panel();
@@ -43,16 +46,13 @@ namespace HotelAPP.AppForm
             this.username_tb = new System.Windows.Forms.TextBox();
             this.split_pn1 = new System.Windows.Forms.Panel();
             this.title_lb = new System.Windows.Forms.Label();
-            this.foget_pn = new System.Windows.Forms.Panel();
-            this.forgot_llb = new System.Windows.Forms.LinkLabel();
-            this.close_btn = new System.Windows.Forms.Button();
             this.title_pn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo_pb)).BeginInit();
             this.footer_pn.SuspendLayout();
             this.body_pn.SuspendLayout();
+            this.foget_pn.SuspendLayout();
             this.password_pn.SuspendLayout();
             this.username_pn.SuspendLayout();
-            this.foget_pn.SuspendLayout();
             this.SuspendLayout();
             // 
             // title_pn
@@ -65,6 +65,22 @@ namespace HotelAPP.AppForm
             this.title_pn.Name = "title_pn";
             this.title_pn.Size = new System.Drawing.Size(605, 299);
             this.title_pn.TabIndex = 0;
+            // 
+            // close_btn
+            // 
+            this.close_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.close_btn.AutoSize = true;
+            this.close_btn.FlatAppearance.BorderSize = 0;
+            this.close_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.close_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.close_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.close_btn.Location = new System.Drawing.Point(563, 3);
+            this.close_btn.Name = "close_btn";
+            this.close_btn.Size = new System.Drawing.Size(39, 35);
+            this.close_btn.TabIndex = 7;
+            this.close_btn.Text = "O";
+            this.close_btn.UseVisualStyleBackColor = true;
+            this.close_btn.Click += new System.EventHandler(this.close_btn_Click);
             // 
             // logo_pb
             // 
@@ -131,6 +147,28 @@ namespace HotelAPP.AppForm
             this.body_pn.Name = "body_pn";
             this.body_pn.Size = new System.Drawing.Size(605, 369);
             this.body_pn.TabIndex = 4;
+            // 
+            // foget_pn
+            // 
+            this.foget_pn.Controls.Add(this.forgot_llb);
+            this.foget_pn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.foget_pn.Location = new System.Drawing.Point(0, 224);
+            this.foget_pn.Name = "foget_pn";
+            this.foget_pn.Size = new System.Drawing.Size(605, 145);
+            this.foget_pn.TabIndex = 7;
+            // 
+            // forgot_llb
+            // 
+            this.forgot_llb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.forgot_llb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forgot_llb.LinkColor = System.Drawing.Color.Silver;
+            this.forgot_llb.Location = new System.Drawing.Point(0, 0);
+            this.forgot_llb.Name = "forgot_llb";
+            this.forgot_llb.Size = new System.Drawing.Size(605, 145);
+            this.forgot_llb.TabIndex = 0;
+            this.forgot_llb.TabStop = true;
+            this.forgot_llb.Text = "Forgot your password?";
+            this.forgot_llb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // password_pn
             // 
@@ -208,51 +246,14 @@ namespace HotelAPP.AppForm
             this.title_lb.Text = "Log in";
             this.title_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // foget_pn
-            // 
-            this.foget_pn.Controls.Add(this.forgot_llb);
-            this.foget_pn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.foget_pn.Location = new System.Drawing.Point(0, 224);
-            this.foget_pn.Name = "foget_pn";
-            this.foget_pn.Size = new System.Drawing.Size(605, 145);
-            this.foget_pn.TabIndex = 7;
-            // 
-            // forgot_llb
-            // 
-            this.forgot_llb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.forgot_llb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.forgot_llb.LinkColor = System.Drawing.Color.Silver;
-            this.forgot_llb.Location = new System.Drawing.Point(0, 0);
-            this.forgot_llb.Name = "forgot_llb";
-            this.forgot_llb.Size = new System.Drawing.Size(605, 145);
-            this.forgot_llb.TabIndex = 0;
-            this.forgot_llb.TabStop = true;
-            this.forgot_llb.Text = "Forgot your password?";
-            this.forgot_llb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // close_btn
-            // 
-            this.close_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.close_btn.AutoSize = true;
-            this.close_btn.FlatAppearance.BorderSize = 0;
-            this.close_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.close_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.close_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.close_btn.Location = new System.Drawing.Point(563, 3);
-            this.close_btn.Name = "close_btn";
-            this.close_btn.Size = new System.Drawing.Size(39, 35);
-            this.close_btn.TabIndex = 7;
-            this.close_btn.Text = "O";
-            this.close_btn.UseVisualStyleBackColor = true;
-            this.close_btn.Click += new System.EventHandler(this.close_btn_Click);
-            // 
             // LoginForm
             // 
+            this.AcceptButton = this.login_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(583, 739);
+            this.ClientSize = new System.Drawing.Size(605, 795);
             this.Controls.Add(this.body_pn);
             this.Controls.Add(this.footer_pn);
             this.Controls.Add(this.title_pn);
@@ -268,11 +269,11 @@ namespace HotelAPP.AppForm
             ((System.ComponentModel.ISupportInitialize)(this.logo_pb)).EndInit();
             this.footer_pn.ResumeLayout(false);
             this.body_pn.ResumeLayout(false);
+            this.foget_pn.ResumeLayout(false);
             this.password_pn.ResumeLayout(false);
             this.password_pn.PerformLayout();
             this.username_pn.ResumeLayout(false);
             this.username_pn.PerformLayout();
-            this.foget_pn.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

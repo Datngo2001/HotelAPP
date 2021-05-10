@@ -106,9 +106,8 @@ namespace HotelAPP.AppForm
 
         private void addEmp_btn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new ManageEmpForm(), sender);
+            OpenChildForm(new ManageStaffForm(), sender);
         }
-
 
         private void close_btn_Click(object sender, EventArgs e)
         {

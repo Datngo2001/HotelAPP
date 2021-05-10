@@ -176,6 +176,5 @@ namespace HotelAPP.DataAccess
                 throw;
             }
         }
-
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace HotelAPP.AppForm.EmpForm
 {
-    partial class ManageEmpForm
+    partial class ManageStaffForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,16 +31,13 @@ namespace HotelAPP.AppForm.EmpForm
         {
             this.SuspendLayout();
             // 
-            // ManageEmpForm
+            // ManageStaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(883, 616);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ManageEmpForm";
-            this.Text = "ManageEmpForm";
-            this.Load += new System.EventHandler(this.ManageEmpForm_Load);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "ManageStaffForm";
+            this.Text = "Manage Staffs";
             this.ResumeLayout(false);
 
         }

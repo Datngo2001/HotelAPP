@@ -274,6 +274,7 @@ namespace HotelAPP.AppForm
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Home_Load);
             this.menu_pn.ResumeLayout(false);
             this.User_pn.ResumeLayout(false);

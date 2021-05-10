@@ -42,12 +42,22 @@ namespace HotelAPP.AppForm
 
         private void signIn_btn_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void login_btn_Click(object sender, EventArgs e)
         {
-            if(accountAccess.getCurrentUser(username_tb.Text, password_tb.Text) == true)
+            login();
+        }
+
+        private void close_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void login()
+        {
+            if (accountAccess.getCurrentUser(username_tb.Text, password_tb.Text) == true)
             {
                 this.DialogResult = DialogResult.Yes;
             }
@@ -56,11 +66,6 @@ namespace HotelAPP.AppForm
                 MessageBox.Show("Incorrect password or username!");
                 this.DialogResult = DialogResult.No;
             }
-        }
-
-        private void close_btn_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

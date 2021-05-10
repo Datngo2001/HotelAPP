@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace HotelAPP.AppForm.EmpForm
 {
-    public partial class ManageEmpForm : Form
+    public partial class ManageStaffForm : Form
     {
-        public ManageEmpForm()
+        public ManageStaffForm()
         {
             InitializeComponent();
-        }
-
-        private void ManageEmpForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
