@@ -21,6 +21,10 @@
         <AssociationConnector Association="HOTELModel.FK__ManageEmp__empId__2E1BDC42" ManuallyRouted="false" />
         <AssociationConnector Association="HOTELModel.FK__ManageEmp__Id__2D27B809" ManuallyRouted="false" />
         <AssociationConnector Association="HOTELModel.FK__MonneyTra__empId__3A81B327" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HOTELModel.InCome" Width="1.5" PointX="5.25" PointY="12.125" />
+        <EntityTypeShape EntityType="HOTELModel.OutCome" Width="1.5" PointX="5.25" PointY="15.125" />
+        <AssociationConnector Association="HOTELModel.FK__InCome__empId__49C3F6B7" />
+        <AssociationConnector Association="HOTELModel.FK__OutCome__empId__4CA06362" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

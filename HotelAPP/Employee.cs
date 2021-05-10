@@ -22,6 +22,8 @@ namespace HotelAPP
             this.CheckOuts = new HashSet<CheckOut>();
             this.ManageEmps = new HashSet<ManageEmp>();
             this.MonneyTransactions = new HashSet<MonneyTransaction>();
+            this.InComes = new HashSet<InCome>();
+            this.OutComes = new HashSet<OutCome>();
         }
     
         public int Id { get; set; }
@@ -47,5 +49,9 @@ namespace HotelAPP
         public virtual ManageEmp ManageEmp { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MonneyTransaction> MonneyTransactions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InCome> InComes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OutCome> OutComes { get; set; }
     }
 }
