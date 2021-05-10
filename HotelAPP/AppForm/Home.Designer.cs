@@ -63,7 +63,7 @@ namespace HotelAPP.AppForm
             this.menu_pn.Location = new System.Drawing.Point(0, 0);
             this.menu_pn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.menu_pn.Name = "menu_pn";
-            this.menu_pn.Size = new System.Drawing.Size(313, 708);
+            this.menu_pn.Size = new System.Drawing.Size(313, 1080);
             this.menu_pn.TabIndex = 0;
             // 
             // ManageEmp_btn
@@ -156,7 +156,7 @@ namespace HotelAPP.AppForm
             this.titleBar_pn.Location = new System.Drawing.Point(313, 0);
             this.titleBar_pn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.titleBar_pn.Name = "titleBar_pn";
-            this.titleBar_pn.Size = new System.Drawing.Size(883, 92);
+            this.titleBar_pn.Size = new System.Drawing.Size(1607, 92);
             this.titleBar_pn.TabIndex = 1;
             // 
             // maximize_btn
@@ -167,7 +167,7 @@ namespace HotelAPP.AppForm
             this.maximize_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maximize_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maximize_btn.ForeColor = System.Drawing.Color.White;
-            this.maximize_btn.Location = new System.Drawing.Point(796, 0);
+            this.maximize_btn.Location = new System.Drawing.Point(1520, 0);
             this.maximize_btn.Name = "maximize_btn";
             this.maximize_btn.Size = new System.Drawing.Size(39, 35);
             this.maximize_btn.TabIndex = 2;
@@ -183,7 +183,7 @@ namespace HotelAPP.AppForm
             this.minimize_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimize_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimize_btn.ForeColor = System.Drawing.Color.White;
-            this.minimize_btn.Location = new System.Drawing.Point(751, 0);
+            this.minimize_btn.Location = new System.Drawing.Point(1475, 0);
             this.minimize_btn.Name = "minimize_btn";
             this.minimize_btn.Size = new System.Drawing.Size(39, 35);
             this.minimize_btn.TabIndex = 2;
@@ -199,7 +199,7 @@ namespace HotelAPP.AppForm
             this.close_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.close_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.close_btn.ForeColor = System.Drawing.Color.White;
-            this.close_btn.Location = new System.Drawing.Point(841, 0);
+            this.close_btn.Location = new System.Drawing.Point(1565, 0);
             this.close_btn.Name = "close_btn";
             this.close_btn.Size = new System.Drawing.Size(39, 35);
             this.close_btn.TabIndex = 2;
@@ -230,7 +230,7 @@ namespace HotelAPP.AppForm
             this.title_lb.Location = new System.Drawing.Point(0, 0);
             this.title_lb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.title_lb.Name = "title_lb";
-            this.title_lb.Size = new System.Drawing.Size(883, 92);
+            this.title_lb.Size = new System.Drawing.Size(1607, 92);
             this.title_lb.TabIndex = 0;
             this.title_lb.Text = "Home";
             this.title_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -243,7 +243,7 @@ namespace HotelAPP.AppForm
             this.desktop_pn.Location = new System.Drawing.Point(313, 92);
             this.desktop_pn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.desktop_pn.Name = "desktop_pn";
-            this.desktop_pn.Size = new System.Drawing.Size(883, 616);
+            this.desktop_pn.Size = new System.Drawing.Size(1607, 988);
             this.desktop_pn.TabIndex = 2;
             // 
             // hotelLogo_pb
@@ -254,7 +254,7 @@ namespace HotelAPP.AppForm
             this.hotelLogo_pb.Image = global::HotelAPP.Properties.Resources.hotelLogo;
             this.hotelLogo_pb.Location = new System.Drawing.Point(0, 0);
             this.hotelLogo_pb.Name = "hotelLogo_pb";
-            this.hotelLogo_pb.Size = new System.Drawing.Size(883, 616);
+            this.hotelLogo_pb.Size = new System.Drawing.Size(1607, 988);
             this.hotelLogo_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.hotelLogo_pb.TabIndex = 0;
             this.hotelLogo_pb.TabStop = false;
@@ -264,7 +264,7 @@ namespace HotelAPP.AppForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1196, 708);
+            this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.desktop_pn);
             this.Controls.Add(this.titleBar_pn);
             this.Controls.Add(this.menu_pn);

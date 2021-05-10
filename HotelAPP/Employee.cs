@@ -20,9 +20,8 @@ namespace HotelAPP
             this.Accounts = new HashSet<Account>();
             this.CheckIns = new HashSet<CheckIn>();
             this.CheckOuts = new HashSet<CheckOut>();
-            this.ManageEmps = new HashSet<ManageEmp>();
-            this.MonneyTransactions = new HashSet<MonneyTransaction>();
             this.InComes = new HashSet<InCome>();
+            this.ManageEmps = new HashSet<ManageEmp>();
             this.OutComes = new HashSet<OutCome>();
         }
     
@@ -45,12 +44,10 @@ namespace HotelAPP
         public virtual ICollection<CheckOut> CheckOuts { get; set; }
         public virtual Position Position { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InCome> InComes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ManageEmp> ManageEmps { get; set; }
         public virtual ManageEmp ManageEmp { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MonneyTransaction> MonneyTransactions { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InCome> InComes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OutCome> OutComes { get; set; }
     }

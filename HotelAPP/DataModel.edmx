@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="HOTELModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="HOTELModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="username" />
@@ -278,7 +278,8 @@
             <End Role="OutCome" EntitySet="OutCome" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HOTELModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -325,17 +326,27 @@
           <Property Name="salary" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="avatar" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="posId" Type="Int32" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Accounts" Relationship="Self.FK__Account__userID__37A5467C" FromRole="Employee" ToRole="Account" />
           <NavigationProperty Name="CheckIns" Relationship="Self.FK__CheckIn__empId__30F848ED" FromRole="Employee" ToRole="CheckIn" />
           <NavigationProperty Name="CheckOuts" Relationship="Self.FK__CheckOut__empId__33D4B598" FromRole="Employee" ToRole="CheckOut" />
           <NavigationProperty Name="Position" Relationship="Self.FK__Employee__posId__267ABA7A" FromRole="Employee" ToRole="Position" />
+          <NavigationProperty Name="InComes" Relationship="Self.FK__InCome__empId__49C3F6B7" FromRole="Employee" ToRole="InCome" />
           <NavigationProperty Name="ManageEmps" Relationship="Self.FK__ManageEmp__empId__2E1BDC42" FromRole="Employee" ToRole="ManageEmp" />
           <NavigationProperty Name="ManageEmp" Relationship="Self.FK__ManageEmp__Id__2D27B809" FromRole="Employee" ToRole="ManageEmp" />
-          <NavigationProperty Name="MonneyTransactions" Relationship="Self.FK__MonneyTra__empId__3A81B327" FromRole="Employee" ToRole="MonneyTransaction" />
-          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="InComes" Relationship="HOTELModel.FK__InCome__empId__49C3F6B7" FromRole="Employee" ToRole="InCome" />
-          <NavigationProperty Name="OutComes" Relationship="HOTELModel.FK__OutCome__empId__4CA06362" FromRole="Employee" ToRole="OutCome" />
+          <NavigationProperty Name="OutComes" Relationship="Self.FK__OutCome__empId__4CA06362" FromRole="Employee" ToRole="OutCome" />
+        </EntityType>
+        <EntityType Name="InCome">
+          <Key>
+            <PropertyRef Name="inComeId" />
+          </Key>
+          <Property Name="inComeId" Type="Int32" Nullable="false" />
+          <Property Name="executeDate" Type="DateTime" Precision="3" />
+          <Property Name="empId" Type="Int32" />
+          <Property Name="moneyTranfer" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__InCome__empId__49C3F6B7" FromRole="InCome" ToRole="Employee" />
         </EntityType>
         <EntityType Name="ManageEmp">
           <Key>
@@ -346,16 +357,16 @@
           <NavigationProperty Name="Employee" Relationship="Self.FK__ManageEmp__empId__2E1BDC42" FromRole="ManageEmp" ToRole="Employee" />
           <NavigationProperty Name="Employee1" Relationship="Self.FK__ManageEmp__Id__2D27B809" FromRole="ManageEmp" ToRole="Employee" />
         </EntityType>
-        <EntityType Name="MonneyTransaction">
+        <EntityType Name="OutCome">
           <Key>
-            <PropertyRef Name="idTransaction" />
+            <PropertyRef Name="outComeId" />
           </Key>
-          <Property Name="idTransaction" Type="Int32" Nullable="false" />
-          <Property Name="transactionType" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="outComeId" Type="Int32" Nullable="false" />
           <Property Name="executeDate" Type="DateTime" Precision="3" />
           <Property Name="empId" Type="Int32" />
           <Property Name="moneyTranfer" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__MonneyTra__empId__3A81B327" FromRole="MonneyTransaction" ToRole="Employee" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__OutCome__empId__4CA06362" FromRole="OutCome" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -437,6 +448,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__InCome__empId__49C3F6B7">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="InCome" Type="Self.InCome" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InCome">
+              <PropertyRef Name="empId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__ManageEmp__empId__2E1BDC42">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="ManageEmp" Type="Self.ManageEmp" Multiplicity="*" />
@@ -461,14 +484,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__MonneyTra__empId__3A81B327">
+        <Association Name="FK__OutCome__empId__4CA06362">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="MonneyTransaction" Type="Self.MonneyTransaction" Multiplicity="*" />
+          <End Role="OutCome" Type="Self.OutCome" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="MonneyTransaction">
+            <Dependent Role="OutCome">
               <PropertyRef Name="empId" />
             </Dependent>
           </ReferentialConstraint>
@@ -478,8 +501,9 @@
           <EntitySet Name="CheckIns" EntityType="Self.CheckIn" />
           <EntitySet Name="CheckOuts" EntityType="Self.CheckOut" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="InComes" EntityType="Self.InCome" />
           <EntitySet Name="ManageEmps" EntityType="Self.ManageEmp" />
-          <EntitySet Name="MonneyTransactions" EntityType="Self.MonneyTransaction" />
+          <EntitySet Name="OutComes" EntityType="Self.OutCome" />
           <EntitySet Name="Positions" EntityType="Self.Position" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <AssociationSet Name="FK__Account__userID__37A5467C" Association="Self.FK__Account__userID__37A5467C">
@@ -502,6 +526,10 @@
             <End Role="Position" EntitySet="Positions" />
             <End Role="Employee" EntitySet="Employees" />
           </AssociationSet>
+          <AssociationSet Name="FK__InCome__empId__49C3F6B7" Association="Self.FK__InCome__empId__49C3F6B7">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="InCome" EntitySet="InComes" />
+          </AssociationSet>
           <AssociationSet Name="FK__ManageEmp__empId__2E1BDC42" Association="Self.FK__ManageEmp__empId__2E1BDC42">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="ManageEmp" EntitySet="ManageEmps" />
@@ -510,9 +538,9 @@
             <End Role="Employee" EntitySet="Employees" />
             <End Role="ManageEmp" EntitySet="ManageEmps" />
           </AssociationSet>
-          <AssociationSet Name="FK__MonneyTra__empId__3A81B327" Association="Self.FK__MonneyTra__empId__3A81B327">
+          <AssociationSet Name="FK__OutCome__empId__4CA06362" Association="Self.FK__OutCome__empId__4CA06362">
             <End Role="Employee" EntitySet="Employees" />
-            <End Role="MonneyTransaction" EntitySet="MonneyTransactions" />
+            <End Role="OutCome" EntitySet="OutComes" />
           </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -544,16 +572,6 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="InComes" EntityType="HOTELModel.InCome" />
-          <EntitySet Name="OutComes" EntityType="HOTELModel.OutCome" />
-          <AssociationSet Name="FK__InCome__empId__49C3F6B7" Association="HOTELModel.FK__InCome__empId__49C3F6B7">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="InCome" EntitySet="InComes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__OutCome__empId__4CA06362" Association="HOTELModel.FK__OutCome__empId__4CA06362">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="OutCome" EntitySet="OutComes" />
-          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -566,52 +584,6 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="InCome">
-          <Key>
-            <PropertyRef Name="inComeId" />
-          </Key>
-          <Property Name="inComeId" Type="Int32" Nullable="false" />
-          <Property Name="executeDate" Type="DateTime" Precision="3" />
-          <Property Name="empId" Type="Int32" />
-          <Property Name="moneyTranfer" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Employee" Relationship="HOTELModel.FK__InCome__empId__49C3F6B7" FromRole="InCome" ToRole="Employee" />
-        </EntityType>
-        <EntityType Name="OutCome">
-          <Key>
-            <PropertyRef Name="outComeId" />
-          </Key>
-          <Property Name="outComeId" Type="Int32" Nullable="false" />
-          <Property Name="executeDate" Type="DateTime" Precision="3" />
-          <Property Name="empId" Type="Int32" />
-          <Property Name="moneyTranfer" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Employee" Relationship="HOTELModel.FK__OutCome__empId__4CA06362" FromRole="OutCome" ToRole="Employee" />
-        </EntityType>
-        <Association Name="FK__InCome__empId__49C3F6B7">
-          <End Type="HOTELModel.Employee" Role="Employee" Multiplicity="0..1" />
-          <End Type="HOTELModel.InCome" Role="InCome" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="InCome">
-              <PropertyRef Name="empId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__OutCome__empId__4CA06362">
-          <End Type="HOTELModel.Employee" Role="Employee" Multiplicity="0..1" />
-          <End Type="HOTELModel.OutCome" Role="OutCome" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="OutCome">
-              <PropertyRef Name="empId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -648,8 +620,6 @@
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="HOTELModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="phone" ColumnName="phone" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="fname" ColumnName="fname" />
                 <ScalarProperty Name="lname" ColumnName="lname" />
@@ -658,6 +628,19 @@
                 <ScalarProperty Name="salary" ColumnName="salary" />
                 <ScalarProperty Name="avatar" ColumnName="avatar" />
                 <ScalarProperty Name="posId" ColumnName="posId" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InComes">
+            <EntityTypeMapping TypeName="HOTELModel.InCome">
+              <MappingFragment StoreEntitySet="InCome">
+                <ScalarProperty Name="inComeId" ColumnName="inComeId" />
+                <ScalarProperty Name="executeDate" ColumnName="executeDate" />
+                <ScalarProperty Name="empId" ColumnName="empId" />
+                <ScalarProperty Name="moneyTranfer" ColumnName="moneyTranfer" />
+                <ScalarProperty Name="description" ColumnName="description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -666,6 +649,17 @@
               <MappingFragment StoreEntitySet="ManageEmp">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="empId" ColumnName="empId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OutComes">
+            <EntityTypeMapping TypeName="HOTELModel.OutCome">
+              <MappingFragment StoreEntitySet="OutCome">
+                <ScalarProperty Name="outComeId" ColumnName="outComeId" />
+                <ScalarProperty Name="executeDate" ColumnName="executeDate" />
+                <ScalarProperty Name="empId" ColumnName="empId" />
+                <ScalarProperty Name="moneyTranfer" ColumnName="moneyTranfer" />
+                <ScalarProperty Name="description" ColumnName="description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -712,28 +706,6 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="HOTELModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="HOTELModel.Store.sp_upgraddiagrams" />
-          <EntitySetMapping Name="InComes">
-            <EntityTypeMapping TypeName="HOTELModel.InCome">
-              <MappingFragment StoreEntitySet="InCome">
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="moneyTranfer" ColumnName="moneyTranfer" />
-                <ScalarProperty Name="empId" ColumnName="empId" />
-                <ScalarProperty Name="executeDate" ColumnName="executeDate" />
-                <ScalarProperty Name="inComeId" ColumnName="inComeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="OutComes">
-            <EntityTypeMapping TypeName="HOTELModel.OutCome">
-              <MappingFragment StoreEntitySet="OutCome">
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="moneyTranfer" ColumnName="moneyTranfer" />
-                <ScalarProperty Name="empId" ColumnName="empId" />
-                <ScalarProperty Name="executeDate" ColumnName="executeDate" />
-                <ScalarProperty Name="outComeId" ColumnName="outComeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

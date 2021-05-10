@@ -10,7 +10,7 @@ namespace HotelAPP.DataAccess
         {
             hotelDB = new HotelDB();
         }
-        public bool getCurrentUser(string username, string password)
+        public bool getLogin(string username, string password)
         {
             try
             {
@@ -45,6 +45,7 @@ namespace HotelAPP.DataAccess
             }
             catch (Exception)
             {
+                throw;
                 return false;
             }
         }
