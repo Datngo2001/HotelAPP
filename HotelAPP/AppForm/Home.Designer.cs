@@ -35,28 +35,38 @@ namespace HotelAPP.AppForm
             this.position_lb = new System.Windows.Forms.Label();
             this.username_lb = new System.Windows.Forms.Label();
             this.avatar_pn = new System.Windows.Forms.Panel();
-            this.avatar_pb = new System.Windows.Forms.PictureBox();
             this.titleBar_pn = new System.Windows.Forms.Panel();
             this.maximize_btn = new System.Windows.Forms.Button();
             this.minimize_btn = new System.Windows.Forms.Button();
             this.close_btn = new System.Windows.Forms.Button();
-            this.closeChildForm_btn = new System.Windows.Forms.Button();
             this.title_lb = new System.Windows.Forms.Label();
             this.desktop_pn = new System.Windows.Forms.Panel();
+            this.addForm_btn = new System.Windows.Forms.Button();
+            this.editForm_btn = new System.Windows.Forms.Button();
+            this.deleteForm_btn = new System.Windows.Forms.Button();
+            this.checkInOut_btn = new System.Windows.Forms.Button();
+            this.timeTable_btn = new System.Windows.Forms.Button();
             this.hotelLogo_pb = new System.Windows.Forms.PictureBox();
+            this.closeChildForm_btn = new System.Windows.Forms.Button();
+            this.avatar_pb = new System.Windows.Forms.PictureBox();
             this.menu_pn.SuspendLayout();
             this.User_pn.SuspendLayout();
             this.avatar_pn.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.avatar_pb)).BeginInit();
             this.titleBar_pn.SuspendLayout();
             this.desktop_pn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotelLogo_pb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar_pb)).BeginInit();
             this.SuspendLayout();
             // 
             // menu_pn
             // 
             this.menu_pn.AutoScroll = true;
             this.menu_pn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.menu_pn.Controls.Add(this.checkInOut_btn);
+            this.menu_pn.Controls.Add(this.timeTable_btn);
+            this.menu_pn.Controls.Add(this.deleteForm_btn);
+            this.menu_pn.Controls.Add(this.editForm_btn);
+            this.menu_pn.Controls.Add(this.addForm_btn);
             this.menu_pn.Controls.Add(this.ManageEmp_btn);
             this.menu_pn.Controls.Add(this.User_pn);
             this.menu_pn.Dock = System.Windows.Forms.DockStyle.Left;
@@ -74,14 +84,14 @@ namespace HotelAPP.AppForm
             this.ManageEmp_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ManageEmp_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ManageEmp_btn.ForeColor = System.Drawing.Color.White;
-            this.ManageEmp_btn.Image = global::HotelAPP.Properties.Resources.emp;
             this.ManageEmp_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ManageEmp_btn.Location = new System.Drawing.Point(0, 92);
             this.ManageEmp_btn.Margin = new System.Windows.Forms.Padding(4, 15, 4, 15);
             this.ManageEmp_btn.Name = "ManageEmp_btn";
-            this.ManageEmp_btn.Size = new System.Drawing.Size(313, 77);
+            this.ManageEmp_btn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.ManageEmp_btn.Size = new System.Drawing.Size(313, 65);
             this.ManageEmp_btn.TabIndex = 2;
-            this.ManageEmp_btn.Text = "   Manage Employee";
+            this.ManageEmp_btn.Text = "Employee";
             this.ManageEmp_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ManageEmp_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ManageEmp_btn.UseVisualStyleBackColor = true;
@@ -131,18 +141,6 @@ namespace HotelAPP.AppForm
             this.avatar_pn.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
             this.avatar_pn.Size = new System.Drawing.Size(93, 92);
             this.avatar_pn.TabIndex = 2;
-            // 
-            // avatar_pb
-            // 
-            this.avatar_pb.Dock = System.Windows.Forms.DockStyle.Right;
-            this.avatar_pb.Image = global::HotelAPP.Properties.Resources.user_icon1;
-            this.avatar_pb.Location = new System.Drawing.Point(21, 10);
-            this.avatar_pb.Margin = new System.Windows.Forms.Padding(0);
-            this.avatar_pb.Name = "avatar_pb";
-            this.avatar_pb.Size = new System.Drawing.Size(72, 72);
-            this.avatar_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.avatar_pb.TabIndex = 5;
-            this.avatar_pb.TabStop = false;
             // 
             // titleBar_pn
             // 
@@ -207,21 +205,6 @@ namespace HotelAPP.AppForm
             this.close_btn.UseVisualStyleBackColor = true;
             this.close_btn.Click += new System.EventHandler(this.close_btn_Click_1);
             // 
-            // closeChildForm_btn
-            // 
-            this.closeChildForm_btn.Dock = System.Windows.Forms.DockStyle.Left;
-            this.closeChildForm_btn.FlatAppearance.BorderSize = 0;
-            this.closeChildForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeChildForm_btn.Image = global::HotelAPP.Properties.Resources.cross_out__2_;
-            this.closeChildForm_btn.Location = new System.Drawing.Point(0, 0);
-            this.closeChildForm_btn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.closeChildForm_btn.Name = "closeChildForm_btn";
-            this.closeChildForm_btn.Size = new System.Drawing.Size(112, 92);
-            this.closeChildForm_btn.TabIndex = 1;
-            this.closeChildForm_btn.UseVisualStyleBackColor = true;
-            this.closeChildForm_btn.Visible = false;
-            this.closeChildForm_btn.Click += new System.EventHandler(this.close_btn_Click);
-            // 
             // title_lb
             // 
             this.title_lb.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -246,6 +229,110 @@ namespace HotelAPP.AppForm
             this.desktop_pn.Size = new System.Drawing.Size(1607, 988);
             this.desktop_pn.TabIndex = 2;
             // 
+            // addForm_btn
+            // 
+            this.addForm_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.addForm_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.addForm_btn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addForm_btn.FlatAppearance.BorderSize = 0;
+            this.addForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addForm_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addForm_btn.ForeColor = System.Drawing.Color.White;
+            this.addForm_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addForm_btn.Location = new System.Drawing.Point(0, 157);
+            this.addForm_btn.Margin = new System.Windows.Forms.Padding(4, 15, 4, 15);
+            this.addForm_btn.Name = "addForm_btn";
+            this.addForm_btn.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
+            this.addForm_btn.Size = new System.Drawing.Size(313, 47);
+            this.addForm_btn.TabIndex = 5;
+            this.addForm_btn.Text = "Add";
+            this.addForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addForm_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.addForm_btn.UseVisualStyleBackColor = false;
+            this.addForm_btn.Click += new System.EventHandler(this.addForm_btn_Click);
+            // 
+            // editForm_btn
+            // 
+            this.editForm_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.editForm_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.editForm_btn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.editForm_btn.FlatAppearance.BorderSize = 0;
+            this.editForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editForm_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editForm_btn.ForeColor = System.Drawing.Color.White;
+            this.editForm_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.editForm_btn.Location = new System.Drawing.Point(0, 204);
+            this.editForm_btn.Margin = new System.Windows.Forms.Padding(4, 15, 4, 15);
+            this.editForm_btn.Name = "editForm_btn";
+            this.editForm_btn.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
+            this.editForm_btn.Size = new System.Drawing.Size(313, 47);
+            this.editForm_btn.TabIndex = 8;
+            this.editForm_btn.Text = "Edit";
+            this.editForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.editForm_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.editForm_btn.UseVisualStyleBackColor = false;
+            this.editForm_btn.Click += new System.EventHandler(this.editForm_btn_Click);
+            // 
+            // deleteForm_btn
+            // 
+            this.deleteForm_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.deleteForm_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.deleteForm_btn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.deleteForm_btn.FlatAppearance.BorderSize = 0;
+            this.deleteForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteForm_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteForm_btn.ForeColor = System.Drawing.Color.White;
+            this.deleteForm_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deleteForm_btn.Location = new System.Drawing.Point(0, 251);
+            this.deleteForm_btn.Margin = new System.Windows.Forms.Padding(4, 15, 4, 15);
+            this.deleteForm_btn.Name = "deleteForm_btn";
+            this.deleteForm_btn.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
+            this.deleteForm_btn.Size = new System.Drawing.Size(313, 47);
+            this.deleteForm_btn.TabIndex = 9;
+            this.deleteForm_btn.Text = "Delete";
+            this.deleteForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deleteForm_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.deleteForm_btn.UseVisualStyleBackColor = false;
+            this.deleteForm_btn.Click += new System.EventHandler(this.deleteForm_btn_Click);
+            // 
+            // checkInOut_btn
+            // 
+            this.checkInOut_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.checkInOut_btn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkInOut_btn.FlatAppearance.BorderSize = 0;
+            this.checkInOut_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkInOut_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkInOut_btn.ForeColor = System.Drawing.Color.White;
+            this.checkInOut_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.checkInOut_btn.Location = new System.Drawing.Point(0, 363);
+            this.checkInOut_btn.Margin = new System.Windows.Forms.Padding(4, 15, 4, 15);
+            this.checkInOut_btn.Name = "checkInOut_btn";
+            this.checkInOut_btn.Size = new System.Drawing.Size(313, 65);
+            this.checkInOut_btn.TabIndex = 11;
+            this.checkInOut_btn.Text = "   Check in, Check out";
+            this.checkInOut_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.checkInOut_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.checkInOut_btn.UseVisualStyleBackColor = true;
+            // 
+            // timeTable_btn
+            // 
+            this.timeTable_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.timeTable_btn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.timeTable_btn.FlatAppearance.BorderSize = 0;
+            this.timeTable_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.timeTable_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeTable_btn.ForeColor = System.Drawing.Color.White;
+            this.timeTable_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.timeTable_btn.Location = new System.Drawing.Point(0, 298);
+            this.timeTable_btn.Margin = new System.Windows.Forms.Padding(4, 15, 4, 15);
+            this.timeTable_btn.Name = "timeTable_btn";
+            this.timeTable_btn.Size = new System.Drawing.Size(313, 65);
+            this.timeTable_btn.TabIndex = 10;
+            this.timeTable_btn.Text = "   Shift";
+            this.timeTable_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.timeTable_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.timeTable_btn.UseVisualStyleBackColor = true;
+            // 
             // hotelLogo_pb
             // 
             this.hotelLogo_pb.BackColor = System.Drawing.Color.White;
@@ -258,6 +345,33 @@ namespace HotelAPP.AppForm
             this.hotelLogo_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.hotelLogo_pb.TabIndex = 0;
             this.hotelLogo_pb.TabStop = false;
+            // 
+            // closeChildForm_btn
+            // 
+            this.closeChildForm_btn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.closeChildForm_btn.FlatAppearance.BorderSize = 0;
+            this.closeChildForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeChildForm_btn.Image = global::HotelAPP.Properties.Resources.cross_out__2_;
+            this.closeChildForm_btn.Location = new System.Drawing.Point(0, 0);
+            this.closeChildForm_btn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.closeChildForm_btn.Name = "closeChildForm_btn";
+            this.closeChildForm_btn.Size = new System.Drawing.Size(112, 92);
+            this.closeChildForm_btn.TabIndex = 1;
+            this.closeChildForm_btn.UseVisualStyleBackColor = true;
+            this.closeChildForm_btn.Visible = false;
+            this.closeChildForm_btn.Click += new System.EventHandler(this.close_btn_Click);
+            // 
+            // avatar_pb
+            // 
+            this.avatar_pb.Dock = System.Windows.Forms.DockStyle.Right;
+            this.avatar_pb.Image = global::HotelAPP.Properties.Resources.user_icon1;
+            this.avatar_pb.Location = new System.Drawing.Point(21, 10);
+            this.avatar_pb.Margin = new System.Windows.Forms.Padding(0);
+            this.avatar_pb.Name = "avatar_pb";
+            this.avatar_pb.Size = new System.Drawing.Size(72, 72);
+            this.avatar_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.avatar_pb.TabIndex = 5;
+            this.avatar_pb.TabStop = false;
             // 
             // Home
             // 
@@ -279,11 +393,11 @@ namespace HotelAPP.AppForm
             this.menu_pn.ResumeLayout(false);
             this.User_pn.ResumeLayout(false);
             this.avatar_pn.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.avatar_pb)).EndInit();
             this.titleBar_pn.ResumeLayout(false);
             this.titleBar_pn.PerformLayout();
             this.desktop_pn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.hotelLogo_pb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar_pb)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -305,5 +419,10 @@ namespace HotelAPP.AppForm
         private System.Windows.Forms.Label username_lb;
         private System.Windows.Forms.Panel avatar_pn;
         private System.Windows.Forms.PictureBox avatar_pb;
+        private System.Windows.Forms.Button addForm_btn;
+        private System.Windows.Forms.Button checkInOut_btn;
+        private System.Windows.Forms.Button timeTable_btn;
+        private System.Windows.Forms.Button deleteForm_btn;
+        private System.Windows.Forms.Button editForm_btn;
     }
 }

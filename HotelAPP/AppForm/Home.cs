@@ -48,13 +48,13 @@ namespace HotelAPP.AppForm
                     DisableButton();
                     Color color = SelectThemeColor();
                     currentButton = (Button)btnSender;
-                    currentButton.BackColor = color;
+                    currentButton.BackColor = Color.FromArgb(0, 150, 136);
                     currentButton.ForeColor = Color.White;
                     currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    titleBar_pn.BackColor = color;
-                    User_pn.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-                    ThemeColor.PrimaryColor = color;
-                    ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
+                    //titleBar_pn.BackColor = color;
+                    //User_pn.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
+                    //ThemeColor.PrimaryColor = color;
+                    //ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
                     //btnCloseChildForm.Visible = true;
                 }
             }
@@ -149,6 +149,21 @@ namespace HotelAPP.AppForm
             {
                 avatar_pb.Image = new ImageTool().ClipToCircle(CurrentUser.Avatar);
             }
+        }
+
+        private void addForm_btn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AddEmpForm(), sender);
+        }
+
+        private void editForm_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteForm_btn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
