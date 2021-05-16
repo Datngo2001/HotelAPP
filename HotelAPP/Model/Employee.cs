@@ -174,5 +174,19 @@ namespace HotelAPP
                 throw;
             }
         }
+        public bool addEmpthis()
+        {
+            try
+            {
+                hotelDB.Employees.Add(this);
+                hotelDB.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
     }
 }
