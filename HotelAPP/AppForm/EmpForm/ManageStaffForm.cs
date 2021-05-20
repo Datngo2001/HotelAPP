@@ -21,10 +21,33 @@ namespace HotelAPP.AppForm.EmpForm
         private void ManageStaffForm_Load(object sender, EventArgs e)
         {
             employee = new Employee();
-            //listEmp_dgv.DataSource = employee.getAllEmp();
+            show_dgv.DataSource = employee.getAllEmp();
+            show_dgv.RowTemplate.Height = 80;
+            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
+            imageColumn = (DataGridViewImageColumn)show_dgv.Columns["avatar"];
+            imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            show_dgv.AllowUserToAddRows = false;
+
+            int n = show_dgv.Columns.Count;
+            for (int i = 12; i < n; i++)
+            {
+                try
+                {
+                    show_dgv.Columns[i].Visible = false;
+                }
+                catch (Exception)
+                {
+                    break;
+                }
+            }
         }
 
         private void add_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void show_dgv_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
 
         }

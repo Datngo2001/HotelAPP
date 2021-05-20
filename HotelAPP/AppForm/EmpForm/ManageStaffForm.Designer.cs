@@ -34,6 +34,7 @@ namespace HotelAPP.AppForm.EmpForm
             this.edit_btn = new System.Windows.Forms.Button();
             this.add_btn = new System.Windows.Forms.Button();
             this.listEmp_pn = new System.Windows.Forms.Panel();
+            this.show_dgv = new System.Windows.Forms.DataGridView();
             this.listEmp_dgv = new System.Windows.Forms.DataGridView();
             this.search_pn = new System.Windows.Forms.Panel();
             this.search_tb = new System.Windows.Forms.TextBox();
@@ -41,6 +42,7 @@ namespace HotelAPP.AppForm.EmpForm
             this.search_lb = new System.Windows.Forms.Label();
             this.button_pn.SuspendLayout();
             this.listEmp_pn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.show_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listEmp_dgv)).BeginInit();
             this.search_pn.SuspendLayout();
             this.SuspendLayout();
@@ -105,6 +107,7 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             // listEmp_pn
             // 
+            this.listEmp_pn.Controls.Add(this.show_dgv);
             this.listEmp_pn.Controls.Add(this.listEmp_dgv);
             this.listEmp_pn.Controls.Add(this.search_pn);
             this.listEmp_pn.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -112,6 +115,19 @@ namespace HotelAPP.AppForm.EmpForm
             this.listEmp_pn.Name = "listEmp_pn";
             this.listEmp_pn.Size = new System.Drawing.Size(1585, 843);
             this.listEmp_pn.TabIndex = 2;
+            // 
+            // show_dgv
+            // 
+            this.show_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.show_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.show_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.show_dgv.Location = new System.Drawing.Point(0, 58);
+            this.show_dgv.Name = "show_dgv";
+            this.show_dgv.RowHeadersWidth = 62;
+            this.show_dgv.RowTemplate.Height = 28;
+            this.show_dgv.Size = new System.Drawing.Size(1585, 785);
+            this.show_dgv.TabIndex = 3;
+            this.show_dgv.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.show_dgv_DataError);
             // 
             // listEmp_dgv
             // 
@@ -189,6 +205,7 @@ namespace HotelAPP.AppForm.EmpForm
             this.Load += new System.EventHandler(this.ManageStaffForm_Load);
             this.button_pn.ResumeLayout(false);
             this.listEmp_pn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.show_dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listEmp_dgv)).EndInit();
             this.search_pn.ResumeLayout(false);
             this.search_pn.PerformLayout();
@@ -207,5 +224,6 @@ namespace HotelAPP.AppForm.EmpForm
         private System.Windows.Forms.TextBox search_tb;
         private System.Windows.Forms.Button delete_btn;
         private System.Windows.Forms.Button edit_btn;
+        private System.Windows.Forms.DataGridView show_dgv;
     }
 }
