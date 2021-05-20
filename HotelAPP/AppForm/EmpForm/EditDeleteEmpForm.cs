@@ -11,12 +11,14 @@ using System.Windows.Forms;
 
 namespace HotelAPP.AppForm.EmpForm
 {
-    public partial class AddEmpForm : Form
+    public partial class EditDeleteEmpForm : Form
     {
         List<Position> listPos;
-        public AddEmpForm()
+        public Employee employee; 
+        public EditDeleteEmpForm()
         {
             InitializeComponent();
+            employee = new Employee();
         }
         private void upload_btn_Click(object sender, EventArgs e)
         {
@@ -40,11 +42,11 @@ namespace HotelAPP.AppForm.EmpForm
         {
             this.Close();
         }
-        private void add_btn_Click(object sender, EventArgs e)
+        private void edit_btn_Click(object sender, EventArgs e)
         {
-            if ((checkid() && checkPhone() && checkCMND()) == false) return; 
+            if ((checkid() && checkPhone() && checkCMND()) == false) return;
 
-            Employee employee = new Employee()
+            Employee emp = new Employee()
             {
                 fname = fname_tx.Text,
                 lname = lname_tb.Text,
@@ -55,7 +57,7 @@ namespace HotelAPP.AppForm.EmpForm
 
             try
             {
-                employee.Id = Convert.ToInt32(id_tb.Text);
+                emp.Id = Convert.ToInt32(id_tb.Text);
             }
             catch (Exception)
             {
@@ -65,9 +67,9 @@ namespace HotelAPP.AppForm.EmpForm
 
             try
             {
-                if(manager_tb.Text == "")
+                if (manager_tb.Text == "")
                 {
-                    employee.manager = null;
+                    emp.manager = null;
                 }
                 else
                 {
@@ -78,7 +80,7 @@ namespace HotelAPP.AppForm.EmpForm
                     }
                     else
                     {
-                        employee.manager = Convert.ToInt32(manager_tb.Text);
+                        emp.manager = Convert.ToInt32(manager_tb.Text);
                     }
                 }
             }
@@ -90,7 +92,7 @@ namespace HotelAPP.AppForm.EmpForm
 
             try
             {
-                employee.salary = Convert.ToDecimal(salary_tb.Text);
+                emp.salary = Convert.ToDecimal(salary_tb.Text);
             }
             catch (Exception)
             {
@@ -100,7 +102,7 @@ namespace HotelAPP.AppForm.EmpForm
 
             try
             {
-                employee.phone = Convert.ToUInt64(phone_tb.Text).ToString();
+                emp.phone = Convert.ToUInt64(phone_tb.Text).ToString();
             }
             catch (Exception)
             {
@@ -110,7 +112,7 @@ namespace HotelAPP.AppForm.EmpForm
 
             try
             {
-                employee.avatar = new ImageTool(pictureBox.Image).toByteArray();
+                emp.avatar = new ImageTool(pictureBox.Image).toByteArray();
             }
             catch (Exception)
             {
@@ -122,9 +124,9 @@ namespace HotelAPP.AppForm.EmpForm
             {
                 // tim posId theo posName
                 int select = (listPos.Find(p => p.posName == positon_cb.Text)).posId;
-                if(select > 0)
+                if (select > 0)
                 {
-                    employee.posId = select;
+                    emp.posId = select;
                 }
             }
             catch (Exception)
@@ -135,26 +137,26 @@ namespace HotelAPP.AppForm.EmpForm
 
             if (female_rbtn.Checked)
             {
-                employee.gender = "F";
+                emp.gender = "F";
             }
             else if (male_rbtn.Checked)
             {
-                employee.gender = "M";
+                emp.gender = "M";
             }
 
-            employee.addEmp(employee);
+            emp.updateEmp(employee);
 
             // insert emp account
 
-            if(password_tb.Text != reenter_tb.Text)
+            if (password_tb.Text != reenter_tb.Text)
             {
                 MessageBox.Show("Password not match", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            Account account = new Account();
+            Account acc = new Account();
 
-            if(account.AddNewAccount(username_tb.Text, password_tb.Text, Convert.ToInt32(id_tb.Text)) == false)
+            if (acc.updateAccount(username_tb.Text, password_tb.Text, Convert.ToInt32(id_tb.Text)) == false)
             {
                 MessageBox.Show("Username Existed", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -162,7 +164,30 @@ namespace HotelAPP.AppForm.EmpForm
 
             MessageBox.Show("OK");
         }
-
+        private void delete_btn_Click(object sender, EventArgs e)
+        {
+            Employee emp = new Employee();
+            Account acc = new Account();
+            try
+            {
+                emp.Id = Convert.ToInt32(id_tb.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Invalid Id", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (acc.deleteAcc(Convert.ToInt32(id_tb.Text)) == false){
+                MessageBox.Show("Failse", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (emp.deleteEmp(Convert.ToInt32(id_tb.Text)) == false)
+            {
+                MessageBox.Show("Failse", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            MessageBox.Show("OK");
+        }
         private void AddEmpForm_Load(object sender, EventArgs e)
         {
             loadPos();
@@ -177,7 +202,7 @@ namespace HotelAPP.AppForm.EmpForm
         }
         private void idCheck_btn_Click(object sender, EventArgs e)
         {
-            if(checkid() == true)
+            if (checkid() == true)
             {
                 MessageBox.Show("OK");
             }
@@ -186,10 +211,9 @@ namespace HotelAPP.AppForm.EmpForm
                 MessageBox.Show("Id existed", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void checkCMND_btn_Click(object sender, EventArgs e)
         {
-            if(checkCMND() == true)
+            if (checkCMND() == true)
             {
                 MessageBox.Show("OK");
             }
@@ -200,7 +224,7 @@ namespace HotelAPP.AppForm.EmpForm
         }
         private void checkPhone_btn_Click(object sender, EventArgs e)
         {
-            if(checkPhone() == true)
+            if (checkPhone() == true)
             {
                 MessageBox.Show("OK");
             }
@@ -211,7 +235,7 @@ namespace HotelAPP.AppForm.EmpForm
         }
         private void checkUserName_btn_Click(object sender, EventArgs e)
         {
-            if(checkUsername() == true)
+            if (checkUsername() == true)
             {
                 MessageBox.Show("OK");
             }
@@ -233,10 +257,10 @@ namespace HotelAPP.AppForm.EmpForm
         }
         private bool checkUsername()
         {
-            Account account = new Account();
+            Account acc = new Account();
             try
             {
-                if(account.ExistUsernamCheck(username_tb.Text) == false)
+                if (acc.ExistUsernamCheck(username_tb.Text) == false)
                 {
                     return false;
                 }
@@ -252,7 +276,6 @@ namespace HotelAPP.AppForm.EmpForm
         }
         private bool checkid()
         {
-            Employee emp = new Employee();
             int id;
             try
             {
@@ -265,7 +288,7 @@ namespace HotelAPP.AppForm.EmpForm
             }
             try
             {
-                var temp = emp.getByID(id);
+                var temp = employee.getByID(id);
                 return false;
             }
             catch (Exception)
@@ -275,7 +298,6 @@ namespace HotelAPP.AppForm.EmpForm
         }
         private bool checkPhone()
         {
-            Employee emp = new Employee();
             string phone;
             try
             {
@@ -288,7 +310,7 @@ namespace HotelAPP.AppForm.EmpForm
             }
             try
             {
-                var temp = emp.getByPhone(phone);
+                var temp = employee.getByPhone(phone);
                 if (temp.Count == 0)
                 {
                     return true;
@@ -305,11 +327,10 @@ namespace HotelAPP.AppForm.EmpForm
         }
         private bool checkCMND()
         {
-            Employee emp = new Employee();
             try
             {
-                var temp = emp.getByCMND(cmnd_tb.Text);
-                if(temp.Count == 0)
+                var temp = employee.getByCMND(cmnd_tb.Text);
+                if (temp.Count == 0)
                 {
                     return true;
                 }
@@ -325,7 +346,6 @@ namespace HotelAPP.AppForm.EmpForm
         }
         private bool checkManager()
         {
-            Employee emp = new Employee();
             int id;
             try
             {
@@ -338,8 +358,8 @@ namespace HotelAPP.AppForm.EmpForm
             }
             try
             {
-                var temp = emp.getManager(id);
-                if(temp.Count == 0)
+                var temp = employee.getManager(id);
+                if (temp.Count == 0)
                 {
                     return false;
                 }

@@ -70,7 +70,6 @@ namespace HotelAPP
                 return false;
             }
         }
-
         public bool AddNewAccount(string username, string password, int user_id)
         {
             try
@@ -92,5 +91,34 @@ namespace HotelAPP
                 return false;
             }
         }
+        public bool updateAccount(string username, string password, int user_id)
+        {
+            try
+            {
+                var uAcc = hotelDB.Accounts.Single(a => a.userID == user_id);
+                uAcc.password = password;
+                uAcc.username = username;
+                hotelDB.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public bool deleteAcc(int user_id)
+        {
+            try
+            {
+                var dAcc = hotelDB.Accounts.Single(a => a.userID == user_id);
+                hotelDB.Accounts.Remove(dAcc);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
     }
 }

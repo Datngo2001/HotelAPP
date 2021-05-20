@@ -166,12 +166,7 @@ namespace HotelAPP.AppForm
 
         private void editForm_btn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void deleteForm_btn_Click(object sender, EventArgs e)
-        {
-
+            OpenChildForm(new EditDeleteEmpForm(), sender);
         }
     }
 }

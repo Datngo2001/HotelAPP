@@ -64,6 +64,12 @@
     <Compile Include="AppForm\EmpForm\AddEmpForm.Designer.cs">
       <DependentUpon>AddEmpForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppForm\EmpForm\EditDeleteEmpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForm\EmpForm\EditDeleteEmpForm.Designer.cs">
+      <DependentUpon>EditDeleteEmpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppForm\EmpForm\ManageStaffForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     <Compile Include="Tools\ImageTool.cs" />
     <EmbeddedResource Include="AppForm\EmpForm\AddEmpForm.resx">
       <DependentUpon>AddEmpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForm\EmpForm\EditDeleteEmpForm.resx">
+      <DependentUpon>EditDeleteEmpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AppForm\EmpForm\ManageStaffForm.resx">
       <DependentUpon>ManageStaffForm.cs</DependentUpon>

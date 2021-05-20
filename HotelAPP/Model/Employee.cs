@@ -210,5 +210,43 @@ namespace HotelAPP
                 throw;
             }
         }
+        public bool updateEmp(Employee emp)
+        {
+            try
+            {
+                var uEmp = hotelDB.Employees.Single(e => e.Id == emp.Id);
+                uEmp.fname = emp.fname;
+                uEmp.lname = emp.lname;
+                uEmp.CMND = emp.CMND;
+                uEmp.bdate = emp.bdate;
+                uEmp.salary = emp.salary;
+                uEmp.avatar = emp.avatar;
+                uEmp.posId = emp.posId;
+                uEmp.phone = emp.phone;
+                uEmp.address = emp.address;
+                uEmp.gender = emp.gender;
+                uEmp.manager = emp.manager;
+                hotelDB.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+        public bool deleteEmp(int id)
+        {
+            try
+            {
+                var dEmp = hotelDB.Employees.Single(e => e.Id == id);
+                hotelDB.Employees.Remove(dEmp);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
