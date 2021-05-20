@@ -30,17 +30,17 @@ namespace HotelAPP
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<CheckIn> CheckIns { get; set; }
         public virtual DbSet<CheckOut> CheckOuts { get; set; }
+        public virtual DbSet<Consume> Consumes { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<InCome> InComes { get; set; }
         public virtual DbSet<ManageEmp> ManageEmps { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OutCome> OutComes { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Consume> Consumes { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
