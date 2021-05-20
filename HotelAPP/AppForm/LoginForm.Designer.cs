@@ -77,7 +77,7 @@ namespace HotelAPP.AppForm
             this.close_btn.Location = new System.Drawing.Point(563, 3);
             this.close_btn.Name = "close_btn";
             this.close_btn.Size = new System.Drawing.Size(39, 35);
-            this.close_btn.TabIndex = 7;
+            this.close_btn.TabIndex = 100;
             this.close_btn.Text = "O";
             this.close_btn.UseVisualStyleBackColor = true;
             this.close_btn.Click += new System.EventHandler(this.close_btn_Click);
@@ -105,7 +105,7 @@ namespace HotelAPP.AppForm
             this.login_btn.Location = new System.Drawing.Point(182, 10);
             this.login_btn.Name = "login_btn";
             this.login_btn.Size = new System.Drawing.Size(241, 50);
-            this.login_btn.TabIndex = 0;
+            this.login_btn.TabIndex = 100;
             this.login_btn.Text = "Log in";
             this.login_btn.UseVisualStyleBackColor = false;
             this.login_btn.Click += new System.EventHandler(this.login_btn_Click);
@@ -121,7 +121,7 @@ namespace HotelAPP.AppForm
             this.signIn_btn.Location = new System.Drawing.Point(182, 66);
             this.signIn_btn.Name = "signIn_btn";
             this.signIn_btn.Size = new System.Drawing.Size(241, 50);
-            this.signIn_btn.TabIndex = 0;
+            this.signIn_btn.TabIndex = 100;
             this.signIn_btn.Text = "Sign in";
             this.signIn_btn.UseVisualStyleBackColor = false;
             this.signIn_btn.Click += new System.EventHandler(this.signIn_btn_Click);
@@ -165,7 +165,7 @@ namespace HotelAPP.AppForm
             this.forgot_llb.Location = new System.Drawing.Point(0, 0);
             this.forgot_llb.Name = "forgot_llb";
             this.forgot_llb.Size = new System.Drawing.Size(605, 145);
-            this.forgot_llb.TabIndex = 0;
+            this.forgot_llb.TabIndex = 100;
             this.forgot_llb.TabStop = true;
             this.forgot_llb.Text = "Forgot your password?";
             this.forgot_llb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -190,7 +190,7 @@ namespace HotelAPP.AppForm
             this.password_tb.Name = "password_tb";
             this.password_tb.PasswordChar = '*';
             this.password_tb.Size = new System.Drawing.Size(352, 28);
-            this.password_tb.TabIndex = 2;
+            this.password_tb.TabIndex = 1;
             this.password_tb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // split_pn2
@@ -221,7 +221,7 @@ namespace HotelAPP.AppForm
             this.username_tb.Location = new System.Drawing.Point(127, 29);
             this.username_tb.Name = "username_tb";
             this.username_tb.Size = new System.Drawing.Size(352, 28);
-            this.username_tb.TabIndex = 2;
+            this.username_tb.TabIndex = 0;
             this.username_tb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // split_pn1

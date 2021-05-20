@@ -88,7 +88,13 @@
     <Compile Include="CheckOut.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Consume.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CurrentUser.cs" />
+    <Compile Include="Customer.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -115,10 +121,16 @@
     </Compile>
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Employee.cs" />
+    <Compile Include="Order.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="OutCome.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Position.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -127,6 +139,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Room.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>DataModel.tt</DependentUpon>

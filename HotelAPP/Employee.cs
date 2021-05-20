@@ -11,7 +11,6 @@ namespace HotelAPP
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     
     public partial class Employee
     {
@@ -51,7 +50,5 @@ namespace HotelAPP
         public virtual ManageEmp ManageEmp { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OutCome> OutComes { get; set; }
-
-        
     }
 }

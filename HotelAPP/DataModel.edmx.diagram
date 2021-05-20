@@ -23,6 +23,16 @@
         <AssociationConnector Association="HOTELModel.FK__ManageEmp__empId__2E1BDC42" ManuallyRouted="false" />
         <AssociationConnector Association="HOTELModel.FK__ManageEmp__Id__2D27B809" ManuallyRouted="false" />
         <AssociationConnector Association="HOTELModel.FK__OutCome__empId__4CA06362" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HOTELModel.Consume" Width="1.5" PointX="9.625" PointY="11.25" />
+        <EntityTypeShape EntityType="HOTELModel.Customer" Width="1.5" PointX="9.625" PointY="15.125" />
+        <EntityTypeShape EntityType="HOTELModel.Order" Width="1.5" PointX="11.875" PointY="14.375" />
+        <EntityTypeShape EntityType="HOTELModel.Product" Width="1.5" PointX="7.375" PointY="15.5" />
+        <EntityTypeShape EntityType="HOTELModel.Room" Width="1.5" PointX="7.375" PointY="12.375" />
+        <AssociationConnector Association="HOTELModel.FK_Consume_Product" />
+        <AssociationConnector Association="HOTELModel.FK_Consume_Room" />
+        <AssociationConnector Association="HOTELModel.FK_Customer_Room" />
+        <AssociationConnector Association="HOTELModel.FK_Order_Customer" />
+        <AssociationConnector Association="HOTELModel.FK_Order_Room" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

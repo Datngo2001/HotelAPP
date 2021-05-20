@@ -12,12 +12,13 @@ namespace HotelAPP
     using System;
     using System.Collections.Generic;
     
-    public partial class Account
+    public partial class Order
     {
-        public string username { get; set; }
-        public string password { get; set; }
-        public Nullable<int> userID { get; set; }
+        public int id { get; set; }
+        public Nullable<int> roomID { get; set; }
+        public Nullable<int> customerID { get; set; }
     
-        public virtual Employee Employee { get; set; }
+        public virtual Customer Customer { get; set; }
+        public virtual Room Room { get; set; }
     }
 }
