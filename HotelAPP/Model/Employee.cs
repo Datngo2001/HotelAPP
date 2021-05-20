@@ -6,7 +6,7 @@ namespace HotelAPP
 {
     public partial class Employee
     {
-        HotelDB hotelDB;
+        HotelDB hotelDB = new HotelDB();
 
         public Employee getByID(int id)
         {
@@ -40,6 +40,7 @@ namespace HotelAPP
         }
         public List<Employee> getByPhone(string phone)
         {
+            phone = phone.Trim();
             try
             {
                 var list = (from emps in hotelDB.Employees
@@ -55,6 +56,7 @@ namespace HotelAPP
         }
         public List<Employee> getByAddress(string address)
         {
+            address = address.Trim();
             try
             {
                 var list = (from emps in hotelDB.Employees
@@ -70,6 +72,7 @@ namespace HotelAPP
         }
         public List<Employee> getByCMND(string cmnd)
         {
+            cmnd = cmnd.Trim();
             try
             {
                 var list = (from emps in hotelDB.Employees
@@ -85,6 +88,7 @@ namespace HotelAPP
         }
         public List<Employee> getByFname(string fname)
         {
+            fname = fname.Trim();
             try
             {
                 var list = (from emps in hotelDB.Employees
@@ -100,6 +104,7 @@ namespace HotelAPP
         }
         public List<Employee> getByLname(string lname)
         {
+            lname = lname.Trim();
             try
             {
                 var list = (from emps in hotelDB.Employees
@@ -160,6 +165,7 @@ namespace HotelAPP
         }
         public List<Employee> getByPosition(string posname)
         {
+            posname = posname.Trim();
             try
             {
                 var list = (from emps in hotelDB.Employees
@@ -174,11 +180,27 @@ namespace HotelAPP
                 throw;
             }
         }
-        public bool addEmpthis()
+        public List<Employee> getManager(int id)
         {
             try
             {
-                hotelDB.Employees.Add(this);
+                var list = (from emps in hotelDB.Employees
+                            where emps.Id == id && emps.posId == 1
+                            select emps).ToList();
+                return list;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        public bool addEmp(Employee emp)
+        {
+            try
+            {
+                hotelDB.Employees.Add(emp);
                 hotelDB.SaveChanges();
                 return true;
             }

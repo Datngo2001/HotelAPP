@@ -71,6 +71,8 @@
           <Property Name="posId" Type="int" />
           <Property Name="phone" Type="varchar" MaxLength="20" />
           <Property Name="address" Type="text" />
+          <Property Name="gender" Type="char" MaxLength="1" />
+          <Property Name="manager" Type="int" />
         </EntityType>
         <EntityType Name="InCome">
           <Key>
@@ -85,9 +87,10 @@
         <EntityType Name="ManageEmp">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="empId" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="empId" Type="int" />
+          <Property Name="empId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -216,7 +219,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ManageEmp__empId__2A4B4B5E">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="ManageEmp" Type="Self.ManageEmp" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -229,7 +232,7 @@
         </Association>
         <Association Name="FK__ManageEmp__Id__29572725">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="ManageEmp" Type="Self.ManageEmp" Multiplicity="0..1" />
+          <End Role="ManageEmp" Type="Self.ManageEmp" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
@@ -284,6 +287,18 @@
             </Principal>
             <Dependent Role="Customer">
               <PropertyRef Name="roomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Employee1" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee1">
+              <PropertyRef Name="manager" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -405,6 +420,10 @@
             <End Role="Room" EntitySet="Room" />
             <End Role="Customer" EntitySet="Customer" />
           </AssociationSet>
+          <AssociationSet Name="FK_Employee_Employee" Association="Self.FK_Employee_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Employee1" EntitySet="Employee" />
+          </AssociationSet>
           <AssociationSet Name="FK_Order_Customer" Association="Self.FK_Order_Customer">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Order" EntitySet="Order" />
@@ -494,14 +513,18 @@
           <Property Name="posId" Type="Int32" />
           <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="manager" Type="Int32" />
           <NavigationProperty Name="Accounts" Relationship="Self.FK__Account__userID__33D4B598" FromRole="Employee" ToRole="Account" />
           <NavigationProperty Name="CheckIns" Relationship="Self.FK__CheckIn__empId__2D27B809" FromRole="Employee" ToRole="CheckIn" />
           <NavigationProperty Name="CheckOuts" Relationship="Self.FK__CheckOut__empId__300424B4" FromRole="Employee" ToRole="CheckOut" />
           <NavigationProperty Name="Position" Relationship="Self.FK__Employee__posId__267ABA7A" FromRole="Employee" ToRole="Position" />
           <NavigationProperty Name="InComes" Relationship="Self.FK__InCome__empId__398D8EEE" FromRole="Employee" ToRole="InCome" />
-          <NavigationProperty Name="ManageEmps" Relationship="Self.FK__ManageEmp__empId__2A4B4B5E" FromRole="Employee" ToRole="ManageEmp" />
-          <NavigationProperty Name="ManageEmp" Relationship="Self.FK__ManageEmp__Id__29572725" FromRole="Employee" ToRole="ManageEmp" />
           <NavigationProperty Name="OutComes" Relationship="Self.FK__OutCome__empId__3C69FB99" FromRole="Employee" ToRole="OutCome" />
+          <NavigationProperty Name="Employee1" Relationship="Self.FK_Employee_Employee" FromRole="Employee" ToRole="Employee1" />
+          <NavigationProperty Name="Employee2" Relationship="Self.FK_Employee_Employee" FromRole="Employee1" ToRole="Employee" />
+          <NavigationProperty Name="Employee11" Relationship="Self.ManageEmp" FromRole="Employee" ToRole="Employee1" />
+          <NavigationProperty Name="Employees" Relationship="Self.ManageEmp" FromRole="Employee1" ToRole="Employee" />
         </EntityType>
         <EntityType Name="InCome">
           <Key>
@@ -513,15 +536,6 @@
           <Property Name="moneyTranfer" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__InCome__empId__398D8EEE" FromRole="InCome" ToRole="Employee" />
-        </EntityType>
-        <EntityType Name="ManageEmp">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="empId" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__ManageEmp__empId__2A4B4B5E" FromRole="ManageEmp" ToRole="Employee" />
-          <NavigationProperty Name="Employee1" Relationship="Self.FK__ManageEmp__Id__29572725" FromRole="ManageEmp" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -705,30 +719,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ManageEmp__empId__2A4B4B5E">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="ManageEmp" Type="Self.ManageEmp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ManageEmp">
-              <PropertyRef Name="empId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ManageEmp__Id__29572725">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="ManageEmp" Type="Self.ManageEmp" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ManageEmp">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__OutCome__empId__3C69FB99">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="OutCome" Type="Self.OutCome" Multiplicity="*" />
@@ -738,6 +728,18 @@
             </Principal>
             <Dependent Role="OutCome">
               <PropertyRef Name="empId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Employee1" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee1">
+              <PropertyRef Name="manager" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -753,6 +755,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="ManageEmp">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <End Role="Employee1" Type="Self.Employee" Multiplicity="*" />
+        </Association>
         <EntityContainer Name="HotelDB" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="CheckIns" EntityType="Self.CheckIn" />
@@ -761,7 +767,6 @@
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="InComes" EntityType="Self.InCome" />
-          <EntitySet Name="ManageEmps" EntityType="Self.ManageEmp" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="OutComes" EntityType="Self.OutCome" />
           <EntitySet Name="Positions" EntityType="Self.Position" />
@@ -808,21 +813,21 @@
             <End Role="Employee" EntitySet="Employees" />
             <End Role="InCome" EntitySet="InComes" />
           </AssociationSet>
-          <AssociationSet Name="FK__ManageEmp__empId__2A4B4B5E" Association="Self.FK__ManageEmp__empId__2A4B4B5E">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="ManageEmp" EntitySet="ManageEmps" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ManageEmp__Id__29572725" Association="Self.FK__ManageEmp__Id__29572725">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="ManageEmp" EntitySet="ManageEmps" />
-          </AssociationSet>
           <AssociationSet Name="FK__OutCome__empId__3C69FB99" Association="Self.FK__OutCome__empId__3C69FB99">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="OutCome" EntitySet="OutComes" />
           </AssociationSet>
+          <AssociationSet Name="FK_Employee_Employee" Association="Self.FK_Employee_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Employee1" EntitySet="Employees" />
+          </AssociationSet>
           <AssociationSet Name="FK_Order_Room" Association="Self.FK_Order_Room">
             <End Role="Room" EntitySet="Rooms" />
             <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="ManageEmp" Association="Self.ManageEmp">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Employee1" EntitySet="Employees" />
           </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -940,6 +945,8 @@
                 <ScalarProperty Name="posId" ColumnName="posId" />
                 <ScalarProperty Name="phone" ColumnName="phone" />
                 <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="manager" ColumnName="manager" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -951,14 +958,6 @@
                 <ScalarProperty Name="empId" ColumnName="empId" />
                 <ScalarProperty Name="moneyTranfer" ColumnName="moneyTranfer" />
                 <ScalarProperty Name="description" ColumnName="description" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ManageEmps">
-            <EntityTypeMapping TypeName="HOTELModel.ManageEmp">
-              <MappingFragment StoreEntitySet="ManageEmp">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="empId" ColumnName="empId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1020,6 +1019,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="ManageEmp" TypeName="HOTELModel.ManageEmp" StoreEntitySet="ManageEmp">
+            <EndProperty Name="Employee">
+              <ScalarProperty Name="Id" ColumnName="empId" />
+            </EndProperty>
+            <EndProperty Name="Employee1">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+          </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="HOTELModel.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="HOTELModel.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="HOTELModel.Store.sp_dropdiagram" />

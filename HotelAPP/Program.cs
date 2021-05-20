@@ -24,6 +24,14 @@ namespace HotelAPP
             {
                 Application.Run(new Home());
             }
+            else
+            {
+                Application.Exit();
+            }
+        }
+        public static void logout()
+        {
+            Application.Restart();
         }
     }
 }

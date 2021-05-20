@@ -116,11 +116,9 @@
     <Compile Include="InCome.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ManageEmp.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\Position.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>

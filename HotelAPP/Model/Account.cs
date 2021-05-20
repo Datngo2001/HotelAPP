@@ -45,18 +45,18 @@ namespace HotelAPP
             }
             catch (Exception)
             {
-                throw;
                 return false;
             }
         }
         public bool ExistUsernamCheck(string username)
         {
+            username = username.Trim();
             try
             {
                 var listUsername = (from a in hotelDB.Accounts
                                     where a.username == username
-                                    select a.username).ToArray();
-                if (listUsername.Length == 0)
+                                    select a.username).ToList();
+                if (listUsername.Count == 0)
                 {
                     return true;
                 }
@@ -71,25 +71,26 @@ namespace HotelAPP
             }
         }
 
-        //public bool AddNewGuestAccount(string username, string password)
-        //{
-        //    try
-        //    {
-        //        if (ExistUsernamCheck(username) == false) return false;
+        public bool AddNewAccount(string username, string password, int user_id)
+        {
+            try
+            {
+                if (ExistUsernamCheck(username) == false) return false;
 
-        //        Account account = new Account()
-        //        {
-        //            username = username,
-        //            password = password
-        //        };
-        //        hotelDB.Accounts.Add(account);
-        //        hotelDB.SaveChanges();
-        //        return true;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return false;
-        //    }
-        //}
+                Account account = new Account()
+                {
+                    username = username,
+                    password = password,
+                    userID = user_id
+                };
+                hotelDB.Accounts.Add(account);
+                hotelDB.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

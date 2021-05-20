@@ -34,7 +34,6 @@ namespace HotelAPP
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<InCome> InComes { get; set; }
-        public virtual DbSet<ManageEmp> ManageEmps { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OutCome> OutComes { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
