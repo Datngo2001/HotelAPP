@@ -1,0 +1,153 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace HotelAPP.AppForm.CustomerForm
+{
+    public partial class AddCustomerForm : Form
+    {
+        Customer customer;
+        Room room;
+
+        public AddCustomerForm()
+        {
+            InitializeComponent();
+            customer = new Customer();
+            room = new Room();
+        }
+
+        private void AddCustomerForm_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void add_btn_Click(object sender, EventArgs e)
+        {
+            Customer customer = new Customer()
+            {
+                fname = fname_tb.Text,
+                lname = lname_tb.Text,
+                bdate = bdate_picker.Value,
+                address = address_rtb.Text,
+                roomID = Convert.ToInt32(roomID_cb.Text),
+                dayIn = dayIn_picker.Value,
+                dayOut = dayOut_picker.Value
+            };
+
+            try
+            {
+                customer.phone = Convert.ToUInt64(phone_tb.Text).ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Invalid Phone", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (female_rbtn.Checked)
+            {
+                customer.gender = "F";
+            }
+            else if (male_rbtn.Checked)
+            {
+                customer.gender = "M";
+            }
+
+            if (customer.addCustomer(customer))
+            {
+                MessageBox.Show("Add Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Add Failed", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void edit_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void delete_btn_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(id_tb.Text);
+            if (customer.deleteCustomer(id))
+            {
+                MessageBox.Show("Delete Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Delete Failed", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void cancel_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void showCust_btn_Click(object sender, EventArgs e)
+        {
+            this.showDGV(customer.getAllCustomer(), 3);
+        }
+
+        private void showRoom_btn_Click(object sender, EventArgs e)
+        {
+            this.showDGV(room.getAllRoom(), 3);
+        }
+
+        private void listCustomerRoom_dgv_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+        }
+
+        private void showDGV(object dataSource, int col)
+        {
+            show_dgv.DataSource = dataSource;
+            show_dgv.AllowUserToAddRows = false;
+            show_dgv.RowTemplate.Height = 80;
+            int n = show_dgv.Columns.Count;
+            for (int i = col; i < n; i++)
+            {
+                try
+                {
+                    show_dgv.Columns[i].Visible = false;
+                }
+                catch (Exception)
+                {
+                    break;
+                }
+            }
+        }
+
+        private void show_dgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            id_tb.Text = show_dgv.CurrentRow.Cells[0].Value.ToString().Trim();
+            fname_tb.Text = show_dgv.CurrentRow.Cells[1].Value.ToString().Trim();
+            lname_tb.Text = show_dgv.CurrentRow.Cells[2].Value.ToString().Trim();
+            bdate_picker.Value = (DateTime)show_dgv.CurrentRow.Cells[3].Value;
+            phone_tb.Text = show_dgv.CurrentRow.Cells[5].Value.ToString().Trim();
+            address_rtb.Text = show_dgv.CurrentRow.Cells[6].Value.ToString().Trim();
+            roomID_cb.Text = show_dgv.CurrentRow.Cells[7].Value.ToString().Trim();
+
+            string gender = show_dgv.CurrentRow.Cells[4].Value.ToString().Trim();
+            if (gender == "F")
+            {
+                female_rbtn.Checked = true;
+            }
+            else
+            {
+                male_rbtn.Checked = true;
+            }
+
+            dayIn_picker.Value = (DateTime)show_dgv.CurrentRow.Cells[8].Value;
+            dayOut_picker.Value = (DateTime)show_dgv.CurrentRow.Cells[9].Value;
+        }
+    }
+}

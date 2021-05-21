@@ -58,6 +58,12 @@
     <Compile Include="Account.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppForm\CustomerForm\AddCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForm\CustomerForm\AddCustomerForm.Designer.cs">
+      <DependentUpon>AddCustomerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppForm\EmpForm\AddEmpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,8 +123,10 @@
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Position.cs" />
+    <Compile Include="Model\Room.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
@@ -153,6 +161,9 @@
     <Compile Include="ThemeColor.cs" />
     <Compile Include="Tools\FormTools.cs" />
     <Compile Include="Tools\ImageTool.cs" />
+    <EmbeddedResource Include="AppForm\CustomerForm\AddCustomerForm.resx">
+      <DependentUpon>AddCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AppForm\EmpForm\AddEmpForm.resx">
       <DependentUpon>AddEmpForm.cs</DependentUpon>
     </EmbeddedResource>
