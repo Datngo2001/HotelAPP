@@ -23,8 +23,7 @@ namespace HotelAPP
             this.InComes = new HashSet<InCome>();
             this.OutComes = new HashSet<OutCome>();
             this.Employee1 = new HashSet<Employee>();
-            this.Employee11 = new HashSet<Employee>();
-            this.Employees = new HashSet<Employee>();
+            this.empSchedules = new HashSet<empSchedule>();
         }
     
         public int Id { get; set; }
@@ -55,8 +54,6 @@ namespace HotelAPP
         public virtual ICollection<Employee> Employee1 { get; set; }
         public virtual Employee Employee2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Employee11 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Employees { get; set; }
+        public virtual ICollection<empSchedule> empSchedules { get; set; }
     }
 }

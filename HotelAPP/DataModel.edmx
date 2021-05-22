@@ -74,6 +74,15 @@
           <Property Name="gender" Type="char" MaxLength="1" />
           <Property Name="manager" Type="int" />
         </EntityType>
+        <EntityType Name="empSchedule">
+          <Key>
+            <PropertyRef Name="empID" />
+            <PropertyRef Name="weekDay" />
+          </Key>
+          <Property Name="empID" Type="int" Nullable="false" />
+          <Property Name="weekDay" Type="int" Nullable="false" />
+          <Property Name="shift" Type="int" />
+        </EntityType>
         <EntityType Name="InCome">
           <Key>
             <PropertyRef Name="inComeId" />
@@ -83,14 +92,6 @@
           <Property Name="empId" Type="int" />
           <Property Name="moneyTranfer" Type="money" />
           <Property Name="description" Type="text" />
-        </EntityType>
-        <EntityType Name="ManageEmp">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="empId" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="empId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -133,6 +134,13 @@
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="10" />
           <Property Name="status" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Shift">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="time" Type="time" Precision="7" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -218,30 +226,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ManageEmp__empId__2A4B4B5E">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="ManageEmp" Type="Self.ManageEmp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ManageEmp">
-              <PropertyRef Name="empId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ManageEmp__Id__29572725">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="ManageEmp" Type="Self.ManageEmp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ManageEmp">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__OutCome__empId__3C69FB99">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="OutCome" Type="Self.OutCome" Multiplicity="*" />
@@ -302,6 +286,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_empSchedule_Shift">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="empSchedule" Type="Self.empSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="empSchedule">
+              <PropertyRef Name="empID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_empSchedule_Shift1">
+          <End Role="Shift" Type="Self.Shift" Multiplicity="0..1" />
+          <End Role="empSchedule" Type="Self.empSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shift">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="empSchedule">
+              <PropertyRef Name="shift" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Order_Customer">
           <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
@@ -326,37 +334,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="HOTELModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CheckIn" EntityType="Self.CheckIn" Schema="dbo" store:Type="Tables" />
@@ -364,13 +341,14 @@
           <EntitySet Name="Consume" EntityType="Self.Consume" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="empSchedule" EntityType="Self.empSchedule" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InCome" EntityType="Self.InCome" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ManageEmp" EntityType="Self.ManageEmp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OutCome" EntityType="Self.OutCome" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shift" EntityType="Self.Shift" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Account__userID__33D4B598" Association="Self.FK__Account__userID__33D4B598">
             <End Role="Employee" EntitySet="Employee" />
@@ -396,14 +374,6 @@
             <End Role="Employee" EntitySet="Employee" />
             <End Role="InCome" EntitySet="InCome" />
           </AssociationSet>
-          <AssociationSet Name="FK__ManageEmp__empId__2A4B4B5E" Association="Self.FK__ManageEmp__empId__2A4B4B5E">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="ManageEmp" EntitySet="ManageEmp" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ManageEmp__Id__29572725" Association="Self.FK__ManageEmp__Id__29572725">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="ManageEmp" EntitySet="ManageEmp" />
-          </AssociationSet>
           <AssociationSet Name="FK__OutCome__empId__3C69FB99" Association="Self.FK__OutCome__empId__3C69FB99">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="OutCome" EntitySet="OutCome" />
@@ -423,6 +393,14 @@
           <AssociationSet Name="FK_Employee_Employee" Association="Self.FK_Employee_Employee">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Employee1" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_empSchedule_Shift" Association="Self.FK_empSchedule_Shift">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="empSchedule" EntitySet="empSchedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_empSchedule_Shift1" Association="Self.FK_empSchedule_Shift1">
+            <End Role="Shift" EntitySet="Shift" />
+            <End Role="empSchedule" EntitySet="empSchedule" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_Customer" Association="Self.FK_Order_Customer">
             <End Role="Customer" EntitySet="Customer" />
@@ -523,8 +501,18 @@
           <NavigationProperty Name="OutComes" Relationship="Self.FK__OutCome__empId__3C69FB99" FromRole="Employee" ToRole="OutCome" />
           <NavigationProperty Name="Employee1" Relationship="Self.FK_Employee_Employee" FromRole="Employee" ToRole="Employee1" />
           <NavigationProperty Name="Employee2" Relationship="Self.FK_Employee_Employee" FromRole="Employee1" ToRole="Employee" />
-          <NavigationProperty Name="Employee11" Relationship="Self.ManageEmp" FromRole="Employee" ToRole="Employee1" />
-          <NavigationProperty Name="Employees" Relationship="Self.ManageEmp" FromRole="Employee1" ToRole="Employee" />
+          <NavigationProperty Name="empSchedules" Relationship="Self.FK_empSchedule_Shift" FromRole="Employee" ToRole="empSchedule" />
+        </EntityType>
+        <EntityType Name="empSchedule">
+          <Key>
+            <PropertyRef Name="empID" />
+            <PropertyRef Name="weekDay" />
+          </Key>
+          <Property Name="empID" Type="Int32" Nullable="false" />
+          <Property Name="weekDay" Type="Int32" Nullable="false" />
+          <Property Name="shift" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_empSchedule_Shift" FromRole="empSchedule" ToRole="Employee" />
+          <NavigationProperty Name="Shift1" Relationship="Self.FK_empSchedule_Shift1" FromRole="empSchedule" ToRole="Shift" />
         </EntityType>
         <EntityType Name="InCome">
           <Key>
@@ -586,6 +574,14 @@
           <NavigationProperty Name="Consumes" Relationship="Self.FK_Consume_Room" FromRole="Room" ToRole="Consume" />
           <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Room" FromRole="Room" ToRole="Customer" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Room" FromRole="Room" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Shift">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="time" Type="Time" Precision="7" />
+          <NavigationProperty Name="empSchedules" Relationship="Self.FK_empSchedule_Shift1" FromRole="Shift" ToRole="empSchedule" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -743,6 +739,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_empSchedule_Shift">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="empSchedule" Type="Self.empSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="empSchedule">
+              <PropertyRef Name="empID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_empSchedule_Shift1">
+          <End Role="Shift" Type="Self.Shift" Multiplicity="0..1" />
+          <End Role="empSchedule" Type="Self.empSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shift">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="empSchedule">
+              <PropertyRef Name="shift" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Order_Room">
           <End Role="Room" Type="Self.Room" Multiplicity="0..1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
@@ -755,10 +775,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ManageEmp">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <End Role="Employee1" Type="Self.Employee" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="HotelDB" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="CheckIns" EntityType="Self.CheckIn" />
@@ -766,12 +782,14 @@
           <EntitySet Name="Consumes" EntityType="Self.Consume" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="empSchedules" EntityType="Self.empSchedule" />
           <EntitySet Name="InComes" EntityType="Self.InCome" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="OutComes" EntityType="Self.OutCome" />
           <EntitySet Name="Positions" EntityType="Self.Position" />
           <EntitySet Name="Products" EntityType="Self.Product" />
           <EntitySet Name="Rooms" EntityType="Self.Room" />
+          <EntitySet Name="Shifts" EntityType="Self.Shift" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <AssociationSet Name="FK__Account__userID__33D4B598" Association="Self.FK__Account__userID__33D4B598">
             <End Role="Employee" EntitySet="Employees" />
@@ -821,56 +839,19 @@
             <End Role="Employee" EntitySet="Employees" />
             <End Role="Employee1" EntitySet="Employees" />
           </AssociationSet>
+          <AssociationSet Name="FK_empSchedule_Shift" Association="Self.FK_empSchedule_Shift">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="empSchedule" EntitySet="empSchedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_empSchedule_Shift1" Association="Self.FK_empSchedule_Shift1">
+            <End Role="Shift" EntitySet="Shifts" />
+            <End Role="empSchedule" EntitySet="empSchedules" />
+          </AssociationSet>
           <AssociationSet Name="FK_Order_Room" Association="Self.FK_Order_Room">
             <End Role="Room" EntitySet="Rooms" />
             <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="ManageEmp" Association="Self.ManageEmp">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="Employee1" EntitySet="Employees" />
-          </AssociationSet>
-          <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(HOTELModel.sp_helpdiagramdefinition_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(HOTELModel.sp_helpdiagrams_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
-        <ComplexType Name="sp_helpdiagramdefinition_Result">
-          <Property Type="Int32" Name="version" Nullable="true" />
-          <Property Type="Binary" Name="definition" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagrams_Result">
-          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-          <Property Type="Int32" Name="OwnerID" Nullable="false" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -950,6 +931,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="empSchedules">
+            <EntityTypeMapping TypeName="HOTELModel.empSchedule">
+              <MappingFragment StoreEntitySet="empSchedule">
+                <ScalarProperty Name="empID" ColumnName="empID" />
+                <ScalarProperty Name="weekDay" ColumnName="weekDay" />
+                <ScalarProperty Name="shift" ColumnName="shift" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="InComes">
             <EntityTypeMapping TypeName="HOTELModel.InCome">
               <MappingFragment StoreEntitySet="InCome">
@@ -1008,6 +998,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Shifts">
+            <EntityTypeMapping TypeName="HOTELModel.Shift">
+              <MappingFragment StoreEntitySet="Shift">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="time" ColumnName="time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="HOTELModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -1019,38 +1017,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="ManageEmp" TypeName="HOTELModel.ManageEmp" StoreEntitySet="ManageEmp">
-            <EndProperty Name="Employee">
-              <ScalarProperty Name="Id" ColumnName="empId" />
-            </EndProperty>
-            <EndProperty Name="Employee1">
-              <ScalarProperty Name="Id" ColumnName="Id" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="HOTELModel.Store.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="HOTELModel.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="HOTELModel.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="HOTELModel.Store.sp_helpdiagramdefinition">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="HOTELModel.sp_helpdiagramdefinition_Result">
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="HOTELModel.Store.sp_helpdiagrams">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="HOTELModel.sp_helpdiagrams_Result">
-                <ScalarProperty Name="Database" ColumnName="Database" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="HOTELModel.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="HOTELModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
