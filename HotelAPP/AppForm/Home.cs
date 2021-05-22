@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using HotelAPP.AppForm.CustomerForm;
 using HotelAPP.AppForm.EmpForm;
 using HotelAPP.Tools;
 
@@ -168,5 +169,15 @@ namespace HotelAPP.AppForm
         {
             OpenChildForm(new EditDeleteEmpForm(), sender);
         }
+
+        private void customer_btn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AddCustomerForm(), sender);
+        }
+        private void deleteForm_btn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AddCustomerForm(), sender);
+        }
+
     }
 }
