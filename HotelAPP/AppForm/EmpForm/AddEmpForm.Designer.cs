@@ -33,7 +33,6 @@ namespace HotelAPP.AppForm.EmpForm
             this.genderBtn_group = new System.Windows.Forms.GroupBox();
             this.female_rbtn = new System.Windows.Forms.RadioButton();
             this.male_rbtn = new System.Windows.Forms.RadioButton();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.address_rtb = new System.Windows.Forms.RichTextBox();
             this.bdate_picker = new System.Windows.Forms.DateTimePicker();
             this.phone_tb = new System.Windows.Forms.TextBox();
@@ -69,6 +68,7 @@ namespace HotelAPP.AppForm.EmpForm
             this.manage_lb = new System.Windows.Forms.Label();
             this.idCheck_btn = new System.Windows.Forms.Button();
             this.managerCheck_btn = new System.Windows.Forms.Button();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.genderBtn_group.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
@@ -116,15 +116,6 @@ namespace HotelAPP.AppForm.EmpForm
             this.male_rbtn.TabStop = true;
             this.male_rbtn.Text = "Male";
             this.male_rbtn.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox
-            // 
-            this.pictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox.Location = new System.Drawing.Point(888, 162);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(590, 346);
-            this.pictureBox.TabIndex = 36;
-            this.pictureBox.TabStop = false;
             // 
             // address_rtb
             // 
@@ -246,7 +237,7 @@ namespace HotelAPP.AppForm.EmpForm
             this.add_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.add_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add_btn.ForeColor = System.Drawing.Color.White;
-            this.add_btn.Location = new System.Drawing.Point(471, 828);
+            this.add_btn.Location = new System.Drawing.Point(481, 803);
             this.add_btn.Name = "add_btn";
             this.add_btn.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.add_btn.Size = new System.Drawing.Size(280, 92);
@@ -465,6 +456,15 @@ namespace HotelAPP.AppForm.EmpForm
             this.managerCheck_btn.Text = "Check";
             this.managerCheck_btn.UseVisualStyleBackColor = true;
             this.managerCheck_btn.Click += new System.EventHandler(this.managerCheck_btn_Click);
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBox.Location = new System.Drawing.Point(888, 162);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(590, 346);
+            this.pictureBox.TabIndex = 36;
+            this.pictureBox.TabStop = false;
             // 
             // AddEmpForm
             // 

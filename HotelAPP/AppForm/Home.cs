@@ -179,5 +179,19 @@ namespace HotelAPP.AppForm
             OpenChildForm(new AddCustomerForm(), sender);
         }
 
+        private void timeTable_btn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ScheduleForm(), sender);
+        }
+
+        private void checkInOut_btn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new CheckinCheckoutForm(), sender);
+        }
+
+        private void empReport_btn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new DailyReportForm(), sender);
+        }
     }
 }

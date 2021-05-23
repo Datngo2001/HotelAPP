@@ -70,6 +70,12 @@
     <Compile Include="AppForm\EmpForm\AddEmpForm.Designer.cs">
       <DependentUpon>AddEmpForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppForm\EmpForm\CheckinCheckoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForm\EmpForm\CheckinCheckoutForm.Designer.cs">
+      <DependentUpon>CheckinCheckoutForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppForm\EmpForm\EditDeleteEmpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,12 @@
     </Compile>
     <Compile Include="AppForm\EmpForm\ManageStaffForm.Designer.cs">
       <DependentUpon>ManageStaffForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForm\EmpForm\ScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForm\EmpForm\ScheduleForm.Designer.cs">
+      <DependentUpon>ScheduleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AppForm\Home.cs">
       <SubType>Form</SubType>
@@ -179,11 +191,17 @@
     <EmbeddedResource Include="AppForm\EmpForm\AddEmpForm.resx">
       <DependentUpon>AddEmpForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AppForm\EmpForm\CheckinCheckoutForm.resx">
+      <DependentUpon>CheckinCheckoutForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AppForm\EmpForm\EditDeleteEmpForm.resx">
       <DependentUpon>EditDeleteEmpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AppForm\EmpForm\ManageStaffForm.resx">
       <DependentUpon>ManageStaffForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForm\EmpForm\ScheduleForm.resx">
+      <DependentUpon>ScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AppForm\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
