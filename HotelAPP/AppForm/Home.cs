@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using HotelAPP.AppForm.CustomerForm;
 using HotelAPP.AppForm.EmpForm;
+using HotelAPP.AppForm.RoomForm;
 using HotelAPP.Tools;
 
 namespace HotelAPP.AppForm
@@ -178,6 +179,11 @@ namespace HotelAPP.AppForm
         private void customer_btn_Click(object sender, EventArgs e)
         {
             OpenChildForm(new AddCustomerForm(), sender);
+        }
+
+        private void room_btn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ManageRoomForm(), sender);
         }
     }
 }

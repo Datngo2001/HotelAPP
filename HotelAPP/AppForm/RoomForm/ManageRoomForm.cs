@@ -1,0 +1,170 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace HotelAPP.AppForm.RoomForm
+{
+    public partial class ManageRoomForm : Form
+    {
+        Room room;
+
+        public ManageRoomForm()
+        {
+            InitializeComponent();
+            room = new Room();
+        }
+
+        private void showDGV(object dataSource, int col)
+        {
+            show_dgv.DataSource = dataSource;
+            show_dgv.AllowUserToAddRows = false;
+            show_dgv.RowTemplate.Height = 80;
+            int n = show_dgv.Columns.Count;
+            for (int i = col; i < n; i++)
+            {
+                try
+                {
+                    show_dgv.Columns[i].Visible = false;
+                }
+                catch (Exception)
+                {
+                    break;
+                }
+            }
+        }
+
+        private void clear()
+        {
+            id_tb.Text = "";
+            name_tb.Text = "";
+            status_cb.Text = "";
+            pictureBox.Image = null;
+            show_dgv.DataSource = null;
+        }
+
+        private void ManageRoomForm_Load(object sender, EventArgs e)
+        {
+            status_cb.Items.Add("Empty");
+            status_cb.Items.Add("Full");
+        }
+
+        private void upload_btn_Click(object sender, EventArgs e)
+        {
+            string filepath = null;
+            OpenFileDialog ofdImages = new OpenFileDialog();
+            if (ofdImages.ShowDialog() == DialogResult.OK)
+            {
+                filepath = ofdImages.FileName;
+            }
+            try
+            {
+                pictureBox.Image = Image.FromFile(filepath.ToString());
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void add_btn_Click(object sender, EventArgs e)
+        {
+            Room room = new Room()
+            {
+                id = Convert.ToInt32(id_tb.Text),
+                name = name_tb.Text,
+                status = status_cb.Text
+            };
+
+            if (room.addRoom(room))
+            {
+                MessageBox.Show("Add Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.clear();
+            }
+            else
+            {
+                MessageBox.Show("Add Failed", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void edit_btn_Click(object sender, EventArgs e)
+        {
+            Room eRoom = new Room()
+            {
+                id = Convert.ToInt32(id_tb.Text),
+                name = name_tb.Text,
+                status = status_cb.Text
+            };
+
+            if (room.editRoom(eRoom))
+            {
+                MessageBox.Show("Edit Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.clear();
+            }
+            else
+            {
+                MessageBox.Show("Edit Failed", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void delete_btn_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(id_tb.Text);
+            if (room.deleteRoom(id))
+            {
+                MessageBox.Show("Delete Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.clear();
+            }
+            else
+            {
+                MessageBox.Show("Delete Failed", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void clear_btn_Click(object sender, EventArgs e)
+        {
+            this.clear();
+        }
+
+        private void cancel_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void order_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void showRoom_btn_Click(object sender, EventArgs e)
+        {
+            this.showDGV(room.getAllRoom(), 3);
+        }
+
+        private void showProduct_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void show_dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                id_tb.Text = show_dgv.CurrentRow.Cells[0].Value.ToString().Trim();
+                name_tb.Text = show_dgv.CurrentRow.Cells[1].Value.ToString().Trim();
+                status_cb.Text = show_dgv.CurrentRow.Cells[2].Value.ToString().Trim();
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.clear();
+            }
+        }
+    }
+}

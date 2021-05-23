@@ -57,6 +57,8 @@
             this.dayOut_picker = new System.Windows.Forms.DateTimePicker();
             this.showCustomer_btn = new System.Windows.Forms.Button();
             this.showRoom_btn = new System.Windows.Forms.Button();
+            this.clear_btn = new System.Windows.Forms.Button();
+            this.showEmptyRoom_btn = new System.Windows.Forms.Button();
             this.genderBtn_group.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.show_dgv)).BeginInit();
             this.SuspendLayout();
@@ -233,7 +235,7 @@
             this.cancel_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancel_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.cancel_btn.ForeColor = System.Drawing.Color.White;
-            this.cancel_btn.Location = new System.Drawing.Point(894, 654);
+            this.cancel_btn.Location = new System.Drawing.Point(1100, 654);
             this.cancel_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancel_btn.Name = "cancel_btn";
             this.cancel_btn.Size = new System.Drawing.Size(193, 74);
@@ -301,16 +303,18 @@
             // 
             // show_dgv
             // 
+            this.show_dgv.AllowUserToAddRows = false;
+            this.show_dgv.AllowUserToDeleteRows = false;
             this.show_dgv.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.show_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.show_dgv.Location = new System.Drawing.Point(627, 70);
             this.show_dgv.Name = "show_dgv";
+            this.show_dgv.ReadOnly = true;
             this.show_dgv.RowHeadersWidth = 51;
             this.show_dgv.RowTemplate.Height = 24;
             this.show_dgv.Size = new System.Drawing.Size(770, 413);
             this.show_dgv.TabIndex = 78;
             this.show_dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.show_dgv_CellDoubleClick);
-            this.show_dgv.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.listCustomerRoom_dgv_DataError);
             // 
             // edit_btn
             // 
@@ -336,7 +340,7 @@
             this.delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.delete_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delete_btn.ForeColor = System.Drawing.Color.White;
-            this.delete_btn.Location = new System.Drawing.Point(627, 654);
+            this.delete_btn.Location = new System.Drawing.Point(607, 654);
             this.delete_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.delete_btn.Name = "delete_btn";
             this.delete_btn.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
@@ -379,7 +383,7 @@
             // 
             // showRoom_btn
             // 
-            this.showRoom_btn.Location = new System.Drawing.Point(876, 19);
+            this.showRoom_btn.Location = new System.Drawing.Point(856, 19);
             this.showRoom_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.showRoom_btn.Name = "showRoom_btn";
             this.showRoom_btn.Size = new System.Drawing.Size(174, 32);
@@ -388,12 +392,42 @@
             this.showRoom_btn.UseVisualStyleBackColor = true;
             this.showRoom_btn.Click += new System.EventHandler(this.showRoom_btn_Click);
             // 
+            // clear_btn
+            // 
+            this.clear_btn.BackColor = System.Drawing.Color.HotPink;
+            this.clear_btn.FlatAppearance.BorderSize = 0;
+            this.clear_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clear_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clear_btn.ForeColor = System.Drawing.Color.White;
+            this.clear_btn.Location = new System.Drawing.Point(856, 654);
+            this.clear_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.clear_btn.Name = "clear_btn";
+            this.clear_btn.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.clear_btn.Size = new System.Drawing.Size(194, 74);
+            this.clear_btn.TabIndex = 85;
+            this.clear_btn.Text = "Clear";
+            this.clear_btn.UseVisualStyleBackColor = false;
+            this.clear_btn.Click += new System.EventHandler(this.clear_btn_Click);
+            // 
+            // showEmptyRoom_btn
+            // 
+            this.showEmptyRoom_btn.Location = new System.Drawing.Point(1077, 19);
+            this.showEmptyRoom_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.showEmptyRoom_btn.Name = "showEmptyRoom_btn";
+            this.showEmptyRoom_btn.Size = new System.Drawing.Size(174, 32);
+            this.showEmptyRoom_btn.TabIndex = 86;
+            this.showEmptyRoom_btn.Text = "Show Empty Rooms";
+            this.showEmptyRoom_btn.UseVisualStyleBackColor = true;
+            this.showEmptyRoom_btn.Click += new System.EventHandler(this.showEmptyRoom_btn_Click);
+            // 
             // AddCustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1409, 746);
+            this.Controls.Add(this.showEmptyRoom_btn);
+            this.Controls.Add(this.clear_btn);
             this.Controls.Add(this.showRoom_btn);
             this.Controls.Add(this.showCustomer_btn);
             this.Controls.Add(this.dayOut_picker);
@@ -462,5 +496,7 @@
         private System.Windows.Forms.DateTimePicker dayOut_picker;
         private System.Windows.Forms.Button showCustomer_btn;
         private System.Windows.Forms.Button showRoom_btn;
+        private System.Windows.Forms.Button clear_btn;
+        private System.Windows.Forms.Button showEmptyRoom_btn;
     }
 }
