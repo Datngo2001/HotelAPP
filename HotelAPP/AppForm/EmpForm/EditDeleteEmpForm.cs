@@ -14,7 +14,8 @@ namespace HotelAPP.AppForm.EmpForm
     public partial class EditDeleteEmpForm : Form
     {
         List<Position> listPos;
-        public Employee employee; 
+        public Employee employee;
+        public Account account;
         public EditDeleteEmpForm()
         {
             InitializeComponent();
@@ -146,7 +147,7 @@ namespace HotelAPP.AppForm.EmpForm
 
             emp.updateEmp(employee);
 
-            // insert emp account
+            // update emp account
 
             if (password_tb.Text != reenter_tb.Text)
             {
@@ -187,10 +188,6 @@ namespace HotelAPP.AppForm.EmpForm
                 return;
             }
             MessageBox.Show("OK");
-        }
-        private void AddEmpForm_Load(object sender, EventArgs e)
-        {
-            loadPos();
         }
         private void loadPos()
         {
@@ -371,6 +368,72 @@ namespace HotelAPP.AppForm.EmpForm
             catch (Exception)
             {
                 return false;
+            }
+        }
+        private void findId_btn_Click(object sender, EventArgs e)
+        {
+            employee = new Employee();
+            account = new Account();
+            try
+            {
+                employee = employee.getByID(Convert.ToInt32(id_tb.Text));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Invalid Id", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                account = account.getByID(Convert.ToInt32(id_tb.Text));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Invalid Id", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            loadToForm();
+        }
+        private void loadToForm()
+        {
+            if (employee == null) return;
+            id_tb.Text = employee.Id.ToString();
+            fname_tx.Text = employee.fname;
+            lname_tb.Text = employee.lname;
+            if(employee.gender == "F")
+            {
+                female_rbtn.Checked = true;
+            }
+            else
+            {
+                male_rbtn.Checked = true;
+            }
+            phone_tb.Text = employee.phone;
+            address_rtb.Text = employee.address;
+            cmnd_tb.Text = employee.CMND;
+            salary_tb.Text = employee.salary.ToString();
+            manager_tb.Text = employee.manager.ToString();
+            try
+            {
+                bdate_picker.Value = (DateTime)employee.bdate;
+                positon_cb.Text = (listPos.Find(p => p.posId == employee.posId)).posName;
+                pictureBox.Image = new ImageTool().ByteArrToImage(employee.avatar);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            if (account == null) return;
+            username_tb.Text = account.username;
+        }
+        private void EditDeleteEmpForm_Load(object sender, EventArgs e)
+        {
+            loadPos();
+            if (employee != null && account != null)
+            {
+                employee = employee.getByID(employee.Id);
+                account = account.getByID((int)account.userID);
+                loadToForm();
             }
         }
     }

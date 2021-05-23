@@ -81,9 +81,10 @@ namespace HotelAPP.AppForm.EmpForm
             this.cancel_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancel_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.cancel_btn.ForeColor = System.Drawing.Color.White;
-            this.cancel_btn.Location = new System.Drawing.Point(1045, 811);
+            this.cancel_btn.Location = new System.Drawing.Point(697, 527);
+            this.cancel_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cancel_btn.Name = "cancel_btn";
-            this.cancel_btn.Size = new System.Drawing.Size(184, 92);
+            this.cancel_btn.Size = new System.Drawing.Size(123, 60);
             this.cancel_btn.TabIndex = 69;
             this.cancel_btn.Text = "Cancel";
             this.cancel_btn.UseVisualStyleBackColor = false;
@@ -96,10 +97,11 @@ namespace HotelAPP.AppForm.EmpForm
             this.edit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.edit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.edit_btn.ForeColor = System.Drawing.Color.White;
-            this.edit_btn.Location = new System.Drawing.Point(352, 811);
+            this.edit_btn.Location = new System.Drawing.Point(235, 527);
+            this.edit_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.edit_btn.Name = "edit_btn";
             this.edit_btn.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.edit_btn.Size = new System.Drawing.Size(280, 92);
+            this.edit_btn.Size = new System.Drawing.Size(187, 60);
             this.edit_btn.TabIndex = 68;
             this.edit_btn.Text = "Edit";
             this.edit_btn.UseVisualStyleBackColor = false;
@@ -107,9 +109,10 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             // checkPhone_btn
             // 
-            this.checkPhone_btn.Location = new System.Drawing.Point(524, 391);
+            this.checkPhone_btn.Location = new System.Drawing.Point(349, 254);
+            this.checkPhone_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkPhone_btn.Name = "checkPhone_btn";
-            this.checkPhone_btn.Size = new System.Drawing.Size(96, 39);
+            this.checkPhone_btn.Size = new System.Drawing.Size(64, 25);
             this.checkPhone_btn.TabIndex = 89;
             this.checkPhone_btn.Text = "Check";
             this.checkPhone_btn.UseVisualStyleBackColor = true;
@@ -117,9 +120,10 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             // managerCheck_btn
             // 
-            this.managerCheck_btn.Location = new System.Drawing.Point(1177, 85);
+            this.managerCheck_btn.Location = new System.Drawing.Point(785, 55);
+            this.managerCheck_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.managerCheck_btn.Name = "managerCheck_btn";
-            this.managerCheck_btn.Size = new System.Drawing.Size(96, 39);
+            this.managerCheck_btn.Size = new System.Drawing.Size(64, 25);
             this.managerCheck_btn.TabIndex = 88;
             this.managerCheck_btn.Text = "Check";
             this.managerCheck_btn.UseVisualStyleBackColor = true;
@@ -127,9 +131,10 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             // checkUserName_btn
             // 
-            this.checkUserName_btn.Location = new System.Drawing.Point(1177, 571);
+            this.checkUserName_btn.Location = new System.Drawing.Point(785, 371);
+            this.checkUserName_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkUserName_btn.Name = "checkUserName_btn";
-            this.checkUserName_btn.Size = new System.Drawing.Size(96, 39);
+            this.checkUserName_btn.Size = new System.Drawing.Size(64, 25);
             this.checkUserName_btn.TabIndex = 87;
             this.checkUserName_btn.Text = "Check";
             this.checkUserName_btn.UseVisualStyleBackColor = true;
@@ -137,9 +142,10 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             // checkCMND_btn
             // 
-            this.checkCMND_btn.Location = new System.Drawing.Point(524, 632);
+            this.checkCMND_btn.Location = new System.Drawing.Point(349, 411);
+            this.checkCMND_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkCMND_btn.Name = "checkCMND_btn";
-            this.checkCMND_btn.Size = new System.Drawing.Size(96, 39);
+            this.checkCMND_btn.Size = new System.Drawing.Size(64, 25);
             this.checkCMND_btn.TabIndex = 85;
             this.checkCMND_btn.Text = "Check";
             this.checkCMND_btn.UseVisualStyleBackColor = true;
@@ -149,9 +155,10 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.id_lb.AutoSize = true;
             this.id_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.id_lb.Location = new System.Drawing.Point(153, 32);
+            this.id_lb.Location = new System.Drawing.Point(102, 21);
+            this.id_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.id_lb.Name = "id_lb";
-            this.id_lb.Size = new System.Drawing.Size(50, 32);
+            this.id_lb.Size = new System.Drawing.Size(32, 24);
             this.id_lb.TabIndex = 83;
             this.id_lb.Text = "ID:";
             // 
@@ -159,9 +166,10 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.manage_lb.AutoSize = true;
             this.manage_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manage_lb.Location = new System.Drawing.Point(687, 88);
+            this.manage_lb.Location = new System.Drawing.Point(458, 57);
+            this.manage_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.manage_lb.Name = "manage_lb";
-            this.manage_lb.Size = new System.Drawing.Size(169, 32);
+            this.manage_lb.Size = new System.Drawing.Size(112, 24);
             this.manage_lb.TabIndex = 82;
             this.manage_lb.Text = "Manager ID:";
             // 
@@ -169,9 +177,10 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.salary_lb.AutoSize = true;
             this.salary_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salary_lb.Location = new System.Drawing.Point(752, 28);
+            this.salary_lb.Location = new System.Drawing.Point(501, 18);
+            this.salary_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.salary_lb.Name = "salary_lb";
-            this.salary_lb.Size = new System.Drawing.Size(104, 32);
+            this.salary_lb.Size = new System.Drawing.Size(66, 24);
             this.salary_lb.TabIndex = 81;
             this.salary_lb.Text = "Salary:";
             // 
@@ -179,125 +188,138 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.position_lb.AutoSize = true;
             this.position_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.position_lb.Location = new System.Drawing.Point(77, 720);
+            this.position_lb.Location = new System.Drawing.Point(51, 468);
+            this.position_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.position_lb.Name = "position_lb";
-            this.position_lb.Size = new System.Drawing.Size(126, 32);
+            this.position_lb.Size = new System.Drawing.Size(81, 24);
             this.position_lb.TabIndex = 84;
             this.position_lb.Text = "Position:";
             // 
             // id_tb
             // 
-            this.id_tb.Enabled = false;
             this.id_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.id_tb.Location = new System.Drawing.Point(218, 28);
+            this.id_tb.Location = new System.Drawing.Point(145, 18);
+            this.id_tb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.id_tb.Name = "id_tb";
-            this.id_tb.Size = new System.Drawing.Size(302, 39);
+            this.id_tb.Size = new System.Drawing.Size(203, 29);
             this.id_tb.TabIndex = 59;
             // 
             // manager_tb
             // 
             this.manager_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manager_tb.Location = new System.Drawing.Point(869, 85);
+            this.manager_tb.Location = new System.Drawing.Point(579, 55);
+            this.manager_tb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.manager_tb.Name = "manager_tb";
-            this.manager_tb.Size = new System.Drawing.Size(302, 39);
+            this.manager_tb.Size = new System.Drawing.Size(203, 29);
             this.manager_tb.TabIndex = 80;
             // 
             // positon_cb
             // 
             this.positon_cb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.positon_cb.FormattingEnabled = true;
-            this.positon_cb.Location = new System.Drawing.Point(217, 717);
+            this.positon_cb.Location = new System.Drawing.Point(145, 466);
+            this.positon_cb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.positon_cb.Name = "positon_cb";
-            this.positon_cb.Size = new System.Drawing.Size(300, 40);
+            this.positon_cb.Size = new System.Drawing.Size(201, 32);
             this.positon_cb.TabIndex = 79;
             // 
             // salary_tb
             // 
             this.salary_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salary_tb.Location = new System.Drawing.Point(869, 25);
+            this.salary_tb.Location = new System.Drawing.Point(579, 16);
+            this.salary_tb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.salary_tb.Name = "salary_tb";
-            this.salary_tb.Size = new System.Drawing.Size(302, 39);
+            this.salary_tb.Size = new System.Drawing.Size(203, 29);
             this.salary_tb.TabIndex = 78;
             // 
             // cmnd_tb
             // 
             this.cmnd_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmnd_tb.Location = new System.Drawing.Point(216, 632);
+            this.cmnd_tb.Location = new System.Drawing.Point(144, 411);
+            this.cmnd_tb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmnd_tb.Name = "cmnd_tb";
-            this.cmnd_tb.Size = new System.Drawing.Size(302, 39);
+            this.cmnd_tb.Size = new System.Drawing.Size(203, 29);
             this.cmnd_tb.TabIndex = 77;
             // 
             // cmnd_lb
             // 
             this.cmnd_lb.AutoSize = true;
             this.cmnd_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmnd_lb.Location = new System.Drawing.Point(98, 635);
+            this.cmnd_lb.Location = new System.Drawing.Point(65, 413);
+            this.cmnd_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cmnd_lb.Name = "cmnd_lb";
-            this.cmnd_lb.Size = new System.Drawing.Size(106, 32);
+            this.cmnd_lb.Size = new System.Drawing.Size(71, 24);
             this.cmnd_lb.TabIndex = 76;
             this.cmnd_lb.Text = "CMND:";
             // 
             // reenter_tb
             // 
             this.reenter_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reenter_tb.Location = new System.Drawing.Point(869, 714);
+            this.reenter_tb.Location = new System.Drawing.Point(579, 464);
+            this.reenter_tb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.reenter_tb.Name = "reenter_tb";
             this.reenter_tb.PasswordChar = '*';
-            this.reenter_tb.Size = new System.Drawing.Size(302, 39);
+            this.reenter_tb.Size = new System.Drawing.Size(203, 29);
             this.reenter_tb.TabIndex = 75;
             // 
             // reenter_lb
             // 
             this.reenter_lb.AutoSize = true;
             this.reenter_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.reenter_lb.Location = new System.Drawing.Point(724, 717);
+            this.reenter_lb.Location = new System.Drawing.Point(483, 466);
+            this.reenter_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.reenter_lb.Name = "reenter_lb";
-            this.reenter_lb.Size = new System.Drawing.Size(133, 32);
+            this.reenter_lb.Size = new System.Drawing.Size(88, 24);
             this.reenter_lb.TabIndex = 74;
             this.reenter_lb.Text = "Re-enter:";
             // 
             // password_tb
             // 
             this.password_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password_tb.Location = new System.Drawing.Point(869, 642);
+            this.password_tb.Location = new System.Drawing.Point(579, 417);
+            this.password_tb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.password_tb.Name = "password_tb";
             this.password_tb.PasswordChar = '*';
-            this.password_tb.Size = new System.Drawing.Size(302, 39);
+            this.password_tb.Size = new System.Drawing.Size(203, 29);
             this.password_tb.TabIndex = 73;
             // 
             // password_lb
             // 
             this.password_lb.AutoSize = true;
             this.password_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.password_lb.Location = new System.Drawing.Point(710, 645);
+            this.password_lb.Location = new System.Drawing.Point(473, 419);
+            this.password_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.password_lb.Name = "password_lb";
-            this.password_lb.Size = new System.Drawing.Size(147, 32);
+            this.password_lb.Size = new System.Drawing.Size(97, 24);
             this.password_lb.TabIndex = 72;
             this.password_lb.Text = "Password:";
             // 
             // username_tb
             // 
             this.username_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username_tb.Location = new System.Drawing.Point(869, 570);
+            this.username_tb.Location = new System.Drawing.Point(579, 370);
+            this.username_tb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.username_tb.Name = "username_tb";
-            this.username_tb.Size = new System.Drawing.Size(302, 39);
+            this.username_tb.Size = new System.Drawing.Size(203, 29);
             this.username_tb.TabIndex = 71;
             // 
             // username_lb
             // 
             this.username_lb.AutoSize = true;
             this.username_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.username_lb.Location = new System.Drawing.Point(710, 573);
+            this.username_lb.Location = new System.Drawing.Point(473, 372);
+            this.username_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.username_lb.Name = "username_lb";
-            this.username_lb.Size = new System.Drawing.Size(153, 32);
+            this.username_lb.Size = new System.Drawing.Size(102, 24);
             this.username_lb.TabIndex = 70;
             this.username_lb.Text = "Username:";
             // 
             // upload_btn
             // 
-            this.upload_btn.Location = new System.Drawing.Point(869, 506);
+            this.upload_btn.Location = new System.Drawing.Point(579, 329);
+            this.upload_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.upload_btn.Name = "upload_btn";
-            this.upload_btn.Size = new System.Drawing.Size(302, 35);
+            this.upload_btn.Size = new System.Drawing.Size(201, 23);
             this.upload_btn.TabIndex = 67;
             this.upload_btn.Text = "Upload Image";
             this.upload_btn.UseVisualStyleBackColor = true;
@@ -307,9 +329,11 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.genderBtn_group.Controls.Add(this.female_rbtn);
             this.genderBtn_group.Controls.Add(this.male_rbtn);
-            this.genderBtn_group.Location = new System.Drawing.Point(218, 292);
+            this.genderBtn_group.Location = new System.Drawing.Point(145, 190);
+            this.genderBtn_group.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.genderBtn_group.Name = "genderBtn_group";
-            this.genderBtn_group.Size = new System.Drawing.Size(302, 67);
+            this.genderBtn_group.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.genderBtn_group.Size = new System.Drawing.Size(201, 44);
             this.genderBtn_group.TabIndex = 66;
             this.genderBtn_group.TabStop = false;
             // 
@@ -317,9 +341,10 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.female_rbtn.AutoSize = true;
             this.female_rbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.female_rbtn.Location = new System.Drawing.Point(163, 21);
+            this.female_rbtn.Location = new System.Drawing.Point(109, 14);
+            this.female_rbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.female_rbtn.Name = "female_rbtn";
-            this.female_rbtn.Size = new System.Drawing.Size(120, 33);
+            this.female_rbtn.Size = new System.Drawing.Size(80, 24);
             this.female_rbtn.TabIndex = 1;
             this.female_rbtn.Text = "Female";
             this.female_rbtn.UseVisualStyleBackColor = true;
@@ -329,9 +354,10 @@ namespace HotelAPP.AppForm.EmpForm
             this.male_rbtn.AutoSize = true;
             this.male_rbtn.Checked = true;
             this.male_rbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.male_rbtn.Location = new System.Drawing.Point(18, 21);
+            this.male_rbtn.Location = new System.Drawing.Point(12, 14);
+            this.male_rbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.male_rbtn.Name = "male_rbtn";
-            this.male_rbtn.Size = new System.Drawing.Size(91, 33);
+            this.male_rbtn.Size = new System.Drawing.Size(61, 24);
             this.male_rbtn.TabIndex = 0;
             this.male_rbtn.TabStop = true;
             this.male_rbtn.Text = "Male";
@@ -340,9 +366,11 @@ namespace HotelAPP.AppForm.EmpForm
             // pictureBox
             // 
             this.pictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox.Location = new System.Drawing.Point(869, 154);
+            this.pictureBox.Location = new System.Drawing.Point(579, 100);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(590, 346);
+            this.pictureBox.Size = new System.Drawing.Size(393, 225);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 65;
             this.pictureBox.TabStop = false;
             // 
@@ -350,9 +378,10 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.address_rtb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.address_rtb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address_rtb.Location = new System.Drawing.Point(216, 471);
+            this.address_rtb.Location = new System.Drawing.Point(144, 306);
+            this.address_rtb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.address_rtb.Name = "address_rtb";
-            this.address_rtb.Size = new System.Drawing.Size(301, 134);
+            this.address_rtb.Size = new System.Drawing.Size(202, 88);
             this.address_rtb.TabIndex = 64;
             this.address_rtb.Text = "";
             // 
@@ -360,42 +389,47 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.bdate_picker.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bdate_picker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.bdate_picker.Location = new System.Drawing.Point(216, 225);
+            this.bdate_picker.Location = new System.Drawing.Point(144, 146);
+            this.bdate_picker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bdate_picker.Name = "bdate_picker";
-            this.bdate_picker.Size = new System.Drawing.Size(302, 39);
+            this.bdate_picker.Size = new System.Drawing.Size(203, 29);
             this.bdate_picker.TabIndex = 63;
             // 
             // phone_tb
             // 
             this.phone_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phone_tb.Location = new System.Drawing.Point(217, 391);
+            this.phone_tb.Location = new System.Drawing.Point(145, 254);
+            this.phone_tb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.phone_tb.Name = "phone_tb";
-            this.phone_tb.Size = new System.Drawing.Size(302, 39);
+            this.phone_tb.Size = new System.Drawing.Size(203, 29);
             this.phone_tb.TabIndex = 62;
             // 
             // lname_tb
             // 
             this.lname_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lname_tb.Location = new System.Drawing.Point(216, 154);
+            this.lname_tb.Location = new System.Drawing.Point(144, 100);
+            this.lname_tb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lname_tb.Name = "lname_tb";
-            this.lname_tb.Size = new System.Drawing.Size(301, 39);
+            this.lname_tb.Size = new System.Drawing.Size(202, 29);
             this.lname_tb.TabIndex = 61;
             // 
             // fname_tx
             // 
             this.fname_tx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fname_tx.Location = new System.Drawing.Point(217, 89);
+            this.fname_tx.Location = new System.Drawing.Point(145, 58);
+            this.fname_tx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.fname_tx.Name = "fname_tx";
-            this.fname_tx.Size = new System.Drawing.Size(302, 39);
+            this.fname_tx.Size = new System.Drawing.Size(203, 29);
             this.fname_tx.TabIndex = 60;
             // 
             // picture_lb
             // 
             this.picture_lb.AutoSize = true;
             this.picture_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.picture_lb.Location = new System.Drawing.Point(751, 157);
+            this.picture_lb.Location = new System.Drawing.Point(501, 102);
+            this.picture_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.picture_lb.Name = "picture_lb";
-            this.picture_lb.Size = new System.Drawing.Size(112, 32);
+            this.picture_lb.Size = new System.Drawing.Size(73, 24);
             this.picture_lb.TabIndex = 58;
             this.picture_lb.Text = "Picture:";
             // 
@@ -403,9 +437,10 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.address_lb.AutoSize = true;
             this.address_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address_lb.Location = new System.Drawing.Point(77, 474);
+            this.address_lb.Location = new System.Drawing.Point(51, 308);
+            this.address_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.address_lb.Name = "address_lb";
-            this.address_lb.Size = new System.Drawing.Size(127, 32);
+            this.address_lb.Size = new System.Drawing.Size(85, 24);
             this.address_lb.TabIndex = 57;
             this.address_lb.Text = "Address:";
             // 
@@ -413,9 +448,10 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.phone_lb.AutoSize = true;
             this.phone_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phone_lb.Location = new System.Drawing.Point(99, 394);
+            this.phone_lb.Location = new System.Drawing.Point(66, 256);
+            this.phone_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.phone_lb.Name = "phone_lb";
-            this.phone_lb.Size = new System.Drawing.Size(106, 32);
+            this.phone_lb.Size = new System.Drawing.Size(71, 24);
             this.phone_lb.TabIndex = 56;
             this.phone_lb.Text = "Phone:";
             // 
@@ -423,9 +459,10 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.gender_lb.AutoSize = true;
             this.gender_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gender_lb.Location = new System.Drawing.Point(88, 312);
+            this.gender_lb.Location = new System.Drawing.Point(59, 203);
+            this.gender_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gender_lb.Name = "gender_lb";
-            this.gender_lb.Size = new System.Drawing.Size(118, 32);
+            this.gender_lb.Size = new System.Drawing.Size(79, 24);
             this.gender_lb.TabIndex = 55;
             this.gender_lb.Text = "Gender:";
             // 
@@ -433,9 +470,10 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.birthdate_lb.AutoSize = true;
             this.birthdate_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthdate_lb.Location = new System.Drawing.Point(66, 230);
+            this.birthdate_lb.Location = new System.Drawing.Point(44, 149);
+            this.birthdate_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.birthdate_lb.Name = "birthdate_lb";
-            this.birthdate_lb.Size = new System.Drawing.Size(142, 32);
+            this.birthdate_lb.Size = new System.Drawing.Size(90, 24);
             this.birthdate_lb.TabIndex = 54;
             this.birthdate_lb.Text = "BirthDate:";
             // 
@@ -443,9 +481,10 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.lname_lb.AutoSize = true;
             this.lname_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lname_lb.Location = new System.Drawing.Point(49, 157);
+            this.lname_lb.Location = new System.Drawing.Point(33, 102);
+            this.lname_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lname_lb.Name = "lname_lb";
-            this.lname_lb.Size = new System.Drawing.Size(159, 32);
+            this.lname_lb.Size = new System.Drawing.Size(104, 24);
             this.lname_lb.TabIndex = 53;
             this.lname_lb.Text = "Last Name:";
             // 
@@ -453,9 +492,10 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.fname_lb.AutoSize = true;
             this.fname_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fname_lb.Location = new System.Drawing.Point(49, 92);
+            this.fname_lb.Location = new System.Drawing.Point(33, 60);
+            this.fname_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.fname_lb.Name = "fname_lb";
-            this.fname_lb.Size = new System.Drawing.Size(160, 32);
+            this.fname_lb.Size = new System.Drawing.Size(106, 24);
             this.fname_lb.TabIndex = 52;
             this.fname_lb.Text = "First Name:";
             // 
@@ -466,10 +506,11 @@ namespace HotelAPP.AppForm.EmpForm
             this.delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.delete_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delete_btn.ForeColor = System.Drawing.Color.White;
-            this.delete_btn.Location = new System.Drawing.Point(700, 811);
+            this.delete_btn.Location = new System.Drawing.Point(467, 527);
+            this.delete_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.delete_btn.Name = "delete_btn";
             this.delete_btn.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.delete_btn.Size = new System.Drawing.Size(280, 92);
+            this.delete_btn.Size = new System.Drawing.Size(187, 60);
             this.delete_btn.TabIndex = 68;
             this.delete_btn.Text = "Delete";
             this.delete_btn.UseVisualStyleBackColor = false;
@@ -477,19 +518,21 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             // findId_btn
             // 
-            this.findId_btn.Location = new System.Drawing.Point(524, 28);
+            this.findId_btn.Location = new System.Drawing.Point(349, 18);
+            this.findId_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.findId_btn.Name = "findId_btn";
-            this.findId_btn.Size = new System.Drawing.Size(96, 39);
+            this.findId_btn.Size = new System.Drawing.Size(64, 25);
             this.findId_btn.TabIndex = 89;
             this.findId_btn.Text = "Find";
             this.findId_btn.UseVisualStyleBackColor = true;
-            this.findId_btn.Click += new System.EventHandler(this.checkPhone_btn_Click);
+            this.findId_btn.Click += new System.EventHandler(this.findId_btn_Click);
             // 
             // findManager_btn
             // 
-            this.findManager_btn.Location = new System.Drawing.Point(1279, 85);
+            this.findManager_btn.Location = new System.Drawing.Point(853, 55);
+            this.findManager_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.findManager_btn.Name = "findManager_btn";
-            this.findManager_btn.Size = new System.Drawing.Size(96, 39);
+            this.findManager_btn.Size = new System.Drawing.Size(64, 25);
             this.findManager_btn.TabIndex = 88;
             this.findManager_btn.Text = "Find";
             this.findManager_btn.UseVisualStyleBackColor = true;
@@ -497,10 +540,10 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             // EditDeleteEmpForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1585, 932);
+            this.ClientSize = new System.Drawing.Size(1048, 596);
             this.Controls.Add(this.cancel_btn);
             this.Controls.Add(this.delete_btn);
             this.Controls.Add(this.edit_btn);
@@ -541,8 +584,11 @@ namespace HotelAPP.AppForm.EmpForm
             this.Controls.Add(this.birthdate_lb);
             this.Controls.Add(this.lname_lb);
             this.Controls.Add(this.fname_lb);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "EditDeleteEmpForm";
-            this.Text = "EditDeleteEmpForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Edit Delete Employee";
+            this.Load += new System.EventHandler(this.EditDeleteEmpForm_Load);
             this.genderBtn_group.ResumeLayout(false);
             this.genderBtn_group.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();

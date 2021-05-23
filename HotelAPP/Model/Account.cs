@@ -112,6 +112,7 @@ namespace HotelAPP
             {
                 var dAcc = hotelDB.Accounts.Single(a => a.userID == user_id);
                 hotelDB.Accounts.Remove(dAcc);
+                hotelDB.SaveChanges();
                 return true;
             }
             catch (Exception)
@@ -119,6 +120,16 @@ namespace HotelAPP
                 return false;
             }
         }
-
+        public Account getByID(int id)
+        {
+            try
+            {
+                return (from acc in hotelDB.Accounts where acc.userID == id select acc).First();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

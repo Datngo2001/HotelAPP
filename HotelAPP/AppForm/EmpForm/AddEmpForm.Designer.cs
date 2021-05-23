@@ -252,7 +252,7 @@ namespace HotelAPP.AppForm.EmpForm
             this.cancel_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancel_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.cancel_btn.ForeColor = System.Drawing.Color.White;
-            this.cancel_btn.Location = new System.Drawing.Point(874, 828);
+            this.cancel_btn.Location = new System.Drawing.Point(868, 803);
             this.cancel_btn.Name = "cancel_btn";
             this.cancel_btn.Size = new System.Drawing.Size(184, 92);
             this.cancel_btn.TabIndex = 40;

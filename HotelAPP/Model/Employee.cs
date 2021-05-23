@@ -16,6 +16,7 @@ namespace HotelAPP
             {
                 Employee employee = (from e in hotelDB.Employees
                                      where e.Id == id
+                                     orderby e.Id
                                      select e).First();
                 return employee;
             }
@@ -243,6 +244,7 @@ namespace HotelAPP
             {
                 var dEmp = hotelDB.Employees.Single(e => e.Id == id);
                 hotelDB.Employees.Remove(dEmp);
+                hotelDB.SaveChanges();
                 return true;
             }
             catch (Exception)
@@ -250,5 +252,6 @@ namespace HotelAPP
                 return false;
             }
         }
+
     }
 }
