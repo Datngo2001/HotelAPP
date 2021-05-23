@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="HOTELModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="HOTELModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="username" />
@@ -41,6 +41,7 @@
           <Property Name="productID" Type="int" />
           <Property Name="productName" Type="nvarchar" MaxLength="20" />
           <Property Name="consume" Type="int" />
+          <Property Name="date" Type="datetime" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -56,6 +57,7 @@
           <Property Name="roomID" Type="int" />
           <Property Name="dayIn" Type="date" />
           <Property Name="dayOut" Type="date" />
+          <Property Name="number" Type="int" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -126,6 +128,7 @@
           <Property Name="name" Type="nvarchar" MaxLength="20" />
           <Property Name="quantity" Type="int" />
           <Property Name="price" Type="int" />
+          <Property Name="picture" Type="image" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
@@ -134,13 +137,14 @@
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="10" />
           <Property Name="status" Type="nvarchar" MaxLength="10" />
+          <Property Name="picture" Type="image" />
         </EntityType>
         <EntityType Name="Shift">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="time" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="time" Type="time" Precision="7" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -442,7 +446,8 @@
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HOTELModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -487,6 +492,7 @@
           <Property Name="productID" Type="Int32" />
           <Property Name="productName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="consume1" Type="Int32" />
+          <Property Name="date" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Consume_Product" FromRole="Consume" ToRole="Product" />
           <NavigationProperty Name="Room" Relationship="Self.FK_Consume_Room" FromRole="Consume" ToRole="Room" />
         </EntityType>
@@ -504,6 +510,7 @@
           <Property Name="roomID" Type="Int32" />
           <Property Name="dayIn" Type="DateTime" Precision="0" />
           <Property Name="dayOut" Type="DateTime" Precision="0" />
+          <Property Name="number" Type="Int32" />
           <NavigationProperty Name="Room" Relationship="Self.FK_Customer_Room" FromRole="Customer" ToRole="Room" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Customer" FromRole="Customer" ToRole="Order" />
         </EntityType>
@@ -592,6 +599,7 @@
           <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="quantity" Type="Int32" />
           <Property Name="price" Type="Int32" />
+          <Property Name="picture" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Consumes" Relationship="Self.FK_Consume_Product" FromRole="Product" ToRole="Consume" />
         </EntityType>
         <EntityType Name="Room">
@@ -601,6 +609,7 @@
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="picture" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Consumes" Relationship="Self.FK_Consume_Room" FromRole="Room" ToRole="Consume" />
           <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Room" FromRole="Room" ToRole="Customer" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Room" FromRole="Room" ToRole="Order" />
@@ -610,7 +619,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="time" Type="String" Nullable="false" />
+          <Property Name="time" Type="Time" Precision="7" />
           <NavigationProperty Name="empSchedules" Relationship="Self.FK_empSchedule_Shift1" FromRole="Shift" ToRole="empSchedule" />
         </EntityType>
         <EntityType Name="sysdiagram">
@@ -965,6 +974,7 @@
                 <ScalarProperty Name="productID" ColumnName="productID" />
                 <ScalarProperty Name="productName" ColumnName="productName" />
                 <ScalarProperty Name="consume1" ColumnName="consume" />
+                <ScalarProperty Name="date" ColumnName="date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -981,6 +991,7 @@
                 <ScalarProperty Name="roomID" ColumnName="roomID" />
                 <ScalarProperty Name="dayIn" ColumnName="dayIn" />
                 <ScalarProperty Name="dayOut" ColumnName="dayOut" />
+                <ScalarProperty Name="number" ColumnName="number" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1057,6 +1068,7 @@
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="quantity" ColumnName="quantity" />
                 <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="picture" ColumnName="picture" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1066,6 +1078,7 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="picture" ColumnName="picture" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

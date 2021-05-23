@@ -30,6 +30,7 @@ namespace HotelAPP
         public Nullable<int> roomID { get; set; }
         public Nullable<System.DateTime> dayIn { get; set; }
         public Nullable<System.DateTime> dayOut { get; set; }
+        public Nullable<int> number { get; set; }
     
         public virtual Room Room { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

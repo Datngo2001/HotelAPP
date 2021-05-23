@@ -21,7 +21,7 @@ namespace HotelAPP
         }
     
         public int id { get; set; }
-        public string time { get; set; }
+        public Nullable<System.TimeSpan> time { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<empSchedule> empSchedules { get; set; }
