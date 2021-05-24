@@ -112,6 +112,18 @@
     <Compile Include="AppForm\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppForm\ManageWarehouse\ManageWarehouseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForm\ManageWarehouse\ManageWarehouseForm.Designer.cs">
+      <DependentUpon>ManageWarehouseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForm\RoomForm\ManageRoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForm\RoomForm\ManageRoomForm.Designer.cs">
+      <DependentUpon>ManageRoomForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CheckIn.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
@@ -219,6 +231,12 @@
     <EmbeddedResource Include="AppForm\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AppForm\ManageWarehouse\ManageWarehouseForm.resx">
+      <DependentUpon>ManageWarehouseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForm\RoomForm\ManageRoomForm.resx">
+      <DependentUpon>ManageRoomForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -282,5 +300,6 @@
       <LastGenOutput>DataModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

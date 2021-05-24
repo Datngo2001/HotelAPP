@@ -71,5 +71,29 @@ namespace HotelAPP
                 throw;
             }
         }
+
+        public bool editCustomer(Customer customer)
+        {
+            try 
+            {
+                var newCustomer = hotelDB.Customers.Single(c => c.id == customer.id);
+                newCustomer.fname = customer.fname;
+                newCustomer.lname = customer.lname;
+                newCustomer.gender = customer.gender;
+                newCustomer.bdate = customer.bdate;
+                newCustomer.phone = customer.phone;
+                newCustomer.address = customer.address;
+                newCustomer.roomID = customer.roomID;
+                newCustomer.dayIn = customer.dayIn;
+                newCustomer.dayOut = customer.dayOut;
+                hotelDB.SaveChanges();
+                return true;
+            }
+            catch (Exception E)
+            {
+                return false;
+                throw;
+            }
+        }
     }
 }

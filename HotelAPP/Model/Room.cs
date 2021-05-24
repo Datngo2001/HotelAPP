@@ -85,5 +85,36 @@ namespace HotelAPP
                 throw;
             }
         }
+
+        public bool editRoom(Room room)
+        {
+            try
+            {
+                var newRoom = hotelDB.Rooms.Single(r => r.id == room.id);
+                newRoom.name = room.name;
+                newRoom.status = room.status;
+                hotelDB.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+        public void fullOrEmpty(int id, string status)
+        {
+            try
+            {
+                var room = hotelDB.Rooms.Single(r => r.id == id);
+                room.status = status;
+                hotelDB.SaveChanges();
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -30,6 +30,8 @@ namespace HotelAPP.AppForm
         private void InitializeComponent()
         {
             this.menu_pn = new System.Windows.Forms.Panel();
+            this.room_btn = new System.Windows.Forms.Button();
+            this.customer_btn = new System.Windows.Forms.Button();
             this.checkInOut_btn = new System.Windows.Forms.Button();
             this.timeTable_btn = new System.Windows.Forms.Button();
             this.editForm_btn = new System.Windows.Forms.Button();
@@ -64,6 +66,7 @@ namespace HotelAPP.AppForm
             // 
             this.menu_pn.AutoScroll = true;
             this.menu_pn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.menu_pn.Controls.Add(this.room_btn);
             this.menu_pn.Controls.Add(this.customer_btn);
             this.menu_pn.Controls.Add(this.empReport_btn);
             this.menu_pn.Controls.Add(this.checkInOut_btn);
@@ -74,10 +77,50 @@ namespace HotelAPP.AppForm
             this.menu_pn.Controls.Add(this.User_pn);
             this.menu_pn.Dock = System.Windows.Forms.DockStyle.Left;
             this.menu_pn.Location = new System.Drawing.Point(0, 0);
-            this.menu_pn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.menu_pn.Margin = new System.Windows.Forms.Padding(4);
             this.menu_pn.Name = "menu_pn";
             this.menu_pn.Size = new System.Drawing.Size(313, 1080);
             this.menu_pn.TabIndex = 0;
+            // 
+            // room_btn
+            // 
+            this.room_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.room_btn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.room_btn.FlatAppearance.BorderSize = 0;
+            this.room_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.room_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.room_btn.ForeColor = System.Drawing.Color.White;
+            this.room_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.room_btn.Location = new System.Drawing.Point(0, 396);
+            this.room_btn.Margin = new System.Windows.Forms.Padding(4, 12, 4, 12);
+            this.room_btn.Name = "room_btn";
+            this.room_btn.Size = new System.Drawing.Size(278, 52);
+            this.room_btn.TabIndex = 13;
+            this.room_btn.Text = "   Room";
+            this.room_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.room_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.room_btn.UseVisualStyleBackColor = true;
+            this.room_btn.Click += new System.EventHandler(this.room_btn_Click);
+            // 
+            // customer_btn
+            // 
+            this.customer_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.customer_btn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.customer_btn.FlatAppearance.BorderSize = 0;
+            this.customer_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customer_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_btn.ForeColor = System.Drawing.Color.White;
+            this.customer_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.customer_btn.Location = new System.Drawing.Point(0, 344);
+            this.customer_btn.Margin = new System.Windows.Forms.Padding(4, 12, 4, 12);
+            this.customer_btn.Name = "customer_btn";
+            this.customer_btn.Size = new System.Drawing.Size(278, 52);
+            this.customer_btn.TabIndex = 12;
+            this.customer_btn.Text = "   Customer";
+            this.customer_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.customer_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.customer_btn.UseVisualStyleBackColor = true;
+            this.customer_btn.Click += new System.EventHandler(this.customer_btn_Click);
             // 
             // checkInOut_btn
             // 
@@ -192,7 +235,7 @@ namespace HotelAPP.AppForm
             this.User_pn.Controls.Add(this.avatar_pn);
             this.User_pn.Dock = System.Windows.Forms.DockStyle.Top;
             this.User_pn.Location = new System.Drawing.Point(0, 0);
-            this.User_pn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.User_pn.Margin = new System.Windows.Forms.Padding(4);
             this.User_pn.Name = "User_pn";
             this.User_pn.Size = new System.Drawing.Size(313, 92);
             this.User_pn.TabIndex = 1;
@@ -273,8 +316,8 @@ namespace HotelAPP.AppForm
             this.titleBar_pn.Controls.Add(this.closeChildForm_btn);
             this.titleBar_pn.Controls.Add(this.title_lb);
             this.titleBar_pn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.titleBar_pn.Location = new System.Drawing.Point(313, 0);
-            this.titleBar_pn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.titleBar_pn.Location = new System.Drawing.Point(278, 0);
+            this.titleBar_pn.Margin = new System.Windows.Forms.Padding(4);
             this.titleBar_pn.Name = "titleBar_pn";
             this.titleBar_pn.Size = new System.Drawing.Size(1607, 92);
             this.titleBar_pn.TabIndex = 1;
@@ -337,7 +380,7 @@ namespace HotelAPP.AppForm
             this.closeChildForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeChildForm_btn.Image = global::HotelAPP.Properties.Resources.cross_out__2_;
             this.closeChildForm_btn.Location = new System.Drawing.Point(0, 0);
-            this.closeChildForm_btn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.closeChildForm_btn.Margin = new System.Windows.Forms.Padding(4);
             this.closeChildForm_btn.Name = "closeChildForm_btn";
             this.closeChildForm_btn.Size = new System.Drawing.Size(112, 92);
             this.closeChildForm_btn.TabIndex = 1;
@@ -363,8 +406,8 @@ namespace HotelAPP.AppForm
             // 
             this.desktop_pn.Controls.Add(this.hotelLogo_pb);
             this.desktop_pn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.desktop_pn.Location = new System.Drawing.Point(313, 92);
-            this.desktop_pn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.desktop_pn.Location = new System.Drawing.Point(278, 74);
+            this.desktop_pn.Margin = new System.Windows.Forms.Padding(4);
             this.desktop_pn.Name = "desktop_pn";
             this.desktop_pn.Size = new System.Drawing.Size(1607, 988);
             this.desktop_pn.TabIndex = 2;
@@ -432,8 +475,8 @@ namespace HotelAPP.AppForm
             this.Controls.Add(this.titleBar_pn);
             this.Controls.Add(this.menu_pn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MinimumSize = new System.Drawing.Size(1000, 600);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(889, 480);
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
@@ -475,5 +518,6 @@ namespace HotelAPP.AppForm
         private System.Windows.Forms.Button deleteForm_btn;
         private System.Windows.Forms.Button customer_btn;
         private System.Windows.Forms.Button empReport_btn;
+        private System.Windows.Forms.Button room_btn;
     }
 }
