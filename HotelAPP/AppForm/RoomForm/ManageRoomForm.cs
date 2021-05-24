@@ -13,11 +13,13 @@ namespace HotelAPP.AppForm.RoomForm
     public partial class ManageRoomForm : Form
     {
         Room room;
+        Product product;
 
         public ManageRoomForm()
         {
             InitializeComponent();
             room = new Room();
+            product = new Product();
         }
 
         private void showDGV(object dataSource, int col)
@@ -149,7 +151,7 @@ namespace HotelAPP.AppForm.RoomForm
 
         private void showProduct_btn_Click(object sender, EventArgs e)
         {
-
+            this.showDGV(product.getAllProduct(), 5);
         }
 
         private void show_dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)

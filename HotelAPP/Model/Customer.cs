@@ -89,7 +89,7 @@ namespace HotelAPP
                 hotelDB.SaveChanges();
                 return true;
             }
-            catch (Exception E)
+            catch (Exception)
             {
                 return false;
                 throw;

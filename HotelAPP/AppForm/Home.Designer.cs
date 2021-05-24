@@ -53,6 +53,7 @@ namespace HotelAPP.AppForm
             this.hotelLogo_pb = new System.Windows.Forms.PictureBox();
             this.empReport_btn = new System.Windows.Forms.Button();
             this.customer_btn = new System.Windows.Forms.Button();
+            this.product_btn = new System.Windows.Forms.Button();
             this.menu_pn.SuspendLayout();
             this.User_pn.SuspendLayout();
             this.avatar_pn.SuspendLayout();
@@ -66,6 +67,7 @@ namespace HotelAPP.AppForm
             // 
             this.menu_pn.AutoScroll = true;
             this.menu_pn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.menu_pn.Controls.Add(this.product_btn);
             this.menu_pn.Controls.Add(this.room_btn);
             this.menu_pn.Controls.Add(this.customer_btn);
             this.menu_pn.Controls.Add(this.empReport_btn);
@@ -464,6 +466,25 @@ namespace HotelAPP.AppForm
             this.customer_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.customer_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.customer_btn.UseVisualStyleBackColor = true;
+            // product_btn
+            // 
+            this.product_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.product_btn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.product_btn.FlatAppearance.BorderSize = 0;
+            this.product_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.product_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.product_btn.ForeColor = System.Drawing.Color.White;
+            this.product_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.product_btn.Location = new System.Drawing.Point(0, 448);
+            this.product_btn.Margin = new System.Windows.Forms.Padding(4, 12, 4, 12);
+            this.product_btn.Name = "product_btn";
+            this.product_btn.Size = new System.Drawing.Size(278, 52);
+            this.product_btn.TabIndex = 14;
+            this.product_btn.Text = "   Product";
+            this.product_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.product_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.product_btn.UseVisualStyleBackColor = true;
+            this.product_btn.Click += new System.EventHandler(this.product_btn_Click);
             // 
             // Home
             // 
@@ -519,5 +540,6 @@ namespace HotelAPP.AppForm
         private System.Windows.Forms.Button customer_btn;
         private System.Windows.Forms.Button empReport_btn;
         private System.Windows.Forms.Button room_btn;
+        private System.Windows.Forms.Button product_btn;
     }
 }
