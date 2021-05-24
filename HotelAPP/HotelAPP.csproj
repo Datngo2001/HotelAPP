@@ -138,6 +138,7 @@
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Position.cs" />
+    <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
