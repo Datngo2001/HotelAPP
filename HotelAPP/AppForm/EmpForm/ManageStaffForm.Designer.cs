@@ -62,6 +62,7 @@ namespace HotelAPP.AppForm.EmpForm
             this.show_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.show_dgv.Location = new System.Drawing.Point(0, 58);
             this.show_dgv.Name = "show_dgv";
+            this.show_dgv.ReadOnly = true;
             this.show_dgv.RowHeadersWidth = 62;
             this.show_dgv.RowTemplate.Height = 28;
             this.show_dgv.Size = new System.Drawing.Size(1585, 817);

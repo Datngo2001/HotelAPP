@@ -31,7 +31,6 @@ namespace HotelAPP.AppForm
         {
             this.menu_pn = new System.Windows.Forms.Panel();
             this.room_btn = new System.Windows.Forms.Button();
-            this.customer_btn = new System.Windows.Forms.Button();
             this.checkInOut_btn = new System.Windows.Forms.Button();
             this.timeTable_btn = new System.Windows.Forms.Button();
             this.editForm_btn = new System.Windows.Forms.Button();

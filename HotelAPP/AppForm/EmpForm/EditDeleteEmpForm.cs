@@ -38,6 +38,7 @@ namespace HotelAPP.AppForm.EmpForm
                 return;
             }
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            employee.avatar = new ImageTool(pictureBox.Image).toByteArray();
         }
         private void cancel_btn_Click(object sender, EventArgs e)
         {
@@ -103,16 +104,6 @@ namespace HotelAPP.AppForm.EmpForm
 
             try
             {
-                emp.phone = Convert.ToUInt64(phone_tb.Text).ToString();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Invalid Phone", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            try
-            {
                 emp.avatar = new ImageTool(pictureBox.Image).toByteArray();
             }
             catch (Exception)
@@ -147,6 +138,8 @@ namespace HotelAPP.AppForm.EmpForm
 
             emp.updateEmp(employee);
 
+            MessageBox.Show("Employee updated");
+
             // update emp account
 
             if (password_tb.Text != reenter_tb.Text)
@@ -157,13 +150,24 @@ namespace HotelAPP.AppForm.EmpForm
 
             Account acc = new Account();
 
-            if (acc.updateAccount(username_tb.Text, password_tb.Text, Convert.ToInt32(id_tb.Text)) == false)
+            if(password_tb.Text == "")
             {
-                MessageBox.Show("Username Existed", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if (acc.updateAccount(username_tb.Text, Convert.ToInt32(id_tb.Text)) == false)
+                {
+                    MessageBox.Show("Username Existed", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else
+            {
+                if (acc.updateAccount(username_tb.Text, password_tb.Text, Convert.ToInt32(id_tb.Text)) == false)
+                {
+                    MessageBox.Show("Username Existed", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
 
-            MessageBox.Show("OK");
+            MessageBox.Show("Account updated");
         }
         private void delete_btn_Click(object sender, EventArgs e)
         {
@@ -178,10 +182,10 @@ namespace HotelAPP.AppForm.EmpForm
                 MessageBox.Show("Invalid Id", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (acc.deleteAcc(Convert.ToInt32(id_tb.Text)) == false){
-                MessageBox.Show("Failse", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (acc.deleteAcc(Convert.ToInt32(id_tb.Text)) == false){
+            //    MessageBox.Show("Failse", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
             if (emp.deleteEmp(Convert.ToInt32(id_tb.Text)) == false)
             {
                 MessageBox.Show("Failse", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -254,6 +258,8 @@ namespace HotelAPP.AppForm.EmpForm
         }
         private bool checkUsername()
         {
+            if (account.username == username_tb.Text) return true;
+
             Account acc = new Account();
             try
             {
@@ -283,6 +289,7 @@ namespace HotelAPP.AppForm.EmpForm
                 MessageBox.Show("Invalid Id", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            if (employee.Id == id) return true;
             try
             {
                 var temp = employee.getByID(id);
@@ -295,19 +302,11 @@ namespace HotelAPP.AppForm.EmpForm
         }
         private bool checkPhone()
         {
-            string phone;
+            
+            if (employee.phone == phone_tb.Text) return true;
             try
             {
-                phone = Convert.ToUInt64(phone_tb.Text).ToString();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Invalid Phone", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            try
-            {
-                var temp = employee.getByPhone(phone);
+                var temp = employee.getByPhone(phone_tb.Text);
                 if (temp.Count == 0)
                 {
                     return true;
@@ -324,6 +323,7 @@ namespace HotelAPP.AppForm.EmpForm
         }
         private bool checkCMND()
         {
+            if (employee.CMND == cmnd_tb.Text) return true;
             try
             {
                 var temp = employee.getByCMND(cmnd_tb.Text);
@@ -353,6 +353,7 @@ namespace HotelAPP.AppForm.EmpForm
                 MessageBox.Show("Invalid manager Id", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            if (employee.manager == id) return true;
             try
             {
                 var temp = employee.getManager(id);
@@ -372,8 +373,8 @@ namespace HotelAPP.AppForm.EmpForm
         }
         private void findId_btn_Click(object sender, EventArgs e)
         {
-            employee = new Employee();
-            account = new Account();
+            if (employee == null) employee = new Employee();
+            if (account == null) account = new Account();
             try
             {
                 employee = employee.getByID(Convert.ToInt32(id_tb.Text));
@@ -413,6 +414,7 @@ namespace HotelAPP.AppForm.EmpForm
             cmnd_tb.Text = employee.CMND;
             salary_tb.Text = employee.salary.ToString();
             manager_tb.Text = employee.manager.ToString();
+            if (account != null) username_tb.Text = account.username;
             try
             {
                 bdate_picker.Value = (DateTime)employee.bdate;
@@ -423,8 +425,6 @@ namespace HotelAPP.AppForm.EmpForm
             {
                 return;
             }
-            if (account == null) return;
-            username_tb.Text = account.username;
         }
         private void EditDeleteEmpForm_Load(object sender, EventArgs e)
         {

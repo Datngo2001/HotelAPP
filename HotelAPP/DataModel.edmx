@@ -144,7 +144,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="time" Type="time" Precision="7" />
+          <Property Name="time" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -619,7 +619,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="time" Type="Time" Precision="7" />
+          <Property Name="time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="empSchedules" Relationship="Self.FK_empSchedule_Shift1" FromRole="Shift" ToRole="empSchedule" />
         </EntityType>
         <EntityType Name="sysdiagram">

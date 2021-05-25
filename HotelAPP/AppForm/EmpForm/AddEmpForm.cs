@@ -100,16 +100,6 @@ namespace HotelAPP.AppForm.EmpForm
 
             try
             {
-                employee.phone = Convert.ToUInt64(phone_tb.Text).ToString();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Invalid Phone", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            try
-            {
                 employee.avatar = new ImageTool(pictureBox.Image).toByteArray();
             }
             catch (Exception)
@@ -276,19 +266,9 @@ namespace HotelAPP.AppForm.EmpForm
         private bool checkPhone()
         {
             Employee emp = new Employee();
-            string phone;
             try
             {
-                phone = Convert.ToUInt64(phone_tb.Text).ToString();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Invalid Phone", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            try
-            {
-                var temp = emp.getByPhone(phone);
+                var temp = emp.getByPhone(phone_tb.Text);
                 if (temp.Count == 0)
                 {
                     return true;

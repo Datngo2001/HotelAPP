@@ -131,5 +131,20 @@ namespace HotelAPP
                 return null;
             }
         }
+
+        public bool updateAccount(string username, int user_id)
+        {
+            try
+            {
+                var uAcc = hotelDB.Accounts.Single(a => a.userID == user_id);
+                uAcc.username = username;
+                hotelDB.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
