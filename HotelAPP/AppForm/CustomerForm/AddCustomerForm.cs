@@ -27,6 +27,14 @@ namespace HotelAPP.AppForm.CustomerForm
             show_dgv.DataSource = dataSource;
             show_dgv.AllowUserToAddRows = false;
             show_dgv.RowTemplate.Height = 80;
+
+            if (col != 11)
+            {
+                DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
+                imageColumn = (DataGridViewImageColumn)show_dgv.Columns["picture"];
+                imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            }
+
             int n = show_dgv.Columns.Count;
             for (int i = col; i < n; i++)
             {
@@ -122,6 +130,16 @@ namespace HotelAPP.AppForm.CustomerForm
                 return;
             }
 
+            if (Convert.ToInt32(number_tb.Text) > 0)
+            {
+                customer.number = Convert.ToInt32(number_tb.Text);
+            }
+            else
+            {
+                MessageBox.Show("Invalid Number of People", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (customer.addCustomer(customer))
             {
                 MessageBox.Show("Add Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -167,6 +185,16 @@ namespace HotelAPP.AppForm.CustomerForm
                 cust.gender = "M";
             }
 
+            if (Convert.ToInt32(number_tb.Text) > 0)
+            {
+                cust.number = Convert.ToInt32(number_tb.Text);
+            }
+            else
+            {
+                MessageBox.Show("Invalid Number of People", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (customer.editCustomer(cust))
             {
                 MessageBox.Show("Edit Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -199,15 +227,25 @@ namespace HotelAPP.AppForm.CustomerForm
 
         private void showCust_btn_Click(object sender, EventArgs e)
         {
-            this.showDGV(customer.getAllCustomer(), 10);
+            this.showDGV(customer.getAllCustomer(), 11);
         }
 
         private void showRoom_btn_Click(object sender, EventArgs e)
         {
-            this.showDGV(room.getAllRoom(), 3);
+            this.showDGV(room.getAllRoom(), 4);
         }
 
-        private void show_dgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void clear_btn_Click(object sender, EventArgs e)
+        {
+            this.clear();
+        }
+
+        private void showEmptyRoom_btn_Click(object sender, EventArgs e)
+        {
+            this.showDGV(room.getAllEmptyRoom(), 4);
+        }
+
+        private void show_dgv_DoubleClick(object sender, EventArgs e)
         {
             try
             {
@@ -218,6 +256,7 @@ namespace HotelAPP.AppForm.CustomerForm
                 phone_tb.Text = show_dgv.CurrentRow.Cells[5].Value.ToString().Trim();
                 address_rtb.Text = show_dgv.CurrentRow.Cells[6].Value.ToString().Trim();
                 roomID_cb.Text = show_dgv.CurrentRow.Cells[7].Value.ToString().Trim();
+                number_tb.Text = show_dgv.CurrentRow.Cells[10].Value.ToString().Trim();
 
                 string gender = show_dgv.CurrentRow.Cells[4].Value.ToString().Trim();
                 if (gender == "F")
@@ -232,21 +271,11 @@ namespace HotelAPP.AppForm.CustomerForm
                 dayIn_picker.Value = (DateTime)show_dgv.CurrentRow.Cells[8].Value;
                 dayOut_picker.Value = (DateTime)show_dgv.CurrentRow.Cells[9].Value;
             }
-            catch(Exception E)
+            catch (Exception E)
             {
                 MessageBox.Show(E.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.clear();
             }
-        }
-
-        private void clear_btn_Click(object sender, EventArgs e)
-        {
-            this.clear();
-        }
-
-        private void showEmptyRoom_btn_Click(object sender, EventArgs e)
-        {
-            this.showDGV(room.getAllEmptyRoom(), 3);
         }
     }
 }

@@ -86,6 +86,7 @@ namespace HotelAPP
                 newCustomer.roomID = customer.roomID;
                 newCustomer.dayIn = customer.dayIn;
                 newCustomer.dayOut = customer.dayOut;
+                newCustomer.number = customer.number;
                 hotelDB.SaveChanges();
                 return true;
             }

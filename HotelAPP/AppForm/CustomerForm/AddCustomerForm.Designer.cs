@@ -59,6 +59,8 @@
             this.showRoom_btn = new System.Windows.Forms.Button();
             this.clear_btn = new System.Windows.Forms.Button();
             this.showEmptyRoom_btn = new System.Windows.Forms.Button();
+            this.number_lb = new System.Windows.Forms.Label();
+            this.number_tb = new System.Windows.Forms.TextBox();
             this.genderBtn_group.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.show_dgv)).BeginInit();
             this.SuspendLayout();
@@ -285,7 +287,7 @@
             // 
             this.roomID_cb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.roomID_cb.FormattingEnabled = true;
-            this.roomID_cb.Location = new System.Drawing.Point(171, 502);
+            this.roomID_cb.Location = new System.Drawing.Point(170, 552);
             this.roomID_cb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.roomID_cb.Name = "roomID_cb";
             this.roomID_cb.Size = new System.Drawing.Size(267, 37);
@@ -295,7 +297,7 @@
             // 
             this.roomID_lb.AutoSize = true;
             this.roomID_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roomID_lb.Location = new System.Drawing.Point(45, 502);
+            this.roomID_lb.Location = new System.Drawing.Point(45, 560);
             this.roomID_lb.Name = "roomID_lb";
             this.roomID_lb.Size = new System.Drawing.Size(113, 29);
             this.roomID_lb.TabIndex = 77;
@@ -311,10 +313,10 @@
             this.show_dgv.Name = "show_dgv";
             this.show_dgv.ReadOnly = true;
             this.show_dgv.RowHeadersWidth = 51;
-            this.show_dgv.RowTemplate.Height = 24;
+            this.show_dgv.RowTemplate.Height = 80;
             this.show_dgv.Size = new System.Drawing.Size(770, 413);
             this.show_dgv.TabIndex = 78;
-            this.show_dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.show_dgv_CellDoubleClick);
+            this.show_dgv.DoubleClick += new System.EventHandler(this.show_dgv_DoubleClick);
             // 
             // edit_btn
             // 
@@ -420,12 +422,33 @@
             this.showEmptyRoom_btn.UseVisualStyleBackColor = true;
             this.showEmptyRoom_btn.Click += new System.EventHandler(this.showEmptyRoom_btn_Click);
             // 
+            // number_lb
+            // 
+            this.number_lb.AutoSize = true;
+            this.number_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.number_lb.Location = new System.Drawing.Point(45, 505);
+            this.number_lb.Name = "number_lb";
+            this.number_lb.Size = new System.Drawing.Size(106, 29);
+            this.number_lb.TabIndex = 87;
+            this.number_lb.Text = "Number:";
+            // 
+            // number_tb
+            // 
+            this.number_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.number_tb.Location = new System.Drawing.Point(170, 500);
+            this.number_tb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.number_tb.Name = "number_tb";
+            this.number_tb.Size = new System.Drawing.Size(269, 34);
+            this.number_tb.TabIndex = 88;
+            // 
             // AddCustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1409, 746);
+            this.Controls.Add(this.number_tb);
+            this.Controls.Add(this.number_lb);
             this.Controls.Add(this.showEmptyRoom_btn);
             this.Controls.Add(this.clear_btn);
             this.Controls.Add(this.showRoom_btn);
@@ -498,5 +521,7 @@
         private System.Windows.Forms.Button showRoom_btn;
         private System.Windows.Forms.Button clear_btn;
         private System.Windows.Forms.Button showEmptyRoom_btn;
+        private System.Windows.Forms.Label number_lb;
+        private System.Windows.Forms.TextBox number_tb;
     }
 }
