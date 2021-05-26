@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelAPP.Tools;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +28,9 @@ namespace HotelAPP.AppForm.RoomForm
             show_dgv.DataSource = dataSource;
             show_dgv.AllowUserToAddRows = false;
             show_dgv.RowTemplate.Height = 80;
+            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
+            imageColumn = (DataGridViewImageColumn)show_dgv.Columns["picture"];
+            imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
             int n = show_dgv.Columns.Count;
             for (int i = col; i < n; i++)
             {
@@ -84,6 +88,16 @@ namespace HotelAPP.AppForm.RoomForm
                 status = status_cb.Text
             };
 
+            try
+            {
+                room.picture = new ImageTool(pictureBox.Image).toByteArray();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Invalid Picture", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (room.addRoom(room))
             {
                 MessageBox.Show("Add Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -103,6 +117,16 @@ namespace HotelAPP.AppForm.RoomForm
                 name = name_tb.Text,
                 status = status_cb.Text
             };
+
+            try
+            {
+                eRoom.picture = new ImageTool(pictureBox.Image).toByteArray();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Invalid Picture", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             if (room.editRoom(eRoom))
             {
@@ -146,7 +170,7 @@ namespace HotelAPP.AppForm.RoomForm
 
         private void showRoom_btn_Click(object sender, EventArgs e)
         {
-            this.showDGV(room.getAllRoom(), 3);
+            this.showDGV(room.getAllRoom(), 4);
         }
 
         private void showProduct_btn_Click(object sender, EventArgs e)
@@ -154,13 +178,14 @@ namespace HotelAPP.AppForm.RoomForm
             this.showDGV(product.getAllProduct(), 5);
         }
 
-        private void show_dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void show_dgv_DoubleClick(object sender, EventArgs e)
         {
             try
             {
                 id_tb.Text = show_dgv.CurrentRow.Cells[0].Value.ToString().Trim();
                 name_tb.Text = show_dgv.CurrentRow.Cells[1].Value.ToString().Trim();
                 status_cb.Text = show_dgv.CurrentRow.Cells[2].Value.ToString().Trim();
+                pictureBox.Image = new ImageTool().ByteArrToImage((byte[])show_dgv.CurrentRow.Cells[3].Value);
             }
             catch (Exception E)
             {
