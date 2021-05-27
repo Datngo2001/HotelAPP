@@ -46,6 +46,10 @@
             this.showProduct_btn = new System.Windows.Forms.Button();
             this.Order_btn = new System.Windows.Forms.Button();
             this.clear_btn = new System.Windows.Forms.Button();
+            this.quantity_lb = new System.Windows.Forms.Label();
+            this.quantity_tb = new System.Windows.Forms.TextBox();
+            this.price_lb = new System.Windows.Forms.Label();
+            this.price_tb = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.show_dgv)).BeginInit();
             this.SuspendLayout();
@@ -82,7 +86,7 @@
             // 
             this.status_lb.AutoSize = true;
             this.status_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status_lb.Location = new System.Drawing.Point(15, 128);
+            this.status_lb.Location = new System.Drawing.Point(15, 180);
             this.status_lb.Name = "status_lb";
             this.status_lb.Size = new System.Drawing.Size(85, 29);
             this.status_lb.TabIndex = 67;
@@ -102,7 +106,7 @@
             // 
             this.status_cb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.status_cb.FormattingEnabled = true;
-            this.status_cb.Location = new System.Drawing.Point(116, 128);
+            this.status_cb.Location = new System.Drawing.Point(116, 172);
             this.status_cb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.status_cb.Name = "status_cb";
             this.status_cb.Size = new System.Drawing.Size(327, 37);
@@ -178,7 +182,7 @@
             // 
             this.picture_label.AutoSize = true;
             this.picture_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.picture_label.Location = new System.Drawing.Point(12, 182);
+            this.picture_label.Location = new System.Drawing.Point(12, 230);
             this.picture_label.Name = "picture_label";
             this.picture_label.Size = new System.Drawing.Size(88, 29);
             this.picture_label.TabIndex = 85;
@@ -187,7 +191,7 @@
             // pictureBox
             // 
             this.pictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox.Location = new System.Drawing.Point(116, 182);
+            this.pictureBox.Location = new System.Drawing.Point(116, 230);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(327, 315);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -196,7 +200,7 @@
             // 
             // upload_btn
             // 
-            this.upload_btn.Location = new System.Drawing.Point(116, 502);
+            this.upload_btn.Location = new System.Drawing.Point(116, 550);
             this.upload_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.upload_btn.Name = "upload_btn";
             this.upload_btn.Size = new System.Drawing.Size(327, 28);
@@ -249,7 +253,7 @@
             this.Order_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Order_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Order_btn.ForeColor = System.Drawing.Color.White;
-            this.Order_btn.Location = new System.Drawing.Point(564, 502);
+            this.Order_btn.Location = new System.Drawing.Point(787, 506);
             this.Order_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Order_btn.Name = "Order_btn";
             this.Order_btn.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
@@ -274,12 +278,54 @@
             this.clear_btn.UseVisualStyleBackColor = false;
             this.clear_btn.Click += new System.EventHandler(this.clear_btn_Click);
             // 
+            // quantity_lb
+            // 
+            this.quantity_lb.AutoSize = true;
+            this.quantity_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantity_lb.Location = new System.Drawing.Point(559, 506);
+            this.quantity_lb.Name = "quantity_lb";
+            this.quantity_lb.Size = new System.Drawing.Size(106, 29);
+            this.quantity_lb.TabIndex = 94;
+            this.quantity_lb.Text = "Quantity:";
+            // 
+            // quantity_tb
+            // 
+            this.quantity_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantity_tb.Location = new System.Drawing.Point(671, 506);
+            this.quantity_tb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.quantity_tb.Name = "quantity_tb";
+            this.quantity_tb.Size = new System.Drawing.Size(101, 34);
+            this.quantity_tb.TabIndex = 95;
+            // 
+            // price_lb
+            // 
+            this.price_lb.AutoSize = true;
+            this.price_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.price_lb.Location = new System.Drawing.Point(15, 128);
+            this.price_lb.Name = "price_lb";
+            this.price_lb.Size = new System.Drawing.Size(75, 29);
+            this.price_lb.TabIndex = 96;
+            this.price_lb.Text = "Price:";
+            // 
+            // price_tb
+            // 
+            this.price_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.price_tb.Location = new System.Drawing.Point(116, 123);
+            this.price_tb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.price_tb.Name = "price_tb";
+            this.price_tb.Size = new System.Drawing.Size(327, 34);
+            this.price_tb.TabIndex = 97;
+            // 
             // ManageRoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1409, 746);
+            this.Controls.Add(this.price_tb);
+            this.Controls.Add(this.price_lb);
+            this.Controls.Add(this.quantity_tb);
+            this.Controls.Add(this.quantity_lb);
             this.Controls.Add(this.clear_btn);
             this.Controls.Add(this.Order_btn);
             this.Controls.Add(this.showProduct_btn);
@@ -328,5 +374,9 @@
         private System.Windows.Forms.Button showProduct_btn;
         private System.Windows.Forms.Button Order_btn;
         private System.Windows.Forms.Button clear_btn;
+        private System.Windows.Forms.Label quantity_lb;
+        private System.Windows.Forms.TextBox quantity_tb;
+        private System.Windows.Forms.Label price_lb;
+        private System.Windows.Forms.TextBox price_tb;
     }
 }
