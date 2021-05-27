@@ -58,5 +58,49 @@ namespace HotelAPP.AppForm.EmpForm
                 }
             }
         }
+
+        private void swap_btn_Click(object sender, EventArgs e)
+        {
+            var row1 = schedule_dgv.Rows[schedule_dgv.SelectedCells[0].RowIndex];
+            var row2 = schedule_dgv.Rows[schedule_dgv.SelectedCells[1].RowIndex];
+            int id1;
+            int id2;
+
+            try
+            {
+                id1 = Convert.ToInt32(row1.Cells["ID"].Value);
+                id2 = Convert.ToInt32(row2.Cells["ID"].Value);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Invalid ID!");
+                return;
+            }
+
+            var col1 = schedule_dgv.Columns[schedule_dgv.SelectedCells[0].ColumnIndex];
+            var col2 = schedule_dgv.Columns[schedule_dgv.SelectedCells[1].ColumnIndex];
+            DayOfWeek day1;
+            DayOfWeek day2;
+            try
+            {
+                Enum.TryParse(col1.Name, out day1);
+                Enum.TryParse(col2.Name, out day2);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Invalid cell!");
+                return;
+            }
+
+            if (schedule.switchShift(id1, (int)day1, id2, (int)day2) == true)
+            {
+                MessageBox.Show("OK!");
+                schedule_dgv.DataSource = schedule.MakeTimeTable();
+            }
+            else
+            {
+                MessageBox.Show("Error!");
+            }
+        }
     }
 }

@@ -460,7 +460,8 @@ namespace HotelAPP
                     {
                         i++;
                         day = (DayOfWeek)(schedules[i].weekDay);
-                        newRow[day.ToString()] = schedules[i].shift.ToString();
+                        if(schedules[i].shift != 0)
+                            newRow[day.ToString()] = schedules[i].shift.ToString();
                     }
                 }
                 catch (Exception)
@@ -487,32 +488,50 @@ namespace HotelAPP
 
             hotelDB.SaveChanges();
         }
-        private bool switchShiftNoSave(empSchedule schedule1, empSchedule schedule2)
+        public bool switchShift(int id1, int day1, int id2, int day2)
         {
-            if ((int)schedule1.Employee.posId == (int)schedule2.Employee.posId)
+            try
             {
-                int temp = (int)schedule1.shift;
-                schedule1.shift = schedule2.shift;
-                schedule2.shift = temp;
-                return true;
+                var schedule1 = hotelDB.empSchedules.Find(id1, day1);
+                if(schedule1 == null)
+                {
+                    var temp = hotelDB.Employees.Find(id1);
+                    schedule1 = hotelDB.empSchedules.Add(new empSchedule()
+                    {
+                        empID = id1,
+                        shift = 0,
+                        weekDay = day1
+                    });
+                }
+
+                var schedule2 = hotelDB.empSchedules.Find(id2, day2);
+                if (schedule2 == null)
+                {
+                    var temp = hotelDB.Employees.Find(id2);
+                    schedule2 = hotelDB.empSchedules.Add(new empSchedule()
+                    {
+                        empID = id2,
+                        shift = 0,
+                        weekDay = day2
+                    });
+                }
+
+                if ((int)schedule1.Employee.posId == (int)schedule2.Employee.posId)
+                {
+                    int temp = (int)schedule1.shift;
+                    schedule1.shift = schedule2.shift;
+                    schedule2.shift = temp;
+                    hotelDB.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            catch (Exception)
             {
-                return false;
-            }
-        }
-        public bool switchShift(empSchedule schedule1, empSchedule schedule2)
-        {
-            if((int)schedule1.Employee.posId == (int)schedule2.Employee.posId)
-            {
-                int temp = (int)schedule1.shift;
-                schedule1.shift = schedule2.shift;
-                schedule2.shift = temp;
-                hotelDB.SaveChanges();
-                return true;
-            }
-            else
-            {
+                throw;
                 return false;
             }
         }
