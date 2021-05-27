@@ -470,11 +470,6 @@ namespace HotelAPP
                 }
             }
 
-            foreach (var schedule in schedules)
-            {
-
-            }
-
             return timeTable;
         }
         public void ResetSchedule()
@@ -531,7 +526,6 @@ namespace HotelAPP
             }
             catch (Exception)
             {
-                throw;
                 return false;
             }
         }

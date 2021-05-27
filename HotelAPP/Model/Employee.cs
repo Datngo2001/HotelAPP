@@ -252,6 +252,47 @@ namespace HotelAPP
                 return false;
             }
         }
+        public bool isWorking()
+        {
+            CheckIn checkedIn;
+            CheckOut checkedOut;
+            
+            try
+            {
+                checkedIn = (from i in hotelDB.CheckIns orderby i.checkInDate select i).ToList().Last();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
 
+            try
+            {
+                checkedOut = (from i in hotelDB.CheckOuts orderby i.checkOutDate select i).ToList().Last();
+            }
+            catch (Exception)
+            {
+                return true;
+            }
+
+            if(checkedIn.checkInDate > checkedOut.checkOutDate)
+            {
+                // dang lam 
+                return true;
+            }
+            if (checkedIn.checkInDate < checkedOut.checkOutDate)
+            {
+                return false;
+            }
+            return true;
+        }
+        public string getShift()
+        {
+            int dayOfWeek = (int)DateTime.Now.DayOfWeek;
+            empSchedule schedules = (from s in hotelDB.empSchedules 
+                                     where s.empID == this.Id && s.weekDay == dayOfWeek 
+                                     select s).First();
+            return schedules.Shift1.time;
+        }
     }
 }

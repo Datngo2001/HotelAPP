@@ -18,18 +18,16 @@
             <PropertyRef Name="checkInDate" />
             <PropertyRef Name="empId" />
           </Key>
-          <Property Name="checkInDate" Type="date" Nullable="false" />
+          <Property Name="checkInDate" Type="datetime" Nullable="false" />
           <Property Name="empId" Type="int" Nullable="false" />
-          <Property Name="checkInTime" Type="time" Precision="7" />
         </EntityType>
         <EntityType Name="CheckOut">
           <Key>
             <PropertyRef Name="checkOutDate" />
             <PropertyRef Name="empId" />
           </Key>
-          <Property Name="checkOutDate" Type="date" Nullable="false" />
+          <Property Name="checkOutDate" Type="datetime" Nullable="false" />
           <Property Name="empId" Type="int" Nullable="false" />
-          <Property Name="checkOutTime" Type="time" Precision="7" />
         </EntityType>
         <EntityType Name="Consume">
           <Key>
@@ -181,20 +179,6 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="CheckIn">
-              <PropertyRef Name="empId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CheckOut__30F848ED">
-          <End Role="CheckIn" Type="Self.CheckIn" Multiplicity="1" />
-          <End Role="CheckOut" Type="Self.CheckOut" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="CheckIn">
-              <PropertyRef Name="checkInDate" />
-              <PropertyRef Name="empId" />
-            </Principal>
-            <Dependent Role="CheckOut">
-              <PropertyRef Name="checkOutDate" />
               <PropertyRef Name="empId" />
             </Dependent>
           </ReferentialConstraint>
@@ -408,10 +392,6 @@
             <End Role="Employee" EntitySet="Employee" />
             <End Role="CheckIn" EntitySet="CheckIn" />
           </AssociationSet>
-          <AssociationSet Name="FK__CheckOut__30F848ED" Association="Self.FK__CheckOut__30F848ED">
-            <End Role="CheckIn" EntitySet="CheckIn" />
-            <End Role="CheckOut" EntitySet="CheckOut" />
-          </AssociationSet>
           <AssociationSet Name="FK__CheckOut__empId__300424B4" Association="Self.FK__CheckOut__empId__300424B4">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="CheckOut" EntitySet="CheckOut" />
@@ -480,21 +460,17 @@
             <PropertyRef Name="checkInDate" />
             <PropertyRef Name="empId" />
           </Key>
-          <Property Name="checkInDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="checkInDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="empId" Type="Int32" Nullable="false" />
-          <Property Name="checkInTime" Type="Time" Precision="7" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__CheckIn__empId__2D27B809" FromRole="CheckIn" ToRole="Employee" />
-          <NavigationProperty Name="CheckOut" Relationship="Self.FK__CheckOut__30F848ED" FromRole="CheckIn" ToRole="CheckOut" />
         </EntityType>
         <EntityType Name="CheckOut">
           <Key>
             <PropertyRef Name="checkOutDate" />
             <PropertyRef Name="empId" />
           </Key>
-          <Property Name="checkOutDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="checkOutDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="empId" Type="Int32" Nullable="false" />
-          <Property Name="checkOutTime" Type="Time" Precision="7" />
-          <NavigationProperty Name="CheckIn" Relationship="Self.FK__CheckOut__30F848ED" FromRole="CheckOut" ToRole="CheckIn" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__CheckOut__empId__300424B4" FromRole="CheckOut" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Consume">
@@ -672,20 +648,6 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="CheckIn">
-              <PropertyRef Name="empId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CheckOut__30F848ED">
-          <End Role="CheckIn" Type="Self.CheckIn" Multiplicity="1" />
-          <End Role="CheckOut" Type="Self.CheckOut" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="CheckIn">
-              <PropertyRef Name="checkInDate" />
-              <PropertyRef Name="empId" />
-            </Principal>
-            <Dependent Role="CheckOut">
-              <PropertyRef Name="checkOutDate" />
               <PropertyRef Name="empId" />
             </Dependent>
           </ReferentialConstraint>
@@ -868,10 +830,6 @@
             <End Role="Employee" EntitySet="Employees" />
             <End Role="CheckIn" EntitySet="CheckIns" />
           </AssociationSet>
-          <AssociationSet Name="FK__CheckOut__30F848ED" Association="Self.FK__CheckOut__30F848ED">
-            <End Role="CheckIn" EntitySet="CheckIns" />
-            <End Role="CheckOut" EntitySet="CheckOuts" />
-          </AssociationSet>
           <AssociationSet Name="FK__CheckOut__empId__300424B4" Association="Self.FK__CheckOut__empId__300424B4">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="CheckOut" EntitySet="CheckOuts" />
@@ -982,7 +940,6 @@
               <MappingFragment StoreEntitySet="CheckIn">
                 <ScalarProperty Name="checkInDate" ColumnName="checkInDate" />
                 <ScalarProperty Name="empId" ColumnName="empId" />
-                <ScalarProperty Name="checkInTime" ColumnName="checkInTime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -991,7 +948,6 @@
               <MappingFragment StoreEntitySet="CheckOut">
                 <ScalarProperty Name="checkOutDate" ColumnName="checkOutDate" />
                 <ScalarProperty Name="empId" ColumnName="empId" />
-                <ScalarProperty Name="checkOutTime" ColumnName="checkOutTime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

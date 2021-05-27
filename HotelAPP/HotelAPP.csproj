@@ -176,6 +176,8 @@
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\CheckIn.cs" />
+    <Compile Include="Model\CheckOut.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\empSchedule.cs" />

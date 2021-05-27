@@ -16,9 +16,7 @@ namespace HotelAPP
     {
         public System.DateTime checkOutDate { get; set; }
         public int empId { get; set; }
-        public Nullable<System.TimeSpan> checkOutTime { get; set; }
     
-        public virtual CheckIn CheckIn { get; set; }
         public virtual Employee Employee { get; set; }
     }
 }
