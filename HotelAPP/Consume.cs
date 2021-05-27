@@ -19,7 +19,7 @@ namespace HotelAPP
         public string roomName { get; set; }
         public Nullable<int> productID { get; set; }
         public string productName { get; set; }
-        public Nullable<int> consume { get; set; }
+        public Nullable<int> consume1 { get; set; }
         public Nullable<System.DateTime> date { get; set; }
     
         public virtual Product Product { get; set; }

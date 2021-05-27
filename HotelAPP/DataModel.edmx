@@ -35,7 +35,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="roomID" Type="int" />
           <Property Name="roomName" Type="nvarchar" MaxLength="10" />
           <Property Name="productID" Type="int" />
@@ -138,6 +138,7 @@
           <Property Name="name" Type="nvarchar" MaxLength="10" />
           <Property Name="status" Type="nvarchar" MaxLength="10" />
           <Property Name="picture" Type="image" />
+          <Property Name="price" Type="money" />
         </EntityType>
         <EntityType Name="Shift">
           <Key>
@@ -157,7 +158,9 @@
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK__Account__userID__33D4B598">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -169,7 +172,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__CheckIn__empId__2D27B809">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="CheckIn" Type="Self.CheckIn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -195,7 +200,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__CheckOut__empId__300424B4">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="CheckOut" Type="Self.CheckOut" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -219,7 +226,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__InCome__empId__398D8EEE">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="InCome" Type="Self.InCome" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -231,7 +240,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__OutCome__empId__3C69FB99">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="OutCome" Type="Self.OutCome" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -290,8 +301,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_empSchedule_Shift">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+        <Association Name="FK_empSchedule_Emp">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="empSchedule" Type="Self.empSchedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -302,8 +315,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_empSchedule_Shift1">
-          <End Role="Shift" Type="Self.Shift" Multiplicity="0..1" />
+        <Association Name="FK_empSchedule_Shift">
+          <End Role="Shift" Type="Self.Shift" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="empSchedule" Type="Self.empSchedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Shift">
@@ -429,11 +444,11 @@
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Employee1" EntitySet="Employee" />
           </AssociationSet>
-          <AssociationSet Name="FK_empSchedule_Shift" Association="Self.FK_empSchedule_Shift">
+          <AssociationSet Name="FK_empSchedule_Emp" Association="Self.FK_empSchedule_Emp">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="empSchedule" EntitySet="empSchedule" />
           </AssociationSet>
-          <AssociationSet Name="FK_empSchedule_Shift1" Association="Self.FK_empSchedule_Shift1">
+          <AssociationSet Name="FK_empSchedule_Shift" Association="Self.FK_empSchedule_Shift">
             <End Role="Shift" EntitySet="Shift" />
             <End Role="empSchedule" EntitySet="empSchedule" />
           </AssociationSet>
@@ -486,12 +501,12 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="roomID" Type="Int32" />
           <Property Name="roomName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="productID" Type="Int32" />
           <Property Name="productName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="consume" Type="Int32" />
+          <Property Name="consume1" Type="Int32" />
           <Property Name="date" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Consume_Product" FromRole="Consume" ToRole="Product" />
           <NavigationProperty Name="Room" Relationship="Self.FK_Consume_Room" FromRole="Consume" ToRole="Room" />
@@ -538,7 +553,7 @@
           <NavigationProperty Name="OutComes" Relationship="Self.FK__OutCome__empId__3C69FB99" FromRole="Employee" ToRole="OutCome" />
           <NavigationProperty Name="Employee1" Relationship="Self.FK_Employee_Employee" FromRole="Employee" ToRole="Employee1" />
           <NavigationProperty Name="Employee2" Relationship="Self.FK_Employee_Employee" FromRole="Employee1" ToRole="Employee" />
-          <NavigationProperty Name="empSchedules" Relationship="Self.FK_empSchedule_Shift" FromRole="Employee" ToRole="empSchedule" />
+          <NavigationProperty Name="empSchedules" Relationship="Self.FK_empSchedule_Emp" FromRole="Employee" ToRole="empSchedule" />
         </EntityType>
         <EntityType Name="empSchedule">
           <Key>
@@ -548,8 +563,8 @@
           <Property Name="empID" Type="Int32" Nullable="false" />
           <Property Name="weekDay" Type="Int32" Nullable="false" />
           <Property Name="shift" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_empSchedule_Shift" FromRole="empSchedule" ToRole="Employee" />
-          <NavigationProperty Name="Shift1" Relationship="Self.FK_empSchedule_Shift1" FromRole="empSchedule" ToRole="Shift" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_empSchedule_Emp" FromRole="empSchedule" ToRole="Employee" />
+          <NavigationProperty Name="Shift1" Relationship="Self.FK_empSchedule_Shift" FromRole="empSchedule" ToRole="Shift" />
         </EntityType>
         <EntityType Name="InCome">
           <Key>
@@ -610,6 +625,7 @@
           <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="Consumes" Relationship="Self.FK_Consume_Room" FromRole="Room" ToRole="Consume" />
           <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Room" FromRole="Room" ToRole="Customer" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Room" FromRole="Room" ToRole="Order" />
@@ -620,7 +636,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="empSchedules" Relationship="Self.FK_empSchedule_Shift1" FromRole="Shift" ToRole="empSchedule" />
+          <NavigationProperty Name="empSchedules" Relationship="Self.FK_empSchedule_Shift" FromRole="Shift" ToRole="empSchedule" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -633,7 +649,9 @@
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK__Account__userID__33D4B598">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -645,7 +663,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__CheckIn__empId__2D27B809">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="CheckIn" Type="Self.CheckIn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -671,7 +691,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__CheckOut__empId__300424B4">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="CheckOut" Type="Self.CheckOut" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -743,7 +765,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__InCome__empId__398D8EEE">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="InCome" Type="Self.InCome" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -755,7 +779,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__OutCome__empId__3C69FB99">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="OutCome" Type="Self.OutCome" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -778,8 +804,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_empSchedule_Shift">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+        <Association Name="FK_empSchedule_Emp">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="empSchedule" Type="Self.empSchedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -790,8 +818,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_empSchedule_Shift1">
-          <End Role="Shift" Type="Self.Shift" Multiplicity="0..1" />
+        <Association Name="FK_empSchedule_Shift">
+          <End Role="Shift" Type="Self.Shift" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="empSchedule" Type="Self.empSchedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Shift">
@@ -878,11 +908,11 @@
             <End Role="Employee" EntitySet="Employees" />
             <End Role="Employee1" EntitySet="Employees" />
           </AssociationSet>
-          <AssociationSet Name="FK_empSchedule_Shift" Association="Self.FK_empSchedule_Shift">
+          <AssociationSet Name="FK_empSchedule_Emp" Association="Self.FK_empSchedule_Emp">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="empSchedule" EntitySet="empSchedules" />
           </AssociationSet>
-          <AssociationSet Name="FK_empSchedule_Shift1" Association="Self.FK_empSchedule_Shift1">
+          <AssociationSet Name="FK_empSchedule_Shift" Association="Self.FK_empSchedule_Shift">
             <End Role="Shift" EntitySet="Shifts" />
             <End Role="empSchedule" EntitySet="empSchedules" />
           </AssociationSet>
@@ -973,7 +1003,7 @@
                 <ScalarProperty Name="roomName" ColumnName="roomName" />
                 <ScalarProperty Name="productID" ColumnName="productID" />
                 <ScalarProperty Name="productName" ColumnName="productName" />
-                <ScalarProperty Name="consume" ColumnName="consume" />
+                <ScalarProperty Name="consume1" ColumnName="consume" />
                 <ScalarProperty Name="date" ColumnName="date" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1079,6 +1109,7 @@
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="picture" ColumnName="picture" />
+                <ScalarProperty Name="price" ColumnName="price" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
