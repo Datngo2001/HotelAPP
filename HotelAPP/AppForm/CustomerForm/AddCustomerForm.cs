@@ -58,6 +58,7 @@ namespace HotelAPP.AppForm.CustomerForm
             phone_tb.Text = "";
             address_rtb.Text = "";
             roomID_cb.Text = "";
+            number_tb.Text = "";
             bdate_picker.Value = DateTime.Today;
             dayIn_picker.Value = DateTime.Today;
             dayOut_picker.Value = DateTime.Today;

@@ -93,6 +93,7 @@ namespace HotelAPP
                 var newRoom = hotelDB.Rooms.Single(r => r.id == room.id);
                 newRoom.name = room.name;
                 newRoom.status = room.status;
+                newRoom.picture = room.picture;
                 hotelDB.SaveChanges();
                 return true;
             }

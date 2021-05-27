@@ -225,6 +225,7 @@
             this.pictureBox.Location = new System.Drawing.Point(154, 256);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(327, 315);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 100;
             this.pictureBox.TabStop = false;
             // 
@@ -270,10 +271,10 @@
             this.show_dgv.Name = "show_dgv";
             this.show_dgv.ReadOnly = true;
             this.show_dgv.RowHeadersWidth = 51;
-            this.show_dgv.RowTemplate.Height = 24;
+            this.show_dgv.RowTemplate.Height = 80;
             this.show_dgv.Size = new System.Drawing.Size(774, 477);
             this.show_dgv.TabIndex = 102;
-            this.show_dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.show_dgv_CellContentClick);
+            this.show_dgv.DoubleClick += new System.EventHandler(this.show_dgv_DoubleClick);
             // 
             // ManageWarehouseForm
             // 

@@ -79,6 +79,7 @@ namespace HotelAPP
                 newProduct.name = product.name;
                 newProduct.quantity = product.quantity;
                 newProduct.price = product.price;
+                newProduct.picture = product.picture;
                 hotelDB.SaveChanges();
                 return true;
             }
