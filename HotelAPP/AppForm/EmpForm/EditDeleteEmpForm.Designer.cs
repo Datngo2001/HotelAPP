@@ -543,7 +543,7 @@ namespace HotelAPP.AppForm.EmpForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1048, 596);
+            this.ClientSize = new System.Drawing.Size(1002, 615);
             this.Controls.Add(this.cancel_btn);
             this.Controls.Add(this.delete_btn);
             this.Controls.Add(this.edit_btn);
@@ -605,11 +605,9 @@ namespace HotelAPP.AppForm.EmpForm
         private System.Windows.Forms.Button managerCheck_btn;
         private System.Windows.Forms.Button checkUserName_btn;
         private System.Windows.Forms.Button checkCMND_btn;
-        private System.Windows.Forms.Label id_lb;
         private System.Windows.Forms.Label manage_lb;
         private System.Windows.Forms.Label salary_lb;
         private System.Windows.Forms.Label position_lb;
-        private System.Windows.Forms.TextBox id_tb;
         private System.Windows.Forms.TextBox manager_tb;
         private System.Windows.Forms.ComboBox positon_cb;
         private System.Windows.Forms.TextBox salary_tb;
@@ -638,8 +636,10 @@ namespace HotelAPP.AppForm.EmpForm
         private System.Windows.Forms.Label birthdate_lb;
         private System.Windows.Forms.Label lname_lb;
         private System.Windows.Forms.Label fname_lb;
-        private System.Windows.Forms.Button delete_btn;
-        private System.Windows.Forms.Button findId_btn;
         private System.Windows.Forms.Button findManager_btn;
+        public System.Windows.Forms.Label id_lb;
+        public System.Windows.Forms.TextBox id_tb;
+        public System.Windows.Forms.Button delete_btn;
+        public System.Windows.Forms.Button findId_btn;
     }
 }

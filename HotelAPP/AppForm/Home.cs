@@ -210,5 +210,29 @@ namespace HotelAPP.AppForm
         {
             OpenChildForm(new ManageWarehouseForm(), sender);
         }
+
+        private void logout_btn_Click(object sender, EventArgs e)
+        {
+            Program.logout();
+        }
+
+        private void avatar_pb_Click(object sender, EventArgs e)
+        {
+            var edit = new HotelAPP.AppForm.EmpForm.EditDeleteEmpForm();
+            edit.employee = new Employee()
+            {
+                Id = CurrentUser.Id
+            };
+            edit.account = new Account()
+            {
+                userID = CurrentUser.Id
+            };
+            edit.Text = "Edit Your Profile";
+            edit.id_lb.Visible = false;
+            edit.id_tb.Visible = false;
+            edit.findId_btn.Visible = false;
+            edit.delete_btn.Visible = false;
+            edit.Show();
+        }
     }
 }
