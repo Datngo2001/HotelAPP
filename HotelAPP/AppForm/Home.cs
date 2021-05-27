@@ -201,6 +201,11 @@ namespace HotelAPP.AppForm
             OpenChildForm(new ManageRoomForm(), sender);
         }
 
+        private void checkOutRoom_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void product_btn_Click(object sender, EventArgs e)
         {
             OpenChildForm(new ManageWarehouseForm(), sender);

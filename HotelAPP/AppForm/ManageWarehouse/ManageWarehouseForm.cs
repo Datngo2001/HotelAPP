@@ -14,11 +14,13 @@ namespace HotelAPP.AppForm.ManageWarehouse
     public partial class ManageWarehouseForm : Form
     {
         Product product;
+        Consume consume;
 
         public ManageWarehouseForm()
         {
             InitializeComponent();
             product = new Product();
+            consume = new Consume();
         }
 
         private void showDGV(object dataSource, int col)
@@ -26,9 +28,13 @@ namespace HotelAPP.AppForm.ManageWarehouse
             show_dgv.DataSource = dataSource;
             show_dgv.AllowUserToAddRows = false;
             show_dgv.RowTemplate.Height = 80;
-            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
-            imageColumn = (DataGridViewImageColumn)show_dgv.Columns["picture"];
-            imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+            if (col != 7)
+            {
+                DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
+                imageColumn = (DataGridViewImageColumn)show_dgv.Columns["picture"];
+                imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            }
             int n = show_dgv.Columns.Count;
             for (int i = col; i < n; i++)
             {
@@ -170,7 +176,7 @@ namespace HotelAPP.AppForm.ManageWarehouse
 
         private void showConsume_btn_Click(object sender, EventArgs e)
         {
-
+            showDGV(consume.getAllConsume(), 7);
         }
 
         private void show_dgv_DoubleClick(object sender, EventArgs e)

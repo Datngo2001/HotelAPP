@@ -15,12 +15,15 @@ namespace HotelAPP.AppForm.RoomForm
     {
         Room room;
         Product product;
+        Consume consume;
+        int consume_id = 0;
 
         public ManageRoomForm()
         {
             InitializeComponent();
             room = new Room();
             product = new Product();
+            consume = new Consume();
         }
 
         private void showDGV(object dataSource, int col)
@@ -165,7 +168,35 @@ namespace HotelAPP.AppForm.RoomForm
 
         private void order_btn_Click(object sender, EventArgs e)
         {
+            Consume consume = new Consume()
+            {
+                id = consume_id,
+                roomID = Convert.ToInt32(id_tb.Text),
+                roomName = name_tb.Text,
+                productID = Convert.ToInt32(show_dgv.CurrentRow.Cells[0].Value),
+                productName = show_dgv.CurrentRow.Cells[1].Value.ToString().Trim(),
+                date = DateTime.Now.Date
+            };
 
+            if (Convert.ToInt32(quantity_tb.Text) > 0)
+            {
+                consume.consume = Convert.ToInt32(quantity_tb.Text);
+            }
+            else
+            {
+                MessageBox.Show("Invalid Quantity", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (consume.addConsume(consume))
+            {
+                MessageBox.Show("Add Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.clear();
+            }
+            else
+            {
+                MessageBox.Show("Add Failed", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void showRoom_btn_Click(object sender, EventArgs e)
