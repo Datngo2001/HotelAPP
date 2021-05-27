@@ -26,9 +26,9 @@ namespace HotelAPP.AppForm.EmpForm
 
         private void begin_btn_Click(object sender, EventArgs e)
         {
-            schedule.ResetSchedule();
             schedule.Scheduling();
             schedule_dgv.DataSource = schedule.MakeTimeTable();
+            MessageBox.Show("OK");
         }
 
         private void print_btn_Click(object sender, EventArgs e)
