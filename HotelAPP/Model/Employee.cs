@@ -288,11 +288,18 @@ namespace HotelAPP
         }
         public string getShift()
         {
-            int dayOfWeek = (int)DateTime.Now.DayOfWeek;
-            empSchedule schedules = (from s in hotelDB.empSchedules 
-                                     where s.empID == this.Id && s.weekDay == dayOfWeek 
-                                     select s).First();
-            return schedules.Shift1.time;
+            try
+            {
+                int dayOfWeek = (int)DateTime.Now.DayOfWeek;
+                empSchedule schedules = (from s in hotelDB.empSchedules
+                                         where s.empID == this.Id && s.weekDay == dayOfWeek
+                                         select s).First();
+                return schedules.Shift1.time;
+            }
+            catch (Exception)
+            {
+                return "0";
+            }
         }
     }
 }

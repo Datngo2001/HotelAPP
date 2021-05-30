@@ -54,7 +54,8 @@ namespace HotelAPP.AppForm.EmpForm
                 lname = lname_tb.Text,
                 CMND = cmnd_tb.Text,
                 bdate = bdate_picker.Value,
-                address = address_rtb.Text
+                address = address_rtb.Text,
+                phone = phone_tb.Text
             };
 
             try
@@ -136,9 +137,7 @@ namespace HotelAPP.AppForm.EmpForm
                 emp.gender = "M";
             }
 
-            emp.updateEmp(employee);
-
-            MessageBox.Show("Employee updated");
+            emp.updateEmp(emp);
 
             // update emp account
 
@@ -152,7 +151,7 @@ namespace HotelAPP.AppForm.EmpForm
 
             if(password_tb.Text == "")
             {
-                if (acc.updateAccount(username_tb.Text, Convert.ToInt32(id_tb.Text)) == false)
+                if (acc.updateAccount(id_tb.Text, Convert.ToInt32(id_tb.Text)) == false)
                 {
                     MessageBox.Show("Username Existed", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -160,14 +159,14 @@ namespace HotelAPP.AppForm.EmpForm
             }
             else
             {
-                if (acc.updateAccount(username_tb.Text, password_tb.Text, Convert.ToInt32(id_tb.Text)) == false)
+                if (acc.updateAccount(id_tb.Text, password_tb.Text, Convert.ToInt32(id_tb.Text)) == false)
                 {
                     MessageBox.Show("Username Existed", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
 
-            MessageBox.Show("Account updated");
+            MessageBox.Show("Employee updated");
         }
         private void delete_btn_Click(object sender, EventArgs e)
         {

@@ -222,6 +222,7 @@
     <Compile Include="ThemeColor.cs" />
     <Compile Include="Tools\FormTools.cs" />
     <Compile Include="Tools\ImageTool.cs" />
+    <Compile Include="Tools\ListtoDataTableConverter.cs" />
     <Compile Include="Tools\ReportTool.cs" />
     <EmbeddedResource Include="AppForm\CustomerForm\AddCustomerForm.resx">
       <DependentUpon>AddCustomerForm.cs</DependentUpon>

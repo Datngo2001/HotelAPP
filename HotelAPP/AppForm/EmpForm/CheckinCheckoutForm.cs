@@ -19,16 +19,28 @@ namespace HotelAPP.AppForm.EmpForm
 
         private void checkin_btn_Click(object sender, EventArgs e)
         {
-            new CheckIn().checkIn();
+            if(new CheckIn().checkIn() == true)
+            {
+                checkin_btn.Enabled = false;
+                checkout_btn.Enabled = true;
+            }
         }
 
         private void checkout_btn_Click(object sender, EventArgs e)
         {
-            new CheckOut().checkOut();
+            if(new CheckOut().checkOut() == true)
+            {
+                checkin_btn.Enabled = true;
+                checkout_btn.Enabled = false;
+            }
         }
 
         private void CheckinCheckoutForm_Load(object sender, EventArgs e)
         {
+            date_lb.Text = DateTime.Now.ToLongDateString();
+            time_lb.Text = DateTime.Now.ToString("T");
+            timer.Start();
+
             Employee currEmp = new Employee().getByID(CurrentUser.Id);
             if (currEmp.isWorking())
             {
@@ -47,8 +59,13 @@ namespace HotelAPP.AppForm.EmpForm
             }
             else
             {
-                shift_lb.Text = "Shift: " + currShift;
+                shift_lb.Text = currShift;
             }
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            time_lb.Text = DateTime.Now.ToString("T");
         }
     }
 }

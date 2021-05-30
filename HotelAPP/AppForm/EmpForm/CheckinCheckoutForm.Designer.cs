@@ -29,11 +29,15 @@ namespace HotelAPP.AppForm.EmpForm
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.assig_lb = new System.Windows.Forms.Label();
             this.shift_lb = new System.Windows.Forms.Label();
             this.checkin_btn = new System.Windows.Forms.Button();
             this.checkout_btn = new System.Windows.Forms.Button();
             this.shift_pn = new System.Windows.Forms.Panel();
+            this.date_lb = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.time_lb = new System.Windows.Forms.Label();
             this.shift_pn.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +45,7 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.assig_lb.AutoSize = true;
             this.assig_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assig_lb.Location = new System.Drawing.Point(130, 96);
+            this.assig_lb.Location = new System.Drawing.Point(319, 205);
             this.assig_lb.Name = "assig_lb";
             this.assig_lb.Size = new System.Drawing.Size(385, 46);
             this.assig_lb.TabIndex = 24;
@@ -65,7 +69,7 @@ namespace HotelAPP.AppForm.EmpForm
             this.checkin_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkin_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkin_btn.ForeColor = System.Drawing.Color.White;
-            this.checkin_btn.Location = new System.Drawing.Point(572, 338);
+            this.checkin_btn.Location = new System.Drawing.Point(588, 429);
             this.checkin_btn.Name = "checkin_btn";
             this.checkin_btn.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.checkin_btn.Size = new System.Drawing.Size(422, 92);
@@ -81,7 +85,7 @@ namespace HotelAPP.AppForm.EmpForm
             this.checkout_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkout_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkout_btn.ForeColor = System.Drawing.Color.White;
-            this.checkout_btn.Location = new System.Drawing.Point(572, 621);
+            this.checkout_btn.Location = new System.Drawing.Point(588, 712);
             this.checkout_btn.Name = "checkout_btn";
             this.checkout_btn.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.checkout_btn.Size = new System.Drawing.Size(422, 92);
@@ -93,10 +97,35 @@ namespace HotelAPP.AppForm.EmpForm
             // shift_pn
             // 
             this.shift_pn.Controls.Add(this.shift_lb);
-            this.shift_pn.Location = new System.Drawing.Point(12, 163);
+            this.shift_pn.Location = new System.Drawing.Point(13, 254);
             this.shift_pn.Name = "shift_pn";
             this.shift_pn.Size = new System.Drawing.Size(1561, 100);
             this.shift_pn.TabIndex = 41;
+            // 
+            // date_lb
+            // 
+            this.date_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.date_lb.Location = new System.Drawing.Point(995, 9);
+            this.date_lb.Name = "date_lb";
+            this.date_lb.Size = new System.Drawing.Size(579, 66);
+            this.date_lb.TabIndex = 42;
+            this.date_lb.Text = "label1";
+            // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // time_lb
+            // 
+            this.time_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.time_lb.ForeColor = System.Drawing.Color.Blue;
+            this.time_lb.Location = new System.Drawing.Point(995, 90);
+            this.time_lb.Name = "time_lb";
+            this.time_lb.Size = new System.Drawing.Size(579, 64);
+            this.time_lb.TabIndex = 42;
+            this.time_lb.Text = "label1";
             // 
             // CheckinCheckoutForm
             // 
@@ -104,6 +133,8 @@ namespace HotelAPP.AppForm.EmpForm
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1585, 932);
+            this.Controls.Add(this.time_lb);
+            this.Controls.Add(this.date_lb);
             this.Controls.Add(this.shift_pn);
             this.Controls.Add(this.checkout_btn);
             this.Controls.Add(this.checkin_btn);
@@ -124,5 +155,8 @@ namespace HotelAPP.AppForm.EmpForm
         private System.Windows.Forms.Button checkin_btn;
         private System.Windows.Forms.Button checkout_btn;
         private System.Windows.Forms.Panel shift_pn;
+        private System.Windows.Forms.Label date_lb;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label time_lb;
     }
 }

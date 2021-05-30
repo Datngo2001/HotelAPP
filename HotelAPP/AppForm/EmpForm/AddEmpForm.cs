@@ -42,7 +42,7 @@ namespace HotelAPP.AppForm.EmpForm
         }
         private void add_btn_Click(object sender, EventArgs e)
         {
-            if ((checkid() && checkPhone() && checkCMND()) == false) return; 
+            if ((checkid() && checkPhone() && checkCMND()) == false) return;
 
             Employee employee = new Employee()
             {
@@ -50,7 +50,8 @@ namespace HotelAPP.AppForm.EmpForm
                 lname = lname_tb.Text,
                 CMND = cmnd_tb.Text,
                 bdate = bdate_picker.Value,
-                address = address_rtb.Text
+                address = address_rtb.Text,
+                phone = phone_tb.Text
             };
 
             try
@@ -111,7 +112,8 @@ namespace HotelAPP.AppForm.EmpForm
             try
             {
                 // tim posId theo posName
-                int select = (listPos.Find(p => p.posName == positon_cb.Text)).posId;
+                var pos = listPos.Find(p => p.posName == positon_cb.Text);
+                int select = pos.posId;
                 if(select > 0)
                 {
                     employee.posId = select;
