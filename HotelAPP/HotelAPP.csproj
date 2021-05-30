@@ -52,6 +52,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -120,10 +121,10 @@
     <Compile Include="AppForm\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AppForm\ManageWarehouse\ManageWarehouseForm.cs">
+    <Compile Include="AppForm\ManageWarehouseForm\ManageWarehouseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AppForm\ManageWarehouse\ManageWarehouseForm.Designer.cs">
+    <Compile Include="AppForm\ManageWarehouseForm\ManageWarehouseForm.Designer.cs">
       <DependentUpon>ManageWarehouseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AppForm\RoomForm\CheckOutRoomForm.cs">
@@ -137,6 +138,12 @@
     </Compile>
     <Compile Include="AppForm\RoomForm\ManageRoomForm.Designer.cs">
       <DependentUpon>ManageRoomForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForm\IncomeForm\IncomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForm\IncomeForm\IncomeForm.Designer.cs">
+      <DependentUpon>IncomeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CheckIn.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
@@ -182,6 +189,7 @@
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\empSchedule.cs" />
     <Compile Include="Model\Consume.cs" />
+    <Compile Include="Model\Income.cs" />
     <Compile Include="Model\Position.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Room.cs" />
@@ -248,10 +256,13 @@
     <EmbeddedResource Include="AppForm\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AppForm\IncomeForm\IncomeForm.resx">
+      <DependentUpon>IncomeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AppForm\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppForm\ManageWarehouse\ManageWarehouseForm.resx">
+    <EmbeddedResource Include="AppForm\ManageWarehouseForm\ManageWarehouseForm.resx">
       <DependentUpon>ManageWarehouseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AppForm\RoomForm\CheckOutRoomForm.resx">

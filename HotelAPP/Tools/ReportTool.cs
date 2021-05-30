@@ -200,6 +200,7 @@ namespace HotelAPP.Tools
                             }
                             else
                             {
+                                (Table.Rows[tableRow][tableColumn]).ToString().Trim();
                                 //check for image cell and print
                                 if (Table.Rows[tableRow][tableColumn].GetType() == typeof(byte[]))
                                 {
@@ -212,10 +213,12 @@ namespace HotelAPP.Tools
                                     Clipboard.SetImage(image);
                                     cell.Range.PasteAndFormat(Word.WdRecoveryType.wdSingleCellTable);
                                     Clipboard.Clear();
+
+                                    tableColumn++;
                                 }
                                 else if (Table.Rows[tableRow][tableColumn].GetType() == typeof(DateTime))
                                 {
-                                    cell.Range.Text = ((DateTime)Table.Rows[tableRow][tableColumn]).ToShortDateString();
+                                    cell.Range.Text = ((DateTime)Table.Rows[tableRow][tableColumn]).ToString();
                                     tableColumn++;
                                 }
                                 else

@@ -61,8 +61,19 @@ namespace HotelAPP.AppForm.EmpForm
 
         private void swap_btn_Click(object sender, EventArgs e)
         {
-            var row1 = schedule_dgv.Rows[schedule_dgv.SelectedCells[0].RowIndex];
-            var row2 = schedule_dgv.Rows[schedule_dgv.SelectedCells[1].RowIndex];
+            DataGridViewRow row1;
+            DataGridViewRow row2;
+            try
+            {
+                row1 = schedule_dgv.Rows[schedule_dgv.SelectedCells[0].RowIndex];
+                row2 = schedule_dgv.Rows[schedule_dgv.SelectedCells[1].RowIndex];
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please select where to swap");
+                return;
+            }
+
             int id1;
             int id2;
 

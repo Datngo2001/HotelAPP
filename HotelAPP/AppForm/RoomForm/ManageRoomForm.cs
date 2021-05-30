@@ -53,6 +53,7 @@ namespace HotelAPP.AppForm.RoomForm
             id_tb.Text = "";
             name_tb.Text = "";
             status_cb.Text = "";
+            price_tb.Text = "";
             pictureBox.Image = null;
             show_dgv.DataSource = null;
         }
@@ -101,6 +102,16 @@ namespace HotelAPP.AppForm.RoomForm
                 return;
             }
 
+            if (Convert.ToInt64(price_tb.Text) > 0)
+            {
+                room.price = Convert.ToInt64(price_tb.Text);
+            }
+            else
+            {
+                MessageBox.Show("Invalid Price", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (room.addRoom(room))
             {
                 MessageBox.Show("Add Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -128,6 +139,16 @@ namespace HotelAPP.AppForm.RoomForm
             catch (Exception)
             {
                 MessageBox.Show("Invalid Picture", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (Convert.ToInt64(price_tb.Text) > 0)
+            {
+                eRoom.price = Convert.ToInt64(price_tb.Text);
+            }
+            else
+            {
+                MessageBox.Show("Invalid Price", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -191,7 +212,6 @@ namespace HotelAPP.AppForm.RoomForm
             if (consume.addConsume(consume))
             {
                 MessageBox.Show("Add Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.clear();
             }
             else
             {
@@ -201,7 +221,7 @@ namespace HotelAPP.AppForm.RoomForm
 
         private void showRoom_btn_Click(object sender, EventArgs e)
         {
-            this.showDGV(room.getAllRoom(), 4);
+            this.showDGV(room.getAllRoom(), 5);
         }
 
         private void showProduct_btn_Click(object sender, EventArgs e)
@@ -216,6 +236,7 @@ namespace HotelAPP.AppForm.RoomForm
                 id_tb.Text = show_dgv.CurrentRow.Cells[0].Value.ToString().Trim();
                 name_tb.Text = show_dgv.CurrentRow.Cells[1].Value.ToString().Trim();
                 status_cb.Text = show_dgv.CurrentRow.Cells[2].Value.ToString().Trim();
+                price_tb.Text = show_dgv.CurrentRow.Cells[4].Value.ToString().Trim();
                 pictureBox.Image = new ImageTool().ByteArrToImage((byte[])show_dgv.CurrentRow.Cells[3].Value);
             }
             catch (Exception E)

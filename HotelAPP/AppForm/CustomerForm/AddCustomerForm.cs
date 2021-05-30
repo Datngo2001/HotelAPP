@@ -233,17 +233,17 @@ namespace HotelAPP.AppForm.CustomerForm
 
         private void showRoom_btn_Click(object sender, EventArgs e)
         {
-            this.showDGV(room.getAllRoom(), 4);
+            this.showDGV(room.getAllRoom(), 5);
+        }
+
+        private void showEmptyRoom_btn_Click(object sender, EventArgs e)
+        {
+            this.showDGV(room.getAllEmptyRoom(), 5);
         }
 
         private void clear_btn_Click(object sender, EventArgs e)
         {
             this.clear();
-        }
-
-        private void showEmptyRoom_btn_Click(object sender, EventArgs e)
-        {
-            this.showDGV(room.getAllEmptyRoom(), 4);
         }
 
         private void show_dgv_DoubleClick(object sender, EventArgs e)
