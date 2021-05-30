@@ -51,8 +51,9 @@ namespace HotelAPP.AppForm.EmpForm
             this.listEmp_pn.Controls.Add(this.search_pn);
             this.listEmp_pn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listEmp_pn.Location = new System.Drawing.Point(0, 0);
+            this.listEmp_pn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listEmp_pn.Name = "listEmp_pn";
-            this.listEmp_pn.Size = new System.Drawing.Size(1585, 932);
+            this.listEmp_pn.Size = new System.Drawing.Size(1409, 746);
             this.listEmp_pn.TabIndex = 2;
             // 
             // show_dgv
@@ -60,12 +61,13 @@ namespace HotelAPP.AppForm.EmpForm
             this.show_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.show_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.show_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.show_dgv.Location = new System.Drawing.Point(0, 58);
+            this.show_dgv.Location = new System.Drawing.Point(0, 46);
+            this.show_dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.show_dgv.Name = "show_dgv";
             this.show_dgv.ReadOnly = true;
             this.show_dgv.RowHeadersWidth = 62;
             this.show_dgv.RowTemplate.Height = 28;
-            this.show_dgv.Size = new System.Drawing.Size(1585, 817);
+            this.show_dgv.Size = new System.Drawing.Size(1409, 654);
             this.show_dgv.TabIndex = 5;
             this.show_dgv.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.show_dgv_DataError);
             this.show_dgv.DoubleClick += new System.EventHandler(this.show_dgv_DoubleClick);
@@ -76,9 +78,10 @@ namespace HotelAPP.AppForm.EmpForm
             this.refresh_btn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.refresh_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refresh_btn.ForeColor = System.Drawing.Color.White;
-            this.refresh_btn.Location = new System.Drawing.Point(0, 875);
+            this.refresh_btn.Location = new System.Drawing.Point(0, 700);
+            this.refresh_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.refresh_btn.Name = "refresh_btn";
-            this.refresh_btn.Size = new System.Drawing.Size(1585, 57);
+            this.refresh_btn.Size = new System.Drawing.Size(1409, 46);
             this.refresh_btn.TabIndex = 4;
             this.refresh_btn.Text = "Refresh";
             this.refresh_btn.UseVisualStyleBackColor = false;
@@ -90,11 +93,12 @@ namespace HotelAPP.AppForm.EmpForm
             this.listEmp_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listEmp_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listEmp_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listEmp_dgv.Location = new System.Drawing.Point(0, 58);
+            this.listEmp_dgv.Location = new System.Drawing.Point(0, 46);
+            this.listEmp_dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listEmp_dgv.Name = "listEmp_dgv";
             this.listEmp_dgv.RowHeadersWidth = 62;
             this.listEmp_dgv.RowTemplate.Height = 28;
-            this.listEmp_dgv.Size = new System.Drawing.Size(1585, 874);
+            this.listEmp_dgv.Size = new System.Drawing.Size(1409, 700);
             this.listEmp_dgv.TabIndex = 2;
             // 
             // search_pn
@@ -104,8 +108,9 @@ namespace HotelAPP.AppForm.EmpForm
             this.search_pn.Controls.Add(this.search_lb);
             this.search_pn.Dock = System.Windows.Forms.DockStyle.Top;
             this.search_pn.Location = new System.Drawing.Point(0, 0);
+            this.search_pn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.search_pn.Name = "search_pn";
-            this.search_pn.Size = new System.Drawing.Size(1585, 58);
+            this.search_pn.Size = new System.Drawing.Size(1409, 46);
             this.search_pn.TabIndex = 1;
             // 
             // search_tb
@@ -115,9 +120,10 @@ namespace HotelAPP.AppForm.EmpForm
             this.search_tb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.search_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.search_tb.ForeColor = System.Drawing.Color.White;
-            this.search_tb.Location = new System.Drawing.Point(153, 0);
+            this.search_tb.Location = new System.Drawing.Point(136, 0);
+            this.search_tb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.search_tb.Name = "search_tb";
-            this.search_tb.Size = new System.Drawing.Size(1338, 59);
+            this.search_tb.Size = new System.Drawing.Size(1189, 50);
             this.search_tb.TabIndex = 3;
             // 
             // search_btn
@@ -128,9 +134,10 @@ namespace HotelAPP.AppForm.EmpForm
             this.search_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.search_btn.ForeColor = System.Drawing.Color.White;
             this.search_btn.Image = global::HotelAPP.Properties.Resources.icons8_search_client_48;
-            this.search_btn.Location = new System.Drawing.Point(1491, 0);
+            this.search_btn.Location = new System.Drawing.Point(1325, 0);
+            this.search_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.search_btn.Name = "search_btn";
-            this.search_btn.Size = new System.Drawing.Size(94, 58);
+            this.search_btn.Size = new System.Drawing.Size(84, 46);
             this.search_btn.TabIndex = 2;
             this.search_btn.UseVisualStyleBackColor = false;
             // 
@@ -142,18 +149,19 @@ namespace HotelAPP.AppForm.EmpForm
             this.search_lb.ForeColor = System.Drawing.Color.White;
             this.search_lb.Location = new System.Drawing.Point(0, 0);
             this.search_lb.Name = "search_lb";
-            this.search_lb.Size = new System.Drawing.Size(153, 58);
+            this.search_lb.Size = new System.Drawing.Size(136, 46);
             this.search_lb.TabIndex = 1;
             this.search_lb.Text = "Search:";
             this.search_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ManageStaffForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1585, 932);
+            this.ClientSize = new System.Drawing.Size(1409, 746);
             this.Controls.Add(this.listEmp_pn);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ManageStaffForm";
             this.Text = "Manage Staffs";
             this.Load += new System.EventHandler(this.ManageStaffForm_Load);

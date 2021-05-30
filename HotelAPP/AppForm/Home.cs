@@ -6,6 +6,7 @@ using HotelAPP.AppForm.CustomerForm;
 using HotelAPP.AppForm.EmpForm;
 using HotelAPP.AppForm.ManageWarehouse;
 using HotelAPP.AppForm.RoomForm;
+using HotelAPP.AppForm.TotalForm;
 using HotelAPP.Tools;
 
 namespace HotelAPP.AppForm
@@ -203,12 +204,17 @@ namespace HotelAPP.AppForm
 
         private void checkOutRoom_btn_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new CheckOutRoomForm(), sender);
         }
 
         private void product_btn_Click(object sender, EventArgs e)
         {
             OpenChildForm(new ManageWarehouseForm(), sender);
+        }
+
+        private void income_btn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new IncomeForm(), sender);
         }
     }
 }

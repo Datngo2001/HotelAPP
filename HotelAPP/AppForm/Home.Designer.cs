@@ -30,6 +30,9 @@ namespace HotelAPP.AppForm
         private void InitializeComponent()
         {
             this.menu_pn = new System.Windows.Forms.Panel();
+            this.income_btn = new System.Windows.Forms.Button();
+            this.product_btn = new System.Windows.Forms.Button();
+            this.checkOutRoom_btn = new System.Windows.Forms.Button();
             this.room_btn = new System.Windows.Forms.Button();
             this.customer_btn = new System.Windows.Forms.Button();
             this.empReport_btn = new System.Windows.Forms.Button();
@@ -52,8 +55,6 @@ namespace HotelAPP.AppForm
             this.title_lb = new System.Windows.Forms.Label();
             this.desktop_pn = new System.Windows.Forms.Panel();
             this.hotelLogo_pb = new System.Windows.Forms.PictureBox();
-            this.checkOutRoom_btn = new System.Windows.Forms.Button();
-            this.product_btn = new System.Windows.Forms.Button();
             this.menu_pn.SuspendLayout();
             this.User_pn.SuspendLayout();
             this.avatar_pn.SuspendLayout();
@@ -67,6 +68,7 @@ namespace HotelAPP.AppForm
             // 
             this.menu_pn.AutoScroll = true;
             this.menu_pn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.menu_pn.Controls.Add(this.income_btn);
             this.menu_pn.Controls.Add(this.product_btn);
             this.menu_pn.Controls.Add(this.checkOutRoom_btn);
             this.menu_pn.Controls.Add(this.room_btn);
@@ -84,6 +86,68 @@ namespace HotelAPP.AppForm
             this.menu_pn.Name = "menu_pn";
             this.menu_pn.Size = new System.Drawing.Size(278, 864);
             this.menu_pn.TabIndex = 0;
+            // 
+            // income_btn
+            // 
+            this.income_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.income_btn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.income_btn.FlatAppearance.BorderSize = 0;
+            this.income_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.income_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.income_btn.ForeColor = System.Drawing.Color.White;
+            this.income_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.income_btn.Location = new System.Drawing.Point(0, 532);
+            this.income_btn.Margin = new System.Windows.Forms.Padding(4, 10, 4, 10);
+            this.income_btn.Name = "income_btn";
+            this.income_btn.Size = new System.Drawing.Size(278, 42);
+            this.income_btn.TabIndex = 17;
+            this.income_btn.Text = "   Total Income";
+            this.income_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.income_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.income_btn.UseVisualStyleBackColor = true;
+            this.income_btn.Click += new System.EventHandler(this.income_btn_Click);
+            // 
+            // product_btn
+            // 
+            this.product_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.product_btn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.product_btn.FlatAppearance.BorderSize = 0;
+            this.product_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.product_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.product_btn.ForeColor = System.Drawing.Color.White;
+            this.product_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.product_btn.Location = new System.Drawing.Point(0, 490);
+            this.product_btn.Margin = new System.Windows.Forms.Padding(4, 10, 4, 10);
+            this.product_btn.Name = "product_btn";
+            this.product_btn.Size = new System.Drawing.Size(278, 42);
+            this.product_btn.TabIndex = 16;
+            this.product_btn.Text = "   Product";
+            this.product_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.product_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.product_btn.UseVisualStyleBackColor = true;
+            this.product_btn.Click += new System.EventHandler(this.product_btn_Click);
+            // 
+            // checkOutRoom_btn
+            // 
+            this.checkOutRoom_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.checkOutRoom_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.checkOutRoom_btn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkOutRoom_btn.FlatAppearance.BorderSize = 0;
+            this.checkOutRoom_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkOutRoom_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkOutRoom_btn.ForeColor = System.Drawing.Color.White;
+            this.checkOutRoom_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.checkOutRoom_btn.Location = new System.Drawing.Point(0, 452);
+            this.checkOutRoom_btn.Margin = new System.Windows.Forms.Padding(4, 12, 4, 12);
+            this.checkOutRoom_btn.Name = "checkOutRoom_btn";
+            this.checkOutRoom_btn.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.checkOutRoom_btn.Size = new System.Drawing.Size(278, 38);
+            this.checkOutRoom_btn.TabIndex = 15;
+            this.checkOutRoom_btn.Text = "Check out";
+            this.checkOutRoom_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.checkOutRoom_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.checkOutRoom_btn.UseVisualStyleBackColor = false;
+            this.checkOutRoom_btn.Click += new System.EventHandler(this.checkOutRoom_btn_Click);
             // 
             // room_btn
             // 
@@ -449,48 +513,6 @@ namespace HotelAPP.AppForm
             this.hotelLogo_pb.TabIndex = 0;
             this.hotelLogo_pb.TabStop = false;
             // 
-            // checkOutRoom_btn
-            // 
-            this.checkOutRoom_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.checkOutRoom_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.checkOutRoom_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkOutRoom_btn.FlatAppearance.BorderSize = 0;
-            this.checkOutRoom_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkOutRoom_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkOutRoom_btn.ForeColor = System.Drawing.Color.White;
-            this.checkOutRoom_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.checkOutRoom_btn.Location = new System.Drawing.Point(0, 452);
-            this.checkOutRoom_btn.Margin = new System.Windows.Forms.Padding(4, 12, 4, 12);
-            this.checkOutRoom_btn.Name = "checkOutRoom_btn";
-            this.checkOutRoom_btn.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.checkOutRoom_btn.Size = new System.Drawing.Size(278, 38);
-            this.checkOutRoom_btn.TabIndex = 15;
-            this.checkOutRoom_btn.Text = "Check out";
-            this.checkOutRoom_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.checkOutRoom_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.checkOutRoom_btn.UseVisualStyleBackColor = false;
-            this.checkOutRoom_btn.Click += new System.EventHandler(this.checkOutRoom_btn_Click);
-            // 
-            // product_btn
-            // 
-            this.product_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.product_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.product_btn.FlatAppearance.BorderSize = 0;
-            this.product_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.product_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_btn.ForeColor = System.Drawing.Color.White;
-            this.product_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.product_btn.Location = new System.Drawing.Point(0, 490);
-            this.product_btn.Margin = new System.Windows.Forms.Padding(4, 10, 4, 10);
-            this.product_btn.Name = "product_btn";
-            this.product_btn.Size = new System.Drawing.Size(278, 42);
-            this.product_btn.TabIndex = 16;
-            this.product_btn.Text = "   Product";
-            this.product_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.product_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.product_btn.UseVisualStyleBackColor = true;
-            this.product_btn.Click += new System.EventHandler(this.product_btn_Click);
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -547,5 +569,6 @@ namespace HotelAPP.AppForm
         private System.Windows.Forms.Button room_btn;
         private System.Windows.Forms.Button product_btn;
         private System.Windows.Forms.Button checkOutRoom_btn;
+        private System.Windows.Forms.Button income_btn;
     }
 }
