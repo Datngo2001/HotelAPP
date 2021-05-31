@@ -27,7 +27,7 @@ namespace HotelAPP
                             group c by new { c.productID, c.productName, c.date } into g
                             join p in hotelDB.Products
                             on g.Key.productID equals p.id
-                            where g.Key.date == DateTime.Now
+                            where g.Key.date == DateTime.Today
                             select new
                             {
                                 name = g.Key.productName,
@@ -52,7 +52,7 @@ namespace HotelAPP
                                              group c by new { c.productID, c.productName, c.date } into g
                                              join p in hotelDB.Products
                                              on g.Key.productID equals p.id
-                                             where g.Key.date == DateTime.Now
+                                             where g.Key.date == DateTime.Today
                                              select new
                                              {
                                                  total = g.Sum(item => item.consume) * p.price

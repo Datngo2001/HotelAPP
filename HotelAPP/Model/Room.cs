@@ -94,6 +94,7 @@ namespace HotelAPP
                 newRoom.name = room.name;
                 newRoom.status = room.status;
                 newRoom.picture = room.picture;
+                newRoom.price = room.price;
                 hotelDB.SaveChanges();
                 return true;
             }
