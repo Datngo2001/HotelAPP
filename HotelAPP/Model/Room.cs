@@ -125,6 +125,7 @@ namespace HotelAPP
                 var list = (from r in hotelDB.Rooms
                             join c in hotelDB.Customers
                             on r.id equals c.roomID
+                            where r.status == "Full"
                             select new
                             {
                                 r.id,

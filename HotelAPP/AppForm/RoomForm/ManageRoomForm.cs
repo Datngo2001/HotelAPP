@@ -129,7 +129,8 @@ namespace HotelAPP.AppForm.RoomForm
             {
                 id = Convert.ToInt32(id_tb.Text),
                 name = name_tb.Text,
-                status = status_cb.Text
+                status = status_cb.Text,
+                price = Convert.ToDecimal(price_tb.Text)
             };
 
             try
@@ -139,16 +140,6 @@ namespace HotelAPP.AppForm.RoomForm
             catch (Exception)
             {
                 MessageBox.Show("Invalid Picture", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (Convert.ToInt64(price_tb.Text) > 0)
-            {
-                eRoom.price = Convert.ToInt64(price_tb.Text);
-            }
-            else
-            {
-                MessageBox.Show("Invalid Price", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
