@@ -13,7 +13,6 @@ namespace HotelAPP.AppForm.TotalForm
     public partial class IncomeForm : Form
     {
         Income income;
-
         public IncomeForm()
         {
             InitializeComponent();
@@ -42,7 +41,7 @@ namespace HotelAPP.AppForm.TotalForm
 
         private void TotalForm_Load(object sender, EventArgs e)
         {
-
+            date_lb.Text = "Date: " + DateTime.Today.ToString("dd-MM-yyyy");
         }
 
         private void cancel_btn_Click(object sender, EventArgs e)
@@ -54,8 +53,7 @@ namespace HotelAPP.AppForm.TotalForm
         {
             this.showDGV();
             this.showChart();
-
-            income_lb.Text = $"Total Income: {income.total()}";
+            income_lb.Text = $"Total Income: {income.total() + Income.priceRoom}";
         }
     }
 }

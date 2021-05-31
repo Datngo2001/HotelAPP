@@ -32,6 +32,7 @@ namespace HotelAPP.AppForm
         }
         private void Home_Load(object sender, EventArgs e)
         {
+            Income.setPriceRoom();
             username_lb.Text = CurrentUser.UserName;
             position_lb.Text = CurrentUser.PositionName;
             if (CurrentUser.Avatar != null)
@@ -131,7 +132,8 @@ namespace HotelAPP.AppForm
 
         private void close_btn_Click(object sender, EventArgs e)
         {
-            if(activeForm != null)
+            Income.setPriceRoom();
+            if (activeForm != null)
             {
                 activeForm.Close();
             }

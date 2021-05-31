@@ -36,6 +36,7 @@
             this.consume_ch = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.show_dgv = new System.Windows.Forms.DataGridView();
             this.income_lb = new System.Windows.Forms.Label();
+            this.date_lb = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.consume_ch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.show_dgv)).BeginInit();
             this.SuspendLayout();
@@ -80,13 +81,13 @@
             this.consume_ch.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.consume_ch.Legends.Add(legend1);
-            this.consume_ch.Location = new System.Drawing.Point(12, 12);
+            this.consume_ch.Location = new System.Drawing.Point(12, 91);
             this.consume_ch.Name = "consume_ch";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.consume_ch.Series.Add(series1);
-            this.consume_ch.Size = new System.Drawing.Size(646, 610);
+            this.consume_ch.Size = new System.Drawing.Size(646, 531);
             this.consume_ch.TabIndex = 86;
             this.consume_ch.Text = "chart";
             // 
@@ -96,23 +97,33 @@
             this.show_dgv.AllowUserToDeleteRows = false;
             this.show_dgv.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.show_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.show_dgv.Location = new System.Drawing.Point(664, 12);
+            this.show_dgv.Location = new System.Drawing.Point(664, 91);
             this.show_dgv.Name = "show_dgv";
             this.show_dgv.ReadOnly = true;
             this.show_dgv.RowHeadersWidth = 51;
             this.show_dgv.RowTemplate.Height = 80;
-            this.show_dgv.Size = new System.Drawing.Size(733, 565);
+            this.show_dgv.Size = new System.Drawing.Size(733, 486);
             this.show_dgv.TabIndex = 90;
             // 
             // income_lb
             // 
             this.income_lb.AutoSize = true;
             this.income_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.income_lb.Location = new System.Drawing.Point(1070, 591);
+            this.income_lb.Location = new System.Drawing.Point(1032, 591);
             this.income_lb.Name = "income_lb";
             this.income_lb.Size = new System.Drawing.Size(192, 31);
             this.income_lb.TabIndex = 91;
             this.income_lb.Text = "Total Income:";
+            // 
+            // date_lb
+            // 
+            this.date_lb.AutoSize = true;
+            this.date_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_lb.Location = new System.Drawing.Point(453, 18);
+            this.date_lb.Name = "date_lb";
+            this.date_lb.Size = new System.Drawing.Size(112, 42);
+            this.date_lb.TabIndex = 92;
+            this.date_lb.Text = "Date:";
             // 
             // IncomeForm
             // 
@@ -120,6 +131,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1409, 746);
+            this.Controls.Add(this.date_lb);
             this.Controls.Add(this.income_lb);
             this.Controls.Add(this.show_dgv);
             this.Controls.Add(this.consume_ch);
@@ -142,5 +154,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart consume_ch;
         private System.Windows.Forms.DataGridView show_dgv;
         private System.Windows.Forms.Label income_lb;
+        private System.Windows.Forms.Label date_lb;
     }
 }

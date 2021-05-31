@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotelAPP.AppForm.TotalForm;
+using Microsoft.Office.Interop.Word;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +15,13 @@ namespace HotelAPP.AppForm.RoomForm
     public partial class CheckOutRoomForm : Form
     {
         Room room;
+        Customer customer;
 
         public CheckOutRoomForm()
         {
             InitializeComponent();
             room = new Room();
+            customer = new Customer();
         }
 
         private void CheckOutRoomForm_Load(object sender, EventArgs e)
@@ -27,10 +31,25 @@ namespace HotelAPP.AppForm.RoomForm
 
         private void checkOut_btn_Click(object sender, EventArgs e)
         {
-            show_dgv.DataSource = room.checkOutRoom((int)show_dgv.CurrentRow.Cells[0].Value);
+            int id = (int)show_dgv.CurrentRow.Cells[0].Value;
+            int cID = customer.getByRoomID(id).id;
+
+            show_dgv.DataSource = room.checkOutRoom(id);
             DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
             imageColumn = (DataGridViewImageColumn)show_dgv.Columns["picture"];
             imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+            if (customer.deleteCustomer(cID))
+            {
+                room.getByID(id).status = "Empty";
+                MessageBox.Show("Check Out!!!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Check Out Failed", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            Income.sumPriceRoom((int)room.getByID(id).price);
         }
 
         private void print_btn_Click(object sender, EventArgs e)

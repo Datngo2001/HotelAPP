@@ -25,6 +25,24 @@ namespace HotelAPP
             }
         }
 
+        public Customer getByRoomID(int id)
+        {
+            hotelDB = new HotelDB();
+            try
+            {
+                Customer customer = (from c in hotelDB.Customers
+                                     join r in hotelDB.Rooms
+                                     on c.roomID equals r.id
+                                     where c.roomID == id
+                                     select c).First();
+                return customer;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public List<Customer> getAllCustomer()
         {
             try
