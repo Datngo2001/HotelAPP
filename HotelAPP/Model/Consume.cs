@@ -72,6 +72,24 @@ namespace HotelAPP
             }
         }
 
+        public bool deleteConsumeByRoomID(int id)
+        {
+            try
+            {
+                var consume = (from c in hotelDB.Consumes
+                                   where c.roomID == id
+                                   select c).ToList();
+                hotelDB.Consumes.RemoveRange(consume);
+                hotelDB.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
         public bool editConsume(Consume consume)
         {
             try

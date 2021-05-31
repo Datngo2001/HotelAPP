@@ -16,12 +16,13 @@ namespace HotelAPP.AppForm.RoomForm
     {
         Room room;
         Customer customer;
-
+        Consume consume;
         public CheckOutRoomForm()
         {
             InitializeComponent();
             room = new Room();
             customer = new Customer();
+            consume = new Consume();
         }
 
         private void CheckOutRoomForm_Load(object sender, EventArgs e)
@@ -39,9 +40,9 @@ namespace HotelAPP.AppForm.RoomForm
             imageColumn = (DataGridViewImageColumn)show_dgv.Columns["picture"];
             imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
-            if (customer.deleteCustomer(cID))
+            if (customer.deleteCustomer(cID) && consume.deleteConsumeByRoomID(id))
             {
-                room.getByID(id).status = "Empty";
+                room.fullOrEmpty(id, "Empty");
                 MessageBox.Show("Check Out!!!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else

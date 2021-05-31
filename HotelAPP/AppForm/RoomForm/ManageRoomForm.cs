@@ -1,4 +1,5 @@
 ﻿using HotelAPP.Tools;
+using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,9 @@ namespace HotelAPP.AppForm.RoomForm
         Product product;
         Consume consume;
         int consume_id = 0;
+        bool _room = false;
+        bool order = false;
+
 
         public ManageRoomForm()
         {
@@ -180,55 +184,65 @@ namespace HotelAPP.AppForm.RoomForm
 
         private void order_btn_Click(object sender, EventArgs e)
         {
-            Consume consume = new Consume()
+            if (order && room.getByID(Convert.ToInt32(id_tb.Text)).status == "Full")
             {
-                id = consume_id,
-                roomID = Convert.ToInt32(id_tb.Text),
-                roomName = name_tb.Text,
-                productID = Convert.ToInt32(show_dgv.CurrentRow.Cells[0].Value),
-                productName = show_dgv.CurrentRow.Cells[1].Value.ToString().Trim(),
-                date = DateTime.Now.Date
-            };
+                Consume consume = new Consume()
+                {
+                    id = consume_id,
+                    roomID = Convert.ToInt32(id_tb.Text),
+                    roomName = name_tb.Text,
+                    productID = Convert.ToInt32(show_dgv.CurrentRow.Cells[0].Value),
+                    productName = show_dgv.CurrentRow.Cells[1].Value.ToString().Trim(),
+                    date = DateTime.Now.Date
+                };
 
-            if (Convert.ToInt32(quantity_tb.Text) > 0)
-            {
-                consume.consume = Convert.ToInt32(quantity_tb.Text);
-            }
-            else
-            {
-                MessageBox.Show("Invalid Quantity", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                if (Convert.ToInt32(quantity_tb.Text) > 0)
+                {
+                    consume.consume = Convert.ToInt32(quantity_tb.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Quantity", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-            if (consume.addConsume(consume))
-            {
-                MessageBox.Show("Add Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Add Failed", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                if (consume.addConsume(consume))
+                {
+                    MessageBox.Show("Add Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Add Failed", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
 
         private void showRoom_btn_Click(object sender, EventArgs e)
         {
             this.showDGV(room.getAllRoom(), 5);
+            _room = true;
+            order = false;
         }
 
         private void showProduct_btn_Click(object sender, EventArgs e)
         {
             this.showDGV(product.getAllProduct(), 5);
+            _room = false;
+            order = true;
         }
 
         private void show_dgv_DoubleClick(object sender, EventArgs e)
         {
             try
             {
-                id_tb.Text = show_dgv.CurrentRow.Cells[0].Value.ToString().Trim();
-                name_tb.Text = show_dgv.CurrentRow.Cells[1].Value.ToString().Trim();
-                status_cb.Text = show_dgv.CurrentRow.Cells[2].Value.ToString().Trim();
-                price_tb.Text = show_dgv.CurrentRow.Cells[4].Value.ToString().Trim();
-                pictureBox.Image = new ImageTool().ByteArrToImage((byte[])show_dgv.CurrentRow.Cells[3].Value);
+                if (_room)
+                {
+                    id_tb.Text = show_dgv.CurrentRow.Cells[0].Value.ToString().Trim();
+                    name_tb.Text = show_dgv.CurrentRow.Cells[1].Value.ToString().Trim();
+                    status_cb.Text = show_dgv.CurrentRow.Cells[2].Value.ToString().Trim();
+                    price_tb.Text = show_dgv.CurrentRow.Cells[4].Value.ToString().Trim();
+                    pictureBox.Image = new ImageTool().ByteArrToImage((byte[])show_dgv.CurrentRow.Cells[3].Value);
+                }
             }
             catch (Exception E)
             {
