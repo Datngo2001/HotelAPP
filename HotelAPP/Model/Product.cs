@@ -89,5 +89,21 @@ namespace HotelAPP
                 throw;
             }
         }
+
+        public bool editProductByConsume(int id, int consume)
+        {
+            try
+            {
+                var newProduct = hotelDB.Products.Single(p => p.id == id);
+                newProduct.quantity -= consume;
+                hotelDB.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
     }
 }

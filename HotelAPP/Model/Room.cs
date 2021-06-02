@@ -177,5 +177,26 @@ namespace HotelAPP
                 throw;
             }
         }
+
+        public int surcharge(int roomID)
+        {
+            try
+            {
+                int surcharge = Convert.ToInt32((from c in hotelDB.Consumes
+                                             group c by new { c.roomID, c.roomName, c.productID, c.productName, c.date } into g
+                                             join p in hotelDB.Products
+                                             on g.Key.productID equals p.id
+                                             where g.Key.roomID == roomID
+                                             select new
+                                             {
+                                                 total = g.Sum(item => item.consume) * p.price
+                                             }).Sum(x => x.total));
+                return surcharge;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
