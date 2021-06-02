@@ -17,7 +17,6 @@ namespace HotelAPP.AppForm.RoomForm
         Room room;
         Product product;
         Consume consume;
-        int consume_id = 0;
         bool _room = false;
         bool order = false;
 
@@ -188,7 +187,6 @@ namespace HotelAPP.AppForm.RoomForm
             {
                 Consume consume = new Consume()
                 {
-                    id = consume_id,
                     roomID = Convert.ToInt32(id_tb.Text),
                     roomName = name_tb.Text,
                     productID = Convert.ToInt32(show_dgv.CurrentRow.Cells[0].Value),
@@ -196,9 +194,10 @@ namespace HotelAPP.AppForm.RoomForm
                     date = DateTime.Now.Date
                 };
 
-                if (Convert.ToInt32(quantity_tb.Text) > 0)
+                int _consume = Convert.ToInt32(quantity_tb.Text);
+                if ((_consume > 0) && (_consume <= product.getByID(Convert.ToInt32(show_dgv.CurrentRow.Cells[0].Value)).quantity))
                 {
-                    consume.consume = Convert.ToInt32(quantity_tb.Text);
+                    consume.consume = _consume;
                 }
                 else
                 {
@@ -208,6 +207,8 @@ namespace HotelAPP.AppForm.RoomForm
 
                 if (consume.addConsume(consume))
                 {
+                    product.editProductByConsume(Convert.ToInt32(show_dgv.CurrentRow.Cells[0].Value), _consume);
+                    this.showDGV(product.getAllProduct(), 5);
                     MessageBox.Show("Add Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else

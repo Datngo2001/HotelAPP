@@ -1,5 +1,5 @@
 ﻿using HotelAPP.AppForm.TotalForm;
-using Microsoft.Office.Interop.Word;
+using HotelAPP.Tools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,6 +40,9 @@ namespace HotelAPP.AppForm.RoomForm
             imageColumn = (DataGridViewImageColumn)show_dgv.Columns["picture"];
             imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
+            surcharge_lb.Text = $"Surcharge: {room.surcharge(id)}";
+            total_lb.Text = $"Total: {room.getByID(id).price + room.surcharge(id)}";
+
             if (customer.deleteCustomer(cID) && consume.deleteConsumeByRoomID(id))
             {
                 room.fullOrEmpty(id, "Empty");
@@ -51,11 +54,6 @@ namespace HotelAPP.AppForm.RoomForm
             }
 
             Income.sumPriceRoom((int)room.getByID(id).price);
-        }
-
-        private void print_btn_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void refresh_btn_Click(object sender, EventArgs e)
