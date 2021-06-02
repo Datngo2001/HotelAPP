@@ -54,7 +54,6 @@ namespace HotelAPP.AppForm.EmpForm
             if (currShift == "0")
             {
                 shift_lb.Text = "You are free today";
-                checkin_btn.Enabled = false;
                 checkout_btn.Enabled = false;
             }
             else

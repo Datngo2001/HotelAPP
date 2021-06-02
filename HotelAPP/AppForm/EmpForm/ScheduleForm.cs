@@ -22,6 +22,12 @@ namespace HotelAPP.AppForm.EmpForm
         private void ScheduleForm_Load(object sender, EventArgs e)
         {
             schedule_dgv.DataSource = schedule.MakeTimeTable();
+
+            if(CurrentUser.PositionName != "Manager")
+            {
+                begin_btn.Enabled = false;
+                swap_btn.Enabled = false;
+            }
         }
 
         private void begin_btn_Click(object sender, EventArgs e)

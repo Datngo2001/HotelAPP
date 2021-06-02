@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,20 @@ namespace HotelAPP
             }
 
             hotelDB.SaveChanges();
+        }
+        public List<CheckIn> GetCheckIns(DateTime date)
+        {
+            List<CheckIn> list = new List<CheckIn>();
+            try
+            {
+                list.AddRange(hotelDB.CheckIns.Where(i => EntityFunctions.TruncateTime(i.checkInDate) <= EntityFunctions.TruncateTime(date)));
+                return list;
+            }
+            catch (Exception)
+            {
+                throw;
+                return list;
+            }
         }
     }
 }

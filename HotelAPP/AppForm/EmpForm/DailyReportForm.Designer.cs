@@ -38,12 +38,12 @@ namespace HotelAPP.AppForm.EmpForm
             this.split_pn = new System.Windows.Forms.Panel();
             this.title_lb = new System.Windows.Forms.Label();
             this.button_pn = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.report_dgv = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.export_btn = new System.Windows.Forms.Button();
             this.button_pn.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.report_dgv)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // time_lb
@@ -124,6 +124,20 @@ namespace HotelAPP.AppForm.EmpForm
             this.button_pn.Size = new System.Drawing.Size(1585, 775);
             this.button_pn.TabIndex = 47;
             // 
+            // report_dgv
+            // 
+            this.report_dgv.AllowUserToAddRows = false;
+            this.report_dgv.AllowUserToDeleteRows = false;
+            this.report_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.report_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.report_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.report_dgv.Location = new System.Drawing.Point(0, 76);
+            this.report_dgv.Name = "report_dgv";
+            this.report_dgv.RowHeadersWidth = 62;
+            this.report_dgv.RowTemplate.Height = 28;
+            this.report_dgv.Size = new System.Drawing.Size(1585, 599);
+            this.report_dgv.TabIndex = 49;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.export_btn);
@@ -133,19 +147,6 @@ namespace HotelAPP.AppForm.EmpForm
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1585, 100);
             this.panel1.TabIndex = 48;
-            // 
-            // report_dgv
-            // 
-            this.report_dgv.AllowUserToAddRows = false;
-            this.report_dgv.AllowUserToDeleteRows = false;
-            this.report_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.report_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.report_dgv.Location = new System.Drawing.Point(0, 76);
-            this.report_dgv.Name = "report_dgv";
-            this.report_dgv.RowHeadersWidth = 62;
-            this.report_dgv.RowTemplate.Height = 28;
-            this.report_dgv.Size = new System.Drawing.Size(1585, 599);
-            this.report_dgv.TabIndex = 49;
             // 
             // export_btn
             // 
@@ -178,8 +179,8 @@ namespace HotelAPP.AppForm.EmpForm
             this.Text = "Employee Report";
             this.Load += new System.EventHandler(this.DailyReportForm_Load);
             this.button_pn.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.report_dgv)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

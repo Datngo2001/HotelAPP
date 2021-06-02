@@ -18,7 +18,6 @@ namespace HotelAPP
         {
             priceRoom += price;
         }
-
         public object statistic()
         {
             try
@@ -43,7 +42,6 @@ namespace HotelAPP
                 throw;
             }
         }
-
         public int total()
         {
             try

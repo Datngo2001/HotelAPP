@@ -46,6 +46,15 @@ namespace HotelAPP.AppForm
                 ManageEmp_btn.Enabled = false;
                 addForm_btn.Enabled = false;
                 editForm_btn.Enabled = false;
+                empReport_btn.Enabled = false;
+            }
+            if(CurrentUser.PositionName == "Labor")
+            {
+                customer_btn.Enabled = false;
+                product_btn.Enabled = false;
+                income_btn.Enabled = false;
+                checkOutRoom_btn.Enabled = false;
+                room_btn.Enabled = false;
             }
         }
 

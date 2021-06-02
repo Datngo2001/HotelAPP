@@ -39,13 +39,15 @@ namespace HotelAPP.AppForm.EmpForm
             editDeleteEmp.ShowDialog();
 
             // refresh
-            var list = employee.getAllEmp();
+            show_dgv.DataSource = null;
+            var list = new Employee().getAllEmp();
             loadData(list);
         }
 
         private void refresh_btn_Click(object sender, EventArgs e)
         {
-            var list = employee.getAllEmp();
+            show_dgv.DataSource = null;
+            var list = new Employee().getAllEmp();
             loadData(list);
         }
 
@@ -82,6 +84,7 @@ namespace HotelAPP.AppForm.EmpForm
                 row[11] = emp.manager;
                 table.Rows.Add(row);
             }
+            show_dgv.DataSource = null;
             show_dgv.DataSource = table;
             show_dgv.RowTemplate.Height = 80;
             DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();

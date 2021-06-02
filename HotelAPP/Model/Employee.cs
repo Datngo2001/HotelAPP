@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -341,6 +342,82 @@ namespace HotelAPP
             catch (Exception)
             {
                 return false;
+            }
+        }
+        public DataTable dailyReport()
+        {
+            var now = DateTime.Now;
+            DataTable table = new DataTable();
+            table.Columns.Add().ColumnName = "Id";
+            table.Columns.Add().ColumnName = "First Name";
+            table.Columns.Add().ColumnName = "Last Name";
+            table.Columns.Add().ColumnName = "Detail";
+            table.Columns.Add().ColumnName = "Salary";
+
+            var emps = new Employee().getAllEmp();
+            var checkIns = new CheckIn().GetCheckIns(now);
+            var checkOuts = new CheckOut().GetCheckOuts(now);
+
+            try
+            {
+                foreach (Employee emp in emps)
+                {
+                    DataRow row = table.NewRow();
+                    row[0] = emp.Id;
+                    row[1] = emp.fname;
+                    row[2] = emp.lname;
+
+                    var ins = (from i in checkIns
+                               where i.empId == emp.Id
+                               orderby i.checkInDate
+                               select i).ToList();
+                    var outs = (from i in checkOuts
+                               where i.empId == emp.Id
+                               orderby i.checkOutDate
+                               select i).ToList();
+
+                    double timeOn = 0;
+                    for (int i = 0; i < outs.Count; i++)
+                    {
+                        try
+                        {
+                            TimeSpan value = ins[i].checkInDate.Subtract(outs[i].checkOutDate);
+                            timeOn += value.TotalHours;
+                            row[3] += ins[i].checkInDate.ToString("t") + " - " + outs[i].checkOutDate.ToString("t") + ", ";
+                        }
+                        catch (Exception)
+                        {
+                            break;
+                        }
+                    }
+                    timeOn = Math.Round(timeOn, 1);
+
+                    decimal salary = (decimal)emp.salary * 8;
+
+                    if (timeOn < 8)
+                    {
+                        if(emp.posId == 2)
+                        {
+                            salary -= 120000 * (8 - (decimal)timeOn);
+                        }
+                        else if(emp.posId == 3)
+                        {
+                            salary -= 60000 * (8 - (decimal)timeOn);
+                        }
+                    }
+
+                    if (salary < 0) salary = 0;
+
+                    row[4] = Math.Round(salary, 1);
+
+                    table.Rows.Add(row);
+                }
+
+                return table;
+            }
+            catch (Exception)
+            {
+                return table;
             }
         }
     }
