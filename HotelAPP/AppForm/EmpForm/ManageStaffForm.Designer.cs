@@ -126,6 +126,7 @@ namespace HotelAPP.AppForm.EmpForm
             this.check_btn.TabIndex = 7;
             this.check_btn.Text = "Check";
             this.check_btn.UseVisualStyleBackColor = false;
+            this.check_btn.Click += new System.EventHandler(this.check_btn_Click);
             // 
             // dateOption_gb
             // 
@@ -312,6 +313,7 @@ namespace HotelAPP.AppForm.EmpForm
             this.refresh_btn.TabIndex = 9;
             this.refresh_btn.Text = "Refresh";
             this.refresh_btn.UseVisualStyleBackColor = false;
+            this.refresh_btn.Click += new System.EventHandler(this.refresh_btn_Click);
             // 
             // search_pn
             // 
@@ -352,6 +354,7 @@ namespace HotelAPP.AppForm.EmpForm
             this.search_btn.Size = new System.Drawing.Size(94, 58);
             this.search_btn.TabIndex = 2;
             this.search_btn.UseVisualStyleBackColor = false;
+            this.search_btn.Click += new System.EventHandler(this.search_btn_Click);
             // 
             // search_lb
             // 

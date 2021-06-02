@@ -105,6 +105,21 @@ namespace HotelAPP
                 throw;
             }
         }
+        public List<Employee> getByGender(string gender)
+        {
+            try
+            {
+                var list = (from emps in hotelDB.Employees
+                            where emps.gender == gender
+                            select emps).ToList();
+                return list;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public List<Employee> getByLname(string lname)
         {
             lname = lname.Trim();
@@ -238,20 +253,6 @@ namespace HotelAPP
                 throw;
             }
         }
-        public bool deleteEmp(int id)
-        {
-            try
-            {
-                var dEmp = hotelDB.Employees.Single(e => e.Id == id);
-                hotelDB.Employees.Remove(dEmp);
-                hotelDB.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
         public bool isWorking()
         {
             CheckIn checkedIn;
@@ -299,6 +300,47 @@ namespace HotelAPP
             catch (Exception)
             {
                 return "0";
+            }
+        }
+        public List<Employee> search(string hint)
+        {
+            List<Employee> list = new List<Employee>();
+            try
+            {
+                list.AddRange((from e in hotelDB.Employees
+                               where hint.Contains(e.Id.ToString())
+                               select e).ToList());
+                list.AddRange((from e in hotelDB.Employees
+                               where hint.Contains(e.fname)
+                               select e).ToList());
+                list.AddRange((from e in hotelDB.Employees
+                               where hint.Contains(e.lname)
+                               select e).ToList());
+                list.AddRange((from e in hotelDB.Employees
+                               where hint.Contains(e.phone)
+                               select e).ToList());
+                list.AddRange((from e in hotelDB.Employees
+                               where hint.Contains(e.CMND)
+                               select e).ToList());
+                return list;
+            }
+            catch (Exception)
+            {
+                return list;
+            }
+        }
+        public bool deleteEmp(int id)
+        {
+            try
+            {
+                var dEmp = hotelDB.Employees.Single(e => e.Id == id);
+                hotelDB.Employees.Remove(dEmp);
+                hotelDB.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }

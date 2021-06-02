@@ -106,9 +106,9 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.date_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date_lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.date_lb.Location = new System.Drawing.Point(995, 9);
+            this.date_lb.Location = new System.Drawing.Point(903, 9);
             this.date_lb.Name = "date_lb";
-            this.date_lb.Size = new System.Drawing.Size(579, 66);
+            this.date_lb.Size = new System.Drawing.Size(670, 66);
             this.date_lb.TabIndex = 42;
             this.date_lb.Text = "label1";
             // 
@@ -121,9 +121,9 @@ namespace HotelAPP.AppForm.EmpForm
             // 
             this.time_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.time_lb.ForeColor = System.Drawing.Color.Blue;
-            this.time_lb.Location = new System.Drawing.Point(995, 90);
+            this.time_lb.Location = new System.Drawing.Point(903, 90);
             this.time_lb.Name = "time_lb";
-            this.time_lb.Size = new System.Drawing.Size(579, 64);
+            this.time_lb.Size = new System.Drawing.Size(670, 64);
             this.time_lb.TabIndex = 42;
             this.time_lb.Text = "label1";
             // 

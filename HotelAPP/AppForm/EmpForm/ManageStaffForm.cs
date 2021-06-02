@@ -1,5 +1,6 @@
 ﻿using HotelAPP.Tools;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -11,11 +12,13 @@ namespace HotelAPP.AppForm.EmpForm
         public ManageStaffForm()
         {
             InitializeComponent();
+            employee = new Employee();
         }
 
         private void ManageStaffForm_Load(object sender, EventArgs e)
         {
-            loadData();
+            var list = employee.getAllEmp();
+            loadData(list);
         }
 
         private void show_dgv_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -36,19 +39,18 @@ namespace HotelAPP.AppForm.EmpForm
             editDeleteEmp.ShowDialog();
 
             // refresh
-            loadData();
+            var list = employee.getAllEmp();
+            loadData(list);
         }
 
         private void refresh_btn_Click(object sender, EventArgs e)
         {
-            loadData();
+            var list = employee.getAllEmp();
+            loadData(list);
         }
 
-        private void loadData()
+        private void loadData(List<Employee> list)
         {
-            employee = new Employee();
-            var list = employee.getAllEmp();
-
             DataTable table = new DataTable();
             table.Columns.Add().ColumnName = "Id";
             table.Columns.Add().ColumnName = "First Name";
@@ -113,6 +115,47 @@ namespace HotelAPP.AppForm.EmpForm
                     MessageBox.Show("File saved!", "Message Dialog", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void search_btn_Click(object sender, EventArgs e)
+        {
+            var list = employee.search(search_tb.Text);
+            loadData(list);
+        }
+
+        private void check_btn_Click(object sender, EventArgs e)
+        {
+            List<Employee> list = new List<Employee>();
+            if (male_rBtn.Checked)
+            {
+                list.AddRange(employee.getByGender("M"));
+            }
+            else if (female_rBtn.Checked)
+            {
+                list.AddRange(employee.getByGender("F"));
+            }
+            else
+            {
+                list.AddRange(employee.getAllEmp());
+            }
+
+            if (yes_rbtn.Checked)
+            {
+                var day1 = dateEnd1_dtp.Value;
+                var day2 = dateEnd2_dtp.Value;
+
+                try
+                {
+                    list.RemoveAll(emp => (emp.bdate < day1) && (emp.bdate > day2));
+                }
+                catch (Exception)
+                {
+                    loadData(list);
+                    return;
+                }
+            }
+
+            loadData(list);
         }
     }
 }
