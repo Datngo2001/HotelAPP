@@ -45,6 +45,7 @@ namespace HotelAPP
             }
             catch (Exception)
             {
+                throw;
                 return false;
             }
         }

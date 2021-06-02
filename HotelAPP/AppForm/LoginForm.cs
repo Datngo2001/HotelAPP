@@ -55,7 +55,6 @@ namespace HotelAPP.AppForm
                 MessageBox.Show("Incorrect password or username!");
                 this.DialogResult = DialogResult.No;
             }
-
         }
 
         private void close_btn_Click(object sender, EventArgs e)

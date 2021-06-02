@@ -13,6 +13,8 @@ namespace HotelAPP.AppForm.EmpForm
 {
     public partial class DailyReportForm : Form
     {
+        DateTime exportDay;
+
         public DailyReportForm()
         {
             InitializeComponent();
@@ -20,22 +22,34 @@ namespace HotelAPP.AppForm.EmpForm
 
         private void DailyReportForm_Load(object sender, EventArgs e)
         {
+            var date = DateTime.Now.AddDays(1);
+            exportDay = new DateTime(date.Year, date.Month, date.Day, 6, 30, 00, 00);
+
             date_lb.Text = DateTime.Now.ToLongDateString();
             time_lb.Text = DateTime.Now.ToString("T");
             timer.Start();
-
-            var exportDay = DateTime.Now.AddDays(1).ToString("D");
-            exportTime_lb.Text += exportDay;
-
+            
+            exportTime_lb.Text += date.ToLongDateString();
             report_dgv.DataSource = new Employee().dailyReport();
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            time_lb.Text = DateTime.Now.ToString("T");
+            DateTime now = DateTime.Now;
+            time_lb.Text = now.ToString("T");
+
+            if (now > exportDay)
+            {
+                print();
+            }
         }
 
         private void export_btn_Click(object sender, EventArgs e)
+        {
+            print();
+        }
+
+        private void print()
         {
             ReportTool report = new ReportTool()
             {
@@ -60,6 +74,7 @@ namespace HotelAPP.AppForm.EmpForm
                     MessageBox.Show("File saved!", "Message Dialog", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+
         }
     }
 }
